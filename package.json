@@ -17,7 +17,9 @@
     "git:log": "git log --oneline"
   },
   "dependencies": {
-    "hono": "^4.9.9"
+    "googleapis": "^160.0.0",
+    "hono": "^4.9.9",
+    "nodemailer": "^7.0.6"
   },
   "devDependencies": {
     "@hono/vite-build": "^1.2.0",

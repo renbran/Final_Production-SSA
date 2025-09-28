@@ -962,21 +962,136 @@ app.get('/services/:service', (c) => {
 app.post('/api/lead', async (c) => {
   try {
     const formData = await c.req.json()
-    
-    // Here you would typically save to a database or send to a CRM
-    // For now, we'll just return success
     console.log('New lead received:', formData)
     
-    return c.json({ 
-      success: true, 
-      message: 'Thank you! We will contact you within 24 hours.' 
-    })
+    // Process form data
+    const leadData = {
+      timestamp: new Date().toISOString(),
+      firstName: formData.firstName || '',
+      lastName: formData.lastName || '',
+      email: formData.email || '',
+      phone: `${formData.countryCode || ''} ${formData.phone || ''}`.trim(),
+      country: formData.country || '',
+      service: formData.service || '',
+      message: formData.message || ''
+    }
+    
+    // Send to Google Sheets and Email in parallel
+    const results = await Promise.allSettled([
+      sendToGoogleSheets(leadData),
+      sendEmailNotification(leadData)
+    ])
+    
+    // Check if at least one succeeded
+    const hasSuccess = results.some(result => result.status === 'fulfilled')
+    
+    if (hasSuccess) {
+      return c.json({ 
+        success: true, 
+        message: 'Thank you! We have received your inquiry and will contact you within 24 hours.' 
+      })
+    } else {
+      // Log errors for debugging
+      results.forEach((result, index) => {
+        if (result.status === 'rejected') {
+          console.error(`Integration ${index} failed:`, result.reason)
+        }
+      })
+      
+      return c.json({ 
+        success: false, 
+        message: 'Thank you for your interest. Please call us directly at +971-XX-XXX-XXXX for immediate assistance.' 
+      })
+    }
   } catch (error) {
+    console.error('API Error:', error)
     return c.json({ 
       success: false, 
-      message: 'Something went wrong. Please try again.' 
+      message: 'Something went wrong. Please try again or contact us directly.' 
     }, 500)
   }
 })
+
+// Google Sheets Integration
+async function sendToGoogleSheets(leadData: any) {
+  try {
+    // Using Google Apps Script Web App as a simple integration method
+    // You'll need to create a Google Apps Script and deploy it as a web app
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
+    
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        action: 'addLead',
+        data: leadData
+      })
+    })
+    
+    if (!response.ok) {
+      throw new Error(`Google Sheets API error: ${response.status}`)
+    }
+    
+    const result = await response.json()
+    console.log('Successfully added to Google Sheets:', result)
+    return result
+  } catch (error) {
+    console.error('Google Sheets integration error:', error)
+    throw error
+  }
+}
+
+// Email Notification
+async function sendEmailNotification(leadData: any) {
+  try {
+    // Using a simple email service API (you can replace with your preferred service)
+    // This example uses a webhook approach - replace with your email service
+    const EMAIL_WEBHOOK_URL = 'https://api.emailjs.com/api/v1.0/email/send'
+    
+    const emailData = {
+      service_id: 'YOUR_SERVICE_ID',
+      template_id: 'YOUR_TEMPLATE_ID',
+      user_id: 'YOUR_USER_ID',
+      template_params: {
+        to_email: 'saif.r@eigermarvelhr.com',
+        from_name: `${leadData.firstName} ${leadData.lastName}`,
+        reply_to: leadData.email,
+        subject: 'New SCHOLARIX Consultation Request',
+        message: `
+New consultation request received:
+
+Name: ${leadData.firstName} ${leadData.lastName}
+Email: ${leadData.email}
+Phone: ${leadData.phone}
+Preferred Country: ${leadData.country}
+Service: ${leadData.service}
+Message: ${leadData.message}
+
+Submitted: ${new Date(leadData.timestamp).toLocaleString()}
+        `
+      }
+    }
+    
+    const response = await fetch(EMAIL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailData)
+    })
+    
+    if (!response.ok) {
+      throw new Error(`Email service error: ${response.status}`)
+    }
+    
+    console.log('Email notification sent successfully')
+    return { success: true }
+  } catch (error) {
+    console.error('Email notification error:', error)
+    throw error
+  }
+}
 
 export default app
