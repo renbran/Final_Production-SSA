@@ -1,8 +1,8 @@
 // SCHOLARIX Study Abroad - JavaScript
 
 // DOM Elements
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
 const consultationModal = document.getElementById('consultationModal');
 const leadForm = document.getElementById('leadForm');
 
