@@ -1,0 +1,1 @@
+After you save the professional logo, run: npm run build && npx wrangler pages deploy dist --project-name=scholarix-study-abroad-v0
