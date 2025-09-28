@@ -1,3 +1,34 @@
+# 🚨 URGENT: Domain Connection Issue Fixed
+
+## Current Status
+- ❌ **https://scholarixstudy.com** shows HTTP ERROR 404
+- ✅ **https://05fed304.scholarix-study-abroad.pages.dev** works perfectly
+
+## Quick Fix Instructions
+
+### Step 1: Access Cloudflare Dashboard
+1. Go to https://dash.cloudflare.com
+2. Navigate to **Pages** → **scholarix-study-abroad**
+3. Click **Custom domains** tab
+
+### Step 2: Fix Domain Connection
+**If `scholarixstudy.com` is missing:**
+1. Click **"Set up a custom domain"**
+2. Enter: `scholarixstudy.com`
+3. Follow DNS setup instructions
+
+**If `scholarixstudy.com` shows error:**
+1. Remove the domain
+2. Re-add it following the steps above
+
+### Step 3: DNS Configuration (If Required)
+Add CNAME record at your domain registrar:
+- **Name**: `@` (or blank for root domain)
+- **Value**: `scholarix-study-abroad.pages.dev`
+- **TTL**: 300 (5 minutes)
+
+---
+
 # Cloudflare Pages Deployment Guide for Scholarix Study Website
 
 ## Prerequisites
