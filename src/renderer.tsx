@@ -23,8 +23,8 @@ export const renderer = jsxRenderer(({ children }) => {
         <meta name="twitter:description" content="Expert study abroad guidance with 99% visa success rate." />
         
         {/* Favicon */}
-        <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
-        <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" href="/static/images/scholarix-logo-icon.png" />
+        <link rel="apple-touch-icon" href="/static/images/scholarix-logo-icon.png" />
         
         {/* Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -42,9 +42,9 @@ export const renderer = jsxRenderer(({ children }) => {
             "@type": "EducationalOrganization",
             "name": "SCHOLARIX Study Abroad Consultants",
             "description": "Expert study abroad guidance for students seeking international education opportunities",
-            "url": "https://scholarix.com",
+            "url": "https://scholarixstudy.com",
             "telephone": "+971525438784",
-            "email": "info@scholarix.com",
+            "email": "info@scholarixstudy.com",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "UAE"
@@ -64,7 +64,7 @@ export const renderer = jsxRenderer(({ children }) => {
           <nav className="navbar">
             <div className="nav-container">
               <div className="nav-brand">
-                <img src="/static/images/scholarix-logo-enlarged.png" alt="SCHOLARIX Study Abroad" className="logo" />
+                <img src="/static/images/scholarix-logo-main.png" alt="SCHOLARIX Study Abroad" className="logo" />
               </div>
               <div className="nav-menu" id="navMenu">
                 <a href="/" className="nav-link">Home</a>
@@ -111,7 +111,7 @@ export const renderer = jsxRenderer(({ children }) => {
             <div className="footer-content">
               <div className="footer-section">
                 <div className="footer-brand">
-                  <img src="/static/images/scholarix-logo-enlarged.png" alt="SCHOLARIX Study Abroad" className="footer-logo" />
+                  <img src="/static/images/scholarix-logo-footer.png" alt="SCHOLARIX Study Abroad" className="footer-logo" />
                   <p>Your trusted partner for international education. Helping students achieve their study abroad dreams with expert guidance and personalized support.</p>
                   <div className="social-links">
                     <a href="#" className="social-link"><i className="fab fa-facebook-f"></i></a>
@@ -156,7 +156,7 @@ export const renderer = jsxRenderer(({ children }) => {
                   </div>
                   <div className="contact-item">
                     <i className="fas fa-envelope"></i>
-                    <span>info@scholarix.com</span>
+                    <span>info@scholarixstudy.com</span>
                   </div>
                   <div className="contact-item">
                     <i className="fas fa-map-marker-alt"></i>

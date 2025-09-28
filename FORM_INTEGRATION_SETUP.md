@@ -194,7 +194,7 @@ npm run deploy
 2. Fill out the consultation form
 3. Submit and verify:
    - ✅ Data appears in Google Sheets
-   - ✅ Email sent to saif.r@eigermarvelhr.com
+   - ✅ Email sent to info@scholarixstudy.com
    - ✅ User sees success message
 
 ### Step 3: Monitor Logs
@@ -213,7 +213,7 @@ wrangler tail
 | 2025-09-28T10:30:00Z | John | Doe | john@email.com | +1 555-0123 | USA | Complete Package | Interested in MBA programs | New |
 
 ### Email Notification:
-- **To**: saif.r@eigermarvelhr.com
+- **To**: info@scholarixstudy.com
 - **Subject**: New SCHOLARIX Consultation Request from John Doe
 - **Content**: Complete lead details formatted for easy reading
 

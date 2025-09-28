@@ -345,7 +345,7 @@ app.get('/', (c) => {
               </form>
             </div>
             <div className="form-image">
-              <img src="/static/images/scholarix-logo-enlarged.png" alt="SCHOLARIX - Free Consultation" />
+              <img src="/static/images/scholarix-logo-main.png" alt="SCHOLARIX - Free Consultation" />
               <div className="contact-info">
                 <h3>Contact Information</h3>
                 <div className="contact-item">
@@ -359,7 +359,7 @@ app.get('/', (c) => {
                   <i className="fas fa-envelope text-primary"></i>
                   <div>
                     <strong>Email Us</strong>
-                    <p>info@scholarix.com</p>
+                    <p>info@scholarixstudy.com</p>
                   </div>
                 </div>
                 <div className="contact-item">
@@ -509,7 +509,7 @@ app.get('/contact', (c) => {
                   <i className="fas fa-envelope text-primary"></i>
                   <div>
                     <h4>Email</h4>
-                    <p>info@scholarix.com</p>
+                    <p>info@scholarixstudy.com</p>
                     <small>Response within 24 hours</small>
                   </div>
                 </div>
@@ -1055,7 +1055,7 @@ async function sendEmailNotification(leadData: any) {
       template_id: 'YOUR_TEMPLATE_ID',
       user_id: 'YOUR_USER_ID',
       template_params: {
-        to_email: 'saif.r@eigermarvelhr.com',
+        to_email: 'info@scholarixstudy.com',
         from_name: `${leadData.firstName} ${leadData.lastName}`,
         reply_to: leadData.email,
         subject: 'New SCHOLARIX Consultation Request',

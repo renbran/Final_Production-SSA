@@ -246,32 +246,33 @@ a:hover {
 }
 
 .nav-brand .logo {
-  height: 80px;
+  height: 60px;
   width: auto;
-  max-width: 250px;
+  max-width: 200px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
   transition: height 0.2s, max-width 0.2s;
+  background: transparent;
 }
 
 @media (max-width: 1024px) {
   .nav-brand .logo {
-    height: 60px;
-    max-width: 180px;
+    height: 50px;
+    max-width: 160px;
   }
 }
 
 @media (max-width: 768px) {
   .nav-brand .logo {
-    height: 48px;
-    max-width: 140px;
+    height: 40px;
+    max-width: 120px;
   }
 }
 
 @media (max-width: 480px) {
   .nav-brand .logo {
-    height: 36px;
-    max-width: 100px;
+    height: 32px;
+    max-width: 90px;
   }
 }
 
@@ -281,28 +282,26 @@ a:hover {
 }
 
 .footer-logo {
-  height: 80px;
+  height: 60px;
   width: auto;
-  max-width: 250px;
+  max-width: 200px;
   object-fit: contain;
   margin-bottom: var(--spacing-4);
-  background: rgba(255, 255, 255, 0.95);
-  padding: var(--spacing-2);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width: 768px) {
   .footer-logo {
-    height: 60px;
-    max-width: 180px;
+    height: 40px;
+    max-width: 120px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-logo {
-    height: 48px;
-    max-width: 140px;
+    height: 32px;
+    max-width: 90px;
   }
 }
 
@@ -899,11 +898,27 @@ a:hover {
 }
 
 .form-image img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-8);
+  width: auto;
+  height: 80px;
+  max-width: 250px;
+  object-fit: contain;
+  margin: 0 auto var(--spacing-8);
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 768px) {
+  .form-image img {
+    height: 60px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-image img {
+    height: 40px;
+    max-width: 120px;
+  }
 }
 
 .contact-info h3 {

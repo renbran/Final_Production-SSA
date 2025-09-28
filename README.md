@@ -236,9 +236,8 @@ npm run clean-port && pm2 restart scholarix-webapp
 
 ## 📞 Contact Information
 - **Phone**: +971 52 543 8784
-- **Email**: info@scholarix.com  
-- **WhatsApp**: https://wa.me/971525438784
-- **Location**: Dubai, United Arab Emirates
+- **Email**: info@scholarixstudy.com  
+- **Website**: https://scholarixstudy.com
 
 ---
 
