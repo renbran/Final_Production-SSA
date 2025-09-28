@@ -345,7 +345,7 @@ app.get('/', (c) => {
               </form>
             </div>
             <div className="form-image">
-              <img src="/static/images/scholarix-logo-main.png" alt="SCHOLARIX - Free Consultation" />
+              <img src="/static/images/scholarix-logo-hd.png" alt="SCHOLARIX - Free Consultation" />
               <div className="contact-info">
                 <h3>Contact Information</h3>
                 <div className="contact-item">

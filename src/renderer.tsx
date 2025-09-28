@@ -23,8 +23,8 @@ export const renderer = jsxRenderer(({ children }) => {
         <meta name="twitter:description" content="Expert study abroad guidance with 99% visa success rate." />
         
         {/* Favicon */}
-        <link rel="icon" type="image/png" href="/static/images/scholarix-logo-icon.png" />
-        <link rel="apple-touch-icon" href="/static/images/scholarix-logo-icon.png" />
+        <link rel="icon" type="image/png" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" href="/static/images/scholarix-logo-icon-hd.png" />
         
         {/* Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -63,9 +63,9 @@ export const renderer = jsxRenderer(({ children }) => {
         <header className="header">
           <nav className="navbar">
             <div className="nav-container">
-              <div className="nav-brand">
-                <img src="/static/images/scholarix-logo-main.png" alt="SCHOLARIX Study Abroad" className="logo" />
-              </div>
+                          <div className="nav-brand">
+              <img src="/static/images/scholarix-logo-hd.png" alt="SCHOLARIX Study Abroad" className="logo" />
+            </div>
               <div className="nav-menu" id="navMenu">
                 <a href="/" className="nav-link">Home</a>
                 <div className="nav-dropdown">
@@ -111,7 +111,7 @@ export const renderer = jsxRenderer(({ children }) => {
             <div className="footer-content">
               <div className="footer-section">
                 <div className="footer-brand">
-                  <img src="/static/images/scholarix-logo-footer.png" alt="SCHOLARIX Study Abroad" className="footer-logo" />
+                  <img src="/static/images/scholarix-logo-hd.png" alt="SCHOLARIX Study Abroad" className="footer-logo" />
                   <p>Your trusted partner for international education. Helping students achieve their study abroad dreams with expert guidance and personalized support.</p>
                   <div className="social-links">
                     <a href="#" className="social-link"><i className="fab fa-facebook-f"></i></a>
