@@ -77,7 +77,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
   color: var(--primary-color);
 }
 
@@ -124,6 +128,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: var(--spacing-2);
   padding: var(--spacing-3) var(--spacing-6);
   border: none;
@@ -467,7 +473,7 @@ a:hover {
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-16);
+  gap: var(--spacing-8);
   align-items: center;
 }
 
@@ -475,7 +481,10 @@ a:hover {
   font-size: var(--font-size-5xl);
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-8);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  text-align: center;
   color: var(--primary-color);
 }
 
@@ -872,7 +881,7 @@ a:hover {
 }
 
 .form-group textarea {
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
 }
 
@@ -921,16 +930,16 @@ a:hover {
 .form-image img {
   width: auto;
   height: 100px;
-  max-width: 320px;
+  max-width: 350px;
   object-fit: contain;
   margin: 0 auto var(--spacing-8);
   display: block;
-  filter: drop-shadow(0 3px 8px rgba(255, 255, 255, 0.3));
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.8)) brightness(1.15) contrast(1.1);
   transition: all 0.3s ease;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   /* Optimized for blue gradient background */
-  opacity: 0.98;
+  opacity: 1;
   border-radius: var(--radius-base);
 }
 
