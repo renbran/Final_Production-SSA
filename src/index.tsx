@@ -28,8 +28,8 @@ app.get('/', (c) => {
                 Your Dream <span className="text-accent">Study Abroad</span> Journey Starts Here
               </h1>
               <p className="hero-subtitle">
-                Get expert guidance for study visas, scholarships, university admissions, and IELTS/PTE preparation. 
-                Join 2,500+ students who achieved their international education dreams with SCHOLARIX since 2022.
+                Specializing in European Study Destinations with High Visa Success from UAE. Expert guidance for study visas, scholarships, university admissions, and IELTS/PTE preparation. 
+                Your trusted partner since 2023 - Established in Dubai.
               </p>
               <div className="hero-stats">
                 <div className="stat glass-card">
@@ -235,53 +235,575 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Destinations Section */}
-      <section className="destinations-section">
+      {/* High Visa Success USP Section */}
+      <section className="visa-success-section">
         <div className="container">
           <div className="section-header animate-on-scroll">
-            <h2>Popular Study Destinations</h2>
-            <p>Explore top countries for international education with our interactive 3D globe</p>
+            <div className="badge">🎯 Our Advantage</div>
+            <h2>Higher Visa Approval Success from UAE</h2>
+            <p>UAE residents enjoy significantly higher visa success rates compared to home country applications</p>
+          </div>
+          <div className="visa-success-grid">
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇭🇺</div>
+              <h3>Hungary</h3>
+              <div className="success-badge">97% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇱🇹</div>
+              <h3>Lithuania</h3>
+              <div className="success-badge">96% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇲🇹</div>
+              <h3>Malta</h3>
+              <div className="success-badge">95% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇩🇪</div>
+              <h3>Germany</h3>
+              <div className="success-badge">94% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇮🇪</div>
+              <h3>Ireland</h3>
+              <div className="success-badge">93% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇫🇮</div>
+              <h3>Finland</h3>
+              <div className="success-badge">92% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇸🇬</div>
+              <h3>Singapore</h3>
+              <div className="success-badge">91% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇩🇰</div>
+              <h3>Denmark</h3>
+              <div className="success-badge">90% Success</div>
+            </div>
+            <div className="visa-country-card animate-on-scroll">
+              <div className="country-flag">🇸🇪</div>
+              <h3>Sweden</h3>
+              <div className="success-badge">90% Success</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Destinations by Budget Section */}
+      <section className="destinations-budget-section">
+        <div className="container">
+          <div className="section-header animate-on-scroll">
+            <h2>Study Destinations by Budget</h2>
+            <p>Find your perfect study destination based on annual tuition fees</p>
           </div>
           
-          {/* 3D Interactive Globe */}
-          <div id="globe-container" className="animate-on-scroll"></div>
-          
-          <div className="destinations-grid">
-            <div className="destination-card" data-country="germany" onclick="openDestinationModal('germany')">
-              <div className="destination-overlay">
-                <h3>Germany</h3>
-                <p>50+ Partner Universities</p>
+          <div className="budget-filters animate-on-scroll">
+            <button className="budget-filter-btn active" data-budget="all">All Destinations</button>
+            <button className="budget-filter-btn" data-budget="budget">💰 Budget-Friendly (€2.5K-5K)</button>
+            <button className="budget-filter-btn" data-budget="mid">💵 Mid-Range (€5K-10K)</button>
+            <button className="budget-filter-btn" data-budget="premium">💎 Premium (€12K+)</button>
+          </div>
+
+          <div className="budget-category">
+            <h3 className="category-title"><span className="icon">💰</span> Budget-Friendly Destinations (€2,500-€5,000/year)</h3>
+            <div className="destinations-budget-grid budget-tier">
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇲🇹</div>
+                <h4>Malta</h4>
+                <p className="tuition-range">€2,500-€4,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇨🇾</div>
+                <h4>Cyprus</h4>
+                <p className="tuition-range">€3,000-€5,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇧🇬</div>
+                <h4>Bulgaria</h4>
+                <p className="tuition-range">€2,500-€4,500/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇯🇵</div>
+                <h4>Japan</h4>
+                <p className="tuition-range">€3,500-€5,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇭🇷</div>
+                <h4>Croatia</h4>
+                <p className="tuition-range">€2,800-€4,800/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇬🇪</div>
+                <h4>Georgia</h4>
+                <p className="tuition-range">€2,500-€4,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇵🇱</div>
+                <h4>Poland</h4>
+                <p className="tuition-range">€3,000-€5,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇪🇸</div>
+                <h4>Spain</h4>
+                <p className="tuition-range">€3,500-€5,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇱🇹</div>
+                <h4>Lithuania</h4>
+                <p className="tuition-range">€3,000-€4,500/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇭🇺</div>
+                <h4>Hungary</h4>
+                <p className="tuition-range">€3,500-€5,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇰🇿</div>
+                <h4>Kazakhstan</h4>
+                <p className="tuition-range">€2,500-€4,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇳🇿</div>
+                <h4>New Zealand</h4>
+                <p className="tuition-range">€4,000-€5,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="budget">
+                <div className="country-flag-large">🇸🇬</div>
+                <h4>Singapore</h4>
+                <p className="tuition-range">€4,500-€5,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
               </div>
             </div>
-            <div className="destination-card" data-country="france" onclick="openDestinationModal('france')">
-              <div className="destination-overlay">
-                <h3>France</h3>
-                <p>30+ Partner Universities</p>
+          </div>
+
+          <div className="budget-category">
+            <h3 className="category-title"><span className="icon">💵</span> Mid-Range Destinations (€5,000-€10,000/year)</h3>
+            <div className="destinations-budget-grid mid-tier">
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇫🇷</div>
+                <h4>France</h4>
+                <p className="tuition-range">€5,000-€8,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇲🇹</div>
+                <h4>Malta (Premium)</h4>
+                <p className="tuition-range">€5,000-€7,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇭🇺</div>
+                <h4>Hungary (Premium)</h4>
+                <p className="tuition-range">€5,500-€8,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇪🇸</div>
+                <h4>Spain (Premium)</h4>
+                <p className="tuition-range">€6,000-€9,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇨🇾</div>
+                <h4>Cyprus (Premium)</h4>
+                <p className="tuition-range">€5,500-€8,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇩🇪</div>
+                <h4>Germany</h4>
+                <p className="tuition-range">€5,000-€10,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇳🇿</div>
+                <h4>New Zealand</h4>
+                <p className="tuition-range">€6,000-€10,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇧🇪</div>
+                <h4>Belgium</h4>
+                <p className="tuition-range">€6,000-€9,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇦🇺</div>
+                <h4>Australia</h4>
+                <p className="tuition-range">€7,000-€10,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇮🇪</div>
+                <h4>Ireland</h4>
+                <p className="tuition-range">€7,000-€10,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇸🇪</div>
+                <h4>Sweden</h4>
+                <p className="tuition-range">€8,000-€10,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇫🇮</div>
+                <h4>Finland</h4>
+                <p className="tuition-range">€6,500-€9,500/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇨🇦</div>
+                <h4>Canada</h4>
+                <p className="tuition-range">€8,000-€10,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇸🇬</div>
+                <h4>Singapore (Premium)</h4>
+                <p className="tuition-range">€8,000-€10,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="mid">
+                <div className="country-flag-large">🇦🇪</div>
+                <h4>UAE</h4>
+                <p className="tuition-range">€7,000-€10,000/year</p>
               </div>
             </div>
-            <div className="destination-card" data-country="ireland" onclick="openDestinationModal('ireland')">
-              <div className="destination-overlay">
-                <h3>Ireland</h3>
-                <p>20+ Partner Universities</p>
+          </div>
+
+          <div className="budget-category">
+            <h3 className="category-title"><span className="icon">💎</span> Premium Destinations (€12,000+/year)</h3>
+            <div className="destinations-budget-grid premium-tier">
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇬🇧</div>
+                <h4>United Kingdom</h4>
+                <p className="tuition-range">€15,000-€25,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇮🇪</div>
+                <h4>Ireland (Top Unis)</h4>
+                <p className="tuition-range">€12,000-€18,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇸🇬</div>
+                <h4>Singapore (NUS/NTU)</h4>
+                <p className="tuition-range">€12,000-€20,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇳🇱</div>
+                <h4>Netherlands</h4>
+                <p className="tuition-range">€12,000-€18,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇩🇰</div>
+                <h4>Denmark</h4>
+                <p className="tuition-range">€12,000-€16,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇺🇸</div>
+                <h4>United States</h4>
+                <p className="tuition-range">€20,000-€50,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇨🇦</div>
+                <h4>Canada (Top Unis)</h4>
+                <p className="tuition-range">€15,000-€25,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇲🇨</div>
+                <h4>Monaco</h4>
+                <p className="tuition-range">€18,000-€30,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇦🇺</div>
+                <h4>Australia (Top Unis)</h4>
+                <p className="tuition-range">€15,000-€25,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇳🇿</div>
+                <h4>New Zealand (Top Unis)</h4>
+                <p className="tuition-range">€12,000-€18,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇦🇪</div>
+                <h4>UAE (Premium)</h4>
+                <p className="tuition-range">€15,000-€30,000/year</p>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇸🇪</div>
+                <h4>Sweden (Top Unis)</h4>
+                <p className="tuition-range">€12,000-€20,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
+              </div>
+              <div className="destination-budget-card animate-on-scroll" data-budget="premium">
+                <div className="country-flag-large">🇫🇮</div>
+                <h4>Finland (Top Unis)</h4>
+                <p className="tuition-range">€12,000-€18,000/year</p>
+                <div className="visa-badge">High Visa Success ✓</div>
               </div>
             </div>
-            <div className="destination-card" data-country="uk" onclick="openDestinationModal('uk')">
-              <div className="destination-overlay">
-                <h3>United Kingdom</h3>
-                <p>25+ Partner Universities</p>
+          </div>
+        </div>
+      </section>
+
+      {/* MBBS Programs Section */}
+      <section className="mbbs-section">
+        <div className="container">
+          <div className="section-header animate-on-scroll">
+            <div className="badge">🏥 Medical Education</div>
+            <h2>Affordable MBBS Programs</h2>
+            <p>Study medicine in WHO-recognized universities for under $5,000/year</p>
+          </div>
+          <div className="mbbs-grid">
+            <div className="mbbs-card animate-on-scroll">
+              <div className="mbbs-header">
+                <div className="country-flag-large">🇬🇪</div>
+                <h3>Georgia MBBS</h3>
+              </div>
+              <div className="mbbs-content">
+                <div className="price-tag">$4,500/year</div>
+                <ul className="mbbs-features">
+                  <li><i className="fas fa-check"></i> WHO-Recognized</li>
+                  <li><i className="fas fa-check"></i> English-Taught</li>
+                  <li><i className="fas fa-check"></i> 6-Year Program</li>
+                  <li><i className="fas fa-check"></i> High Success Rate</li>
+                  <li><i className="fas fa-check"></i> Low Living Cost</li>
+                  <li><i className="fas fa-check"></i> No Donation</li>
+                </ul>
+                <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                  Learn More
+                </button>
               </div>
             </div>
-            <div className="destination-card" data-country="canada" onclick="openDestinationModal('canada')">
-              <div className="destination-overlay">
-                <h3>Canada</h3>
-                <p>15+ Partner Universities</p>
+            <div className="mbbs-card animate-on-scroll">
+              <div className="mbbs-header">
+                <div className="country-flag-large">🇷🇺</div>
+                <h3>Russia MBBS</h3>
+              </div>
+              <div className="mbbs-content">
+                <div className="price-tag">$4,000/year</div>
+                <ul className="mbbs-features">
+                  <li><i className="fas fa-check"></i> WHO-Recognized</li>
+                  <li><i className="fas fa-check"></i> English Medium</li>
+                  <li><i className="fas fa-check"></i> World-Class Facilities</li>
+                  <li><i className="fas fa-check"></i> Affordable Living</li>
+                  <li><i className="fas fa-check"></i> Quality Education</li>
+                  <li><i className="fas fa-check"></i> Safe Environment</li>
+                </ul>
+                <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                  Learn More
+                </button>
               </div>
             </div>
-            <div className="destination-card" data-country="usa" onclick="openDestinationModal('usa')">
-              <div className="destination-overlay">
-                <h3>United States</h3>
-                <p>10+ Partner Universities</p>
+          </div>
+          <div className="mbbs-cta">
+            <p className="highlight-text">
+              <i className="fas fa-star"></i>
+              Alternative to expensive UK/US/Canada medical programs - Save over $200,000!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Test Prep Marketplace Section */}
+      <section className="test-prep-marketplace">
+        <div className="container">
+          <div className="section-header animate-on-scroll">
+            <div className="badge">📚 Test Preparation</div>
+            <h2>Test Prep Course Marketplace</h2>
+            <p>Ace your language proficiency tests with our expert-led courses</p>
+          </div>
+          <div className="marketplace-grid">
+            <div className="course-product-card animate-on-scroll">
+              <div className="course-badge">Most Popular</div>
+              <div className="course-icon">🎯</div>
+              <h3>IELTS Preparation</h3>
+              <div className="course-price">
+                <span className="original-price">AED 2,000</span>
+                <span className="current-price">AED 1,499</span>
               </div>
+              <ul className="course-features">
+                <li><i className="fas fa-check"></i> 60 Hours of Training</li>
+                <li><i className="fas fa-check"></i> Live Online Classes</li>
+                <li><i className="fas fa-check"></i> Mock Tests Included</li>
+                <li><i className="fas fa-check"></i> Score 7+ Guarantee</li>
+                <li><i className="fas fa-check"></i> Study Materials</li>
+                <li><i className="fas fa-check"></i> Personal Tutor Support</li>
+              </ul>
+              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                <i className="fas fa-shopping-cart"></i> Enroll Now
+              </button>
+            </div>
+
+            <div className="course-product-card animate-on-scroll">
+              <div className="course-icon">🎓</div>
+              <h3>PTE Academic</h3>
+              <div className="course-price">
+                <span className="original-price">AED 1,800</span>
+                <span className="current-price">AED 1,299</span>
+              </div>
+              <ul className="course-features">
+                <li><i className="fas fa-check"></i> 50 Hours of Training</li>
+                <li><i className="fas fa-check"></i> Computer-Based Practice</li>
+                <li><i className="fas fa-check"></i> 10 Full Mock Tests</li>
+                <li><i className="fas fa-check"></i> Score 65+ Guarantee</li>
+                <li><i className="fas fa-check"></i> AI Scoring Tool</li>
+                <li><i className="fas fa-check"></i> Flexible Schedule</li>
+              </ul>
+              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                <i className="fas fa-shopping-cart"></i> Enroll Now
+              </button>
+            </div>
+
+            <div className="course-product-card animate-on-scroll">
+              <div className="course-icon">📖</div>
+              <h3>TOEFL iBT</h3>
+              <div className="course-price">
+                <span className="original-price">AED 2,200</span>
+                <span className="current-price">AED 1,699</span>
+              </div>
+              <ul className="course-features">
+                <li><i className="fas fa-check"></i> 65 Hours of Training</li>
+                <li><i className="fas fa-check"></i> Comprehensive Curriculum</li>
+                <li><i className="fas fa-check"></i> 8 Practice Tests</li>
+                <li><i className="fas fa-check"></i> Score 100+ Focus</li>
+                <li><i className="fas fa-check"></i> Expert Instructors</li>
+                <li><i className="fas fa-check"></i> Lifetime Materials Access</li>
+              </ul>
+              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                <i className="fas fa-shopping-cart"></i> Enroll Now
+              </button>
+            </div>
+
+            <div className="course-product-card animate-on-scroll">
+              <div className="course-badge">New</div>
+              <div className="course-icon">🌟</div>
+              <h3>Duolingo English Test</h3>
+              <div className="course-price">
+                <span className="original-price">AED 1,500</span>
+                <span className="current-price">AED 999</span>
+              </div>
+              <ul className="course-features">
+                <li><i className="fas fa-check"></i> 40 Hours of Training</li>
+                <li><i className="fas fa-check"></i> Fast-Track Program</li>
+                <li><i className="fas fa-check"></i> 15 Practice Tests</li>
+                <li><i className="fas fa-check"></i> Score 120+ Target</li>
+                <li><i className="fas fa-check"></i> Adaptive Learning</li>
+                <li><i className="fas fa-check"></i> 24/7 Online Access</li>
+              </ul>
+              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                <i className="fas fa-shopping-cart"></i> Enroll Now
+              </button>
+            </div>
+          </div>
+          <div className="marketplace-cta">
+            <p><i className="fas fa-gift"></i> <strong>Special Offer:</strong> Get 20% off when you enroll with our university admission package!</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Fee Structure Section */}
+      <section className="fee-structure-section">
+        <div className="container">
+          <div className="section-header animate-on-scroll">
+            <div className="badge">💰 Transparent Pricing</div>
+            <h2>Our Fee Structure</h2>
+            <p>Clear, affordable pricing with no hidden costs - Pay after guaranteed admission!</p>
+          </div>
+          <div className="fee-structure-content">
+            <div className="fee-highlight animate-on-scroll">
+              <div className="discount-banner">
+                <span className="old-fee">AED 5,000</span>
+                <span className="arrow">→</span>
+                <span className="new-fee">AED 2,500</span>
+                <div className="discount-badge">50% OFF</div>
+              </div>
+              <h3>Limited Time Offer - Total Service Fee</h3>
+            </div>
+
+            <div className="payment-timeline animate-on-scroll">
+              <div className="timeline-step">
+                <div className="step-number">1</div>
+                <div className="step-content">
+                  <h4>Free Consultation</h4>
+                  <p className="step-price">AED 0</p>
+                  <p>Initial assessment, course selection, university recommendations</p>
+                </div>
+              </div>
+
+              <div className="timeline-connector"></div>
+
+              <div className="timeline-step highlight">
+                <div className="step-number">2</div>
+                <div className="step-content">
+                  <h4>100% Guaranteed Admission</h4>
+                  <p className="step-price">AED 1,500</p>
+                  <p>Pay only after receiving your admission letter with our 100% guarantee</p>
+                </div>
+              </div>
+
+              <div className="timeline-connector"></div>
+
+              <div className="timeline-step">
+                <div className="step-number">3</div>
+                <div className="step-content">
+                  <h4>After Visa Approval</h4>
+                  <p className="step-price">AED 1,000</p>
+                  <p>Final payment after your student visa is successfully approved</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="fee-inclusions animate-on-scroll">
+              <h3>What's Included in Your Package</h3>
+              <div className="inclusions-grid">
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>University Selection & Applications</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Document Preparation & Review</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Visa Application Support</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Scholarship Assistance</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Interview Preparation</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Pre/Post Departure Support</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Accommodation Assistance</span>
+                </div>
+                <div className="inclusion-item">
+                  <i className="fas fa-check-circle"></i>
+                  <span>Ongoing Support & Guidance</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="fee-cta animate-on-scroll">
+              <button className="btn btn-accent btn-large" onclick="openConsultationModal()">
+                <i className="fas fa-calendar-check"></i>
+                Start with Free Consultation
+              </button>
+              <p className="guarantee-text">
+                <i className="fas fa-shield-alt"></i>
+                <strong>100% Money-Back Guarantee</strong> - If we don't get you admitted, you pay nothing!
+              </p>
             </div>
           </div>
         </div>

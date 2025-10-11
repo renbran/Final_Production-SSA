@@ -128,7 +128,7 @@ export const renderer = jsxRenderer(({ children }) => {
               <div className="footer-section">
                 <div className="footer-brand">
                   <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX Study Abroad" className="footer-logo" />
-                  <p>Your trusted partner for international education since 2022. Helping students achieve their study abroad dreams with expert guidance and personalized support.</p>
+                  <p>Your trusted partner for international education since 2023. Established in Dubai, we help students achieve their study abroad dreams with expert guidance and personalized support. Specializing in European study destinations with high visa success from UAE.</p>
                   <div className="social-links">
                     <a href="https://facebook.com/scholarixstudy" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
                     <a href="https://instagram.com/scholarixstudy" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
