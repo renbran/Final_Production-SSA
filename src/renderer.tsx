@@ -212,6 +212,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <script src="/static/enhanced-animations.js"></script>
         <script src="/static/study-abroad-3d.js"></script>
         <script src="/static/course-finder.js"></script>
+        <script src="/static/destinations-accordion.js"></script>
         
         {/* Jotform Chatbot */}
         <script src="https://cdn.jotfor.ms/agent/embedjs/01998a5c603976e5940cc26a09b91e250511/embed.js"></script>
