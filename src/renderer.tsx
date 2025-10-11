@@ -35,8 +35,9 @@ export const renderer = jsxRenderer(({ children }) => {
         {/* Styles */}
         <link href="/static/style.css" rel="stylesheet" />
         <link href="/static/enhanced-styles.css" rel="stylesheet" />
+        <link href="/static/enhanced-loader-3d.css" rel="stylesheet" />
         
-        {/* Three.js for 3D Globe */}
+        {/* Three.js for 3D Globe and Study Elements */}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
         
         {/* GSAP for Animations */}
@@ -70,6 +71,9 @@ export const renderer = jsxRenderer(({ children }) => {
         </script>
       </head>
       <body>
+        {/* 3D Floating Study Elements Background */}
+        <div id="floating-3d-elements"></div>
+        
         {/* Header */}
         <header className="header">
           <nav className="navbar">
@@ -205,6 +209,7 @@ export const renderer = jsxRenderer(({ children }) => {
         {/* Scripts */}
         <script src="/static/app.js"></script>
         <script src="/static/enhanced-animations.js"></script>
+        <script src="/static/study-abroad-3d.js"></script>
         
         {/* Jotform Chatbot */}
         <script src="https://cdn.jotfor.ms/agent/embedjs/01998a5c603976e5940cc26a09b91e250511/embed.js"></script>
