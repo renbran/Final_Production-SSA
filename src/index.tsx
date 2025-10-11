@@ -20,9 +20,10 @@ app.get('/', (c) => {
     <div>
       {/* Hero Section */}
       <section className="hero-section">
+        <div id="particles-js"></div>
         <div className="hero-container">
           <div className="hero-content">
-            <div className="hero-text">
+            <div className="hero-text animate-on-scroll">
               <h1 className="hero-title">
                 Your Dream <span className="text-accent">Study Abroad</span> Journey Starts Here
               </h1>
@@ -31,16 +32,16 @@ app.get('/', (c) => {
                 Join 10,000+ students who achieved their international education dreams with SCHOLARIX.
               </p>
               <div className="hero-stats">
-                <div className="stat">
-                  <div className="stat-number">10,000+</div>
+                <div className="stat glass-card">
+                  <div className="stat-number">10000</div>
                   <div className="stat-label">Students Placed</div>
                 </div>
-                <div className="stat">
-                  <div className="stat-number">99%</div>
-                  <div className="stat-label">Visa Success</div>
+                <div className="stat glass-card">
+                  <div className="stat-number">99</div>
+                  <div className="stat-label">Visa Success %</div>
                 </div>
-                <div className="stat">
-                  <div className="stat-number">500+</div>
+                <div className="stat glass-card">
+                  <div className="stat-number">500</div>
                   <div className="stat-label">Partner Universities</div>
                 </div>
               </div>
@@ -49,7 +50,7 @@ app.get('/', (c) => {
                   <i className="fas fa-calendar-alt"></i>
                   Book Free Consultation
                 </button>
-                <button className="btn btn-secondary btn-large" onclick="openChatbot()">
+                <button className="btn btn-accent btn-large" onclick="openChatbot()">
                   <i className="fas fa-comments"></i>
                   Live Chat
                 </button>
@@ -70,7 +71,7 @@ app.get('/', (c) => {
             <p>Comprehensive support for your international education journey</p>
           </div>
           <div className="services-grid">
-            <div className="service-card">
+            <div className="service-card animate-on-scroll">
               <div className="service-icon">
                 <i className="fas fa-passport text-primary"></i>
               </div>
@@ -79,7 +80,7 @@ app.get('/', (c) => {
               <a href="/services/visa" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
             
-            <div className="service-card">
+            <div className="service-card animate-on-scroll">
               <div className="service-icon">
                 <i className="fas fa-graduation-cap text-primary"></i>
               </div>
@@ -88,7 +89,7 @@ app.get('/', (c) => {
               <a href="/services/admissions" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card">
+            <div className="service-card animate-on-scroll">
               <div className="service-icon">
                 <i className="fas fa-trophy text-accent"></i>
               </div>
@@ -97,7 +98,7 @@ app.get('/', (c) => {
               <a href="/services/scholarships" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card">
+            <div className="service-card animate-on-scroll">
               <div className="service-icon">
                 <i className="fas fa-book text-primary"></i>
               </div>
@@ -106,7 +107,7 @@ app.get('/', (c) => {
               <a href="/services/test-prep" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card">
+            <div className="service-card animate-on-scroll">
               <div className="service-icon">
                 <i className="fas fa-user-tie text-primary"></i>
               </div>
@@ -115,7 +116,7 @@ app.get('/', (c) => {
               <a href="/services/counselling" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card">
+            <div className="service-card animate-on-scroll">
               <div className="service-icon">
                 <i className="fas fa-plane text-accent"></i>
               </div>
@@ -130,10 +131,14 @@ app.get('/', (c) => {
       {/* Destinations Section */}
       <section className="destinations-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header animate-on-scroll">
             <h2>Popular Study Destinations</h2>
-            <p>Explore top countries for international education</p>
+            <p>Explore top countries for international education with our interactive 3D globe</p>
           </div>
+          
+          {/* 3D Interactive Globe */}
+          <div id="globe-container" className="animate-on-scroll"></div>
+          
           <div className="destinations-grid">
             <div className="destination-card" data-country="usa" onclick="openDestinationModal('usa')">
               <div className="destination-overlay">
@@ -183,7 +188,7 @@ app.get('/', (c) => {
             <p>Hear from our successful students</p>
           </div>
           <div className="testimonials-grid">
-            <div className="testimonial-card">
+            <div className="testimonial-card animate-on-scroll">
               <div className="testimonial-content">
                 <div className="stars">
                   <i className="fas fa-star"></i>
@@ -203,7 +208,7 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            <div className="testimonial-card">
+            <div className="testimonial-card animate-on-scroll">
               <div className="testimonial-content">
                 <div className="stars">
                   <i className="fas fa-star"></i>
@@ -223,7 +228,7 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            <div className="testimonial-card">
+            <div className="testimonial-card animate-on-scroll">
               <div className="testimonial-content">
                 <div className="stars">
                   <i className="fas fa-star"></i>

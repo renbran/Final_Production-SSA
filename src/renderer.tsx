@@ -34,6 +34,17 @@ export const renderer = jsxRenderer(({ children }) => {
         
         {/* Styles */}
         <link href="/static/style.css" rel="stylesheet" />
+        <link href="/static/enhanced-styles.css" rel="stylesheet" />
+        
+        {/* Three.js for 3D Globe */}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        
+        {/* GSAP for Animations */}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        
+        {/* Particles.js for Background Effects */}
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         
         {/* Schema.org */}
         <script type="application/ld+json">
@@ -193,6 +204,7 @@ export const renderer = jsxRenderer(({ children }) => {
 
         {/* Scripts */}
         <script src="/static/app.js"></script>
+        <script src="/static/enhanced-animations.js"></script>
         
         {/* Jotform Chatbot */}
         <script src="https://cdn.jotfor.ms/agent/embedjs/01998a5c603976e5940cc26a09b91e250511/embed.js"></script>
