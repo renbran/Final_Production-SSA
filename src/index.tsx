@@ -29,19 +29,19 @@ app.get('/', (c) => {
               </h1>
               <p className="hero-subtitle">
                 Get expert guidance for study visas, scholarships, university admissions, and IELTS/PTE preparation. 
-                Join 10,000+ students who achieved their international education dreams with SCHOLARIX.
+                Join 2,500+ students who achieved their international education dreams with SCHOLARIX since 2022.
               </p>
               <div className="hero-stats">
                 <div className="stat glass-card">
-                  <div className="stat-number">10000</div>
+                  <div className="stat-number">2500</div>
                   <div className="stat-label">Students Placed</div>
                 </div>
                 <div className="stat glass-card">
-                  <div className="stat-number">99</div>
+                  <div className="stat-number">95</div>
                   <div className="stat-label">Visa Success %</div>
                 </div>
                 <div className="stat glass-card">
-                  <div className="stat-number">500</div>
+                  <div className="stat-number">150</div>
                   <div className="stat-label">Partner Universities</div>
                 </div>
               </div>
@@ -120,11 +120,118 @@ app.get('/', (c) => {
               <div className="service-icon">
                 <i className="fas fa-plane text-accent"></i>
               </div>
-              <h3>Pre-Departure Support</h3>
-              <p>Complete support for accommodation, travel, and settling in your destination country.</p>
+              <h3>Pre/Post Departure Support</h3>
+              <p>Complete support for accommodation, travel, and settling in your destination country before and after arrival.</p>
               <a href="/services/pre-departure" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* AI Course Finder Section - USP Feature */}
+      <section className="course-finder-section">
+        <div className="course-finder-container">
+          <div className="course-finder-header">
+            <div className="badge">
+              <i className="fas fa-robot"></i> AI-Powered • Unique to SCHOLARIX
+            </div>
+            <h2>Find Your Perfect Course in Seconds!</h2>
+            <p>Our intelligent course finder matches you with the best programs based on your preferences, budget, and career goals.</p>
+          </div>
+
+          <div className="course-finder-form">
+            <form id="courseFinderForm">
+              <div className="finder-form-grid">
+                <div className="finder-form-group">
+                  <label htmlFor="studyField">
+                    <i className="fas fa-book-open"></i>
+                    Field of Study
+                  </label>
+                  <select id="studyField" required>
+                    <option value="">Select your field...</option>
+                    <option value="Computer Science">Computer Science & IT</option>
+                    <option value="Business Management">Business & Management</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Data Science">Data Science & Analytics</option>
+                    <option value="Healthcare">Healthcare & Medicine</option>
+                    <option value="Arts & Design">Arts & Design</option>
+                  </select>
+                </div>
+
+                <div className="finder-form-group">
+                  <label htmlFor="studyLevel">
+                    <i className="fas fa-graduation-cap"></i>
+                    Study Level
+                  </label>
+                  <select id="studyLevel" required>
+                    <option value="">Select level...</option>
+                    <option value="Bachelor">Bachelor's Degree</option>
+                    <option value="Master">Master's Degree</option>
+                    <option value="PhD">PhD / Doctorate</option>
+                    <option value="Diploma">Diploma / Certificate</option>
+                  </select>
+                </div>
+
+                <div className="finder-form-group">
+                  <label htmlFor="budget">
+                    <i className="fas fa-euro-sign"></i>
+                    Annual Budget
+                  </label>
+                  <select id="budget" required>
+                    <option value="">Select budget...</option>
+                    <option value="0-5000">€0 - €5,000 (Low Cost)</option>
+                    <option value="5000-15000">€5,000 - €15,000 (Moderate)</option>
+                    <option value="15000-30000">€15,000 - €30,000 (Premium)</option>
+                    <option value="30000+">€30,000+ (Luxury)</option>
+                  </select>
+                </div>
+
+                <div className="finder-form-group">
+                  <label htmlFor="preferredCountry">
+                    <i className="fas fa-globe-europe"></i>
+                    Preferred Country
+                  </label>
+                  <select id="preferredCountry" required>
+                    <option value="">Select country...</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Ireland">Ireland</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="Canada">Canada</option>
+                    <option value="USA">United States</option>
+                  </select>
+                </div>
+
+                <div className="finder-form-group">
+                  <label htmlFor="intake">
+                    <i className="fas fa-calendar-alt"></i>
+                    Preferred Intake
+                  </label>
+                  <select id="intake" required>
+                    <option value="">Select intake...</option>
+                    <option value="Winter 2025">Winter 2025</option>
+                    <option value="Summer 2025">Summer 2025</option>
+                    <option value="Fall 2025">Fall 2025</option>
+                    <option value="Winter 2026">Winter 2026</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="finder-form-submit">
+                <button type="submit" className="btn btn-accent btn-large">
+                  <i className="fas fa-search"></i>
+                  Find My Perfect Course
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div id="finderLoading">
+            <div className="loading-spinner"></div>
+            <p>Our AI is finding the best courses for you...</p>
+          </div>
+
+          <div id="courseResults"></div>
         </div>
       </section>
 
@@ -140,40 +247,40 @@ app.get('/', (c) => {
           <div id="globe-container" className="animate-on-scroll"></div>
           
           <div className="destinations-grid">
-            <div className="destination-card" data-country="usa" onclick="openDestinationModal('usa')">
+            <div className="destination-card" data-country="germany" onclick="openDestinationModal('germany')">
               <div className="destination-overlay">
-                <h3>United States</h3>
-                <p>500+ Universities</p>
+                <h3>Germany</h3>
+                <p>50+ Partner Universities</p>
+              </div>
+            </div>
+            <div className="destination-card" data-country="france" onclick="openDestinationModal('france')">
+              <div className="destination-overlay">
+                <h3>France</h3>
+                <p>30+ Partner Universities</p>
+              </div>
+            </div>
+            <div className="destination-card" data-country="ireland" onclick="openDestinationModal('ireland')">
+              <div className="destination-overlay">
+                <h3>Ireland</h3>
+                <p>20+ Partner Universities</p>
               </div>
             </div>
             <div className="destination-card" data-country="uk" onclick="openDestinationModal('uk')">
               <div className="destination-overlay">
                 <h3>United Kingdom</h3>
-                <p>150+ Universities</p>
+                <p>25+ Partner Universities</p>
               </div>
             </div>
             <div className="destination-card" data-country="canada" onclick="openDestinationModal('canada')">
               <div className="destination-overlay">
                 <h3>Canada</h3>
-                <p>200+ Universities</p>
+                <p>15+ Partner Universities</p>
               </div>
             </div>
-            <div className="destination-card" data-country="australia" onclick="openDestinationModal('australia')">
+            <div className="destination-card" data-country="usa" onclick="openDestinationModal('usa')">
               <div className="destination-overlay">
-                <h3>Australia</h3>
-                <p>100+ Universities</p>
-              </div>
-            </div>
-            <div className="destination-card" data-country="germany" onclick="openDestinationModal('germany')">
-              <div className="destination-overlay">
-                <h3>Germany</h3>
-                <p>300+ Universities</p>
-              </div>
-            </div>
-            <div className="destination-card" data-country="newzealand" onclick="openDestinationModal('newzealand')">
-              <div className="destination-overlay">
-                <h3>New Zealand</h3>
-                <p>50+ Universities</p>
+                <h3>United States</h3>
+                <p>10+ Partner Universities</p>
               </div>
             </div>
           </div>
@@ -197,13 +304,13 @@ app.get('/', (c) => {
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
                 </div>
-                <p>"SCHOLARIX helped me get admission to Harvard University with a 50% scholarship. Their guidance was exceptional!"</p>
+                <p>"SCHOLARIX helped me secure admission at Technical University of Munich with excellent scholarship support. The entire process was smooth and professional!"</p>
               </div>
               <div className="testimonial-author">
                 <img src="/static/images/student1.jpg" alt="Priya Sharma" />
                 <div className="author-info">
                   <h4>Priya Sharma</h4>
-                  <p>Harvard University, USA</p>
+                  <p>Technical University of Munich, Germany</p>
                 </div>
               </div>
             </div>
@@ -217,13 +324,13 @@ app.get('/', (c) => {
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
                 </div>
-                <p>"Got my UK visa in just 15 days! The team was very professional and supportive throughout the process."</p>
+                <p>"Got my German student visa in just 3 weeks! The team guided me through every step and made the documentation process stress-free."</p>
               </div>
               <div className="testimonial-author">
                 <img src="/static/images/student2.jpg" alt="Raj Patel" />
                 <div className="author-info">
                   <h4>Raj Patel</h4>
-                  <p>Oxford University, UK</p>
+                  <p>University of Stuttgart, Germany</p>
                 </div>
               </div>
             </div>
@@ -237,13 +344,13 @@ app.get('/', (c) => {
                   <i className="fas fa-star"></i>
                   <i className="fas fa-star"></i>
                 </div>
-                <p>"IELTS coaching was excellent. I achieved 8.0 overall band score and got into my dream university in Canada!"</p>
+                <p>"The IELTS coaching was excellent. I scored 7.5 and got admitted to Trinity College Dublin. Thank you SCHOLARIX for the amazing support!"</p>
               </div>
               <div className="testimonial-author">
                 <img src="/static/images/student3.jpg" alt="Sarah Ahmed" />
                 <div className="author-info">
                   <h4>Sarah Ahmed</h4>
-                  <p>University of Toronto, Canada</p>
+                  <p>Trinity College Dublin, Ireland</p>
                 </div>
               </div>
             </div>

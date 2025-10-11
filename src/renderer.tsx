@@ -36,6 +36,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <link href="/static/style.css" rel="stylesheet" />
         <link href="/static/enhanced-styles.css" rel="stylesheet" />
         <link href="/static/enhanced-loader-3d.css" rel="stylesheet" />
+        <link href="/static/course-finder.css" rel="stylesheet" />
         
         {/* Three.js for 3D Globe and Study Elements */}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -127,13 +128,13 @@ export const renderer = jsxRenderer(({ children }) => {
               <div className="footer-section">
                 <div className="footer-brand">
                   <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX Study Abroad" className="footer-logo" />
-                  <p>Your trusted partner for international education. Helping students achieve their study abroad dreams with expert guidance and personalized support.</p>
+                  <p>Your trusted partner for international education since 2022. Helping students achieve their study abroad dreams with expert guidance and personalized support.</p>
                   <div className="social-links">
-                    <a href="#" className="social-link"><i className="fab fa-facebook-f"></i></a>
-                    <a href="#" className="social-link"><i className="fab fa-instagram"></i></a>
-                    <a href="#" className="social-link"><i className="fab fa-linkedin-in"></i></a>
-                    <a href="#" className="social-link"><i className="fab fa-youtube"></i></a>
-                    <a href="#" className="social-link" onclick="openChatbot()"><i className="fas fa-comments"></i></a>
+                    <a href="https://facebook.com/scholarixstudy" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/scholarixstudy" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/scholarix" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/@scholarixstudy" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
+                    <a href="#" className="social-link" onclick="openChatbot()" aria-label="Live Chat"><i className="fas fa-comments"></i></a>
                   </div>
                 </div>
               </div>
@@ -146,19 +147,19 @@ export const renderer = jsxRenderer(({ children }) => {
                   <li><a href="/services/scholarships">Scholarships</a></li>
                   <li><a href="/services/test-prep">IELTS/PTE Preparation</a></li>
                   <li><a href="/services/counselling">Career Counselling</a></li>
-                  <li><a href="/services/pre-departure">Pre-Departure Support</a></li>
+                  <li><a href="/services/pre-departure">Pre/Post Departure Support</a></li>
                 </ul>
               </div>
 
               <div className="footer-section">
                 <h3>Study Destinations</h3>
                 <ul>
-                  <li><a href="/destinations/usa">United States</a></li>
+                  <li><a href="/destinations/germany">Germany</a></li>
+                  <li><a href="/destinations/france">France</a></li>
+                  <li><a href="/destinations/ireland">Ireland</a></li>
                   <li><a href="/destinations/uk">United Kingdom</a></li>
                   <li><a href="/destinations/canada">Canada</a></li>
-                  <li><a href="/destinations/australia">Australia</a></li>
-                  <li><a href="/destinations/germany">Germany</a></li>
-                  <li><a href="/destinations/newzealand">New Zealand</a></li>
+                  <li><a href="/destinations/usa">United States</a></li>
                 </ul>
               </div>
 
@@ -187,7 +188,7 @@ export const renderer = jsxRenderer(({ children }) => {
             
             <div className="footer-bottom">
               <div className="footer-bottom-content">
-                <p>&copy; 2024 SCHOLARIX Study Abroad Consultants. All rights reserved.</p>
+                <p>&copy; 2025 SCHOLARIX Study Abroad Consultants. All rights reserved.</p>
                 <div className="footer-links">
                   <a href="/privacy">Privacy Policy</a>
                   <a href="/terms">Terms of Service</a>
@@ -210,6 +211,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <script src="/static/app.js"></script>
         <script src="/static/enhanced-animations.js"></script>
         <script src="/static/study-abroad-3d.js"></script>
+        <script src="/static/course-finder.js"></script>
         
         {/* Jotform Chatbot */}
         <script src="https://cdn.jotfor.ms/agent/embedjs/01998a5c603976e5940cc26a09b91e250511/embed.js"></script>

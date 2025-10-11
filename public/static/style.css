@@ -1727,7 +1727,15 @@ a:hover {
   
   .floating-chatbot {
     bottom: 20px;
-    right: 20px;
+    left: 20px;
+    z-index: 999;
+  }
+  
+  .chatbot-trigger {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
   }
   
   .chatbot-text {
@@ -1793,6 +1801,149 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+  /* Mobile-first optimizations */
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Header mobile fixes */
+  .header {
+    padding: 12px 0;
+  }
+
+  .nav-brand .logo {
+    height: 36px;
+    max-width: 130px;
+  }
+
+  /* Hero mobile optimization */
+  .hero-section {
+    min-height: auto;
+    padding: 80px 0 40px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  /* Form mobile optimization */
+  .form-content {
+    padding: 24px 20px;
+  }
+
+  .form-content h2 {
+    font-size: 24px;
+  }
+
+  .phone-input-group {
+    flex-direction: column !important;
+  }
+
+  .country-code-select {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  /* Footer mobile optimization */
+  .footer {
+    padding: 40px 0 0;
+  }
+
+  .footer-content {
+    padding: 0 16px;
+    gap: 32px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .footer-logo {
+    height: 60px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* Chatbot mobile */
+  .floating-chatbot {
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .chatbot-trigger {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Services mobile */
+  .service-card {
+    padding: 24px 20px;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .service-icon i {
+    font-size: 28px;
+  }
+
+  /* Destinations mobile */
+  .destination-card {
+    height: 200px;
+  }
+
+  /* Globe mobile */
+  #globe-container {
+    height: 300px;
+    margin: 32px 0;
+  }
+
+  /* Testimonials mobile */
+  .testimonial-card {
+    padding: 20px;
+  }
+
+  /* CTA mobile */
+  .cta-section {
+    padding: 50px 0;
+  }
+
+  .cta-content h2 {
+    font-size: 24px;
+  }
+
+  .cta-content p {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .btn-large {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
   :root {
     --spacing-4: 0.75rem;
     --spacing-6: 1rem;
