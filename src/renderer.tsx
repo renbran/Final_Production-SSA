@@ -118,6 +118,9 @@ export const renderer = jsxRenderer(({ children }) => {
               </div>
               
               <div className="nav-actions">
+                <a href="https://scholarixstudy.com" target="_blank" className="nav-employee-btn">
+                  Employee Login
+                </a>
                 <button className="nav-cta-btn" onclick="openConsultationModal()">
                   Free Consultation
                 </button>

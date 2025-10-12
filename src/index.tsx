@@ -893,7 +893,7 @@ app.get('/', (c) => {
             <p>Hear from our successful students</p>
           </div>
           <div className="testimonials-grid">
-            <div className="testimonial-card animate-on-scroll">
+            <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="stars">
                   <i className="fas fa-star"></i>
@@ -913,7 +913,7 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            <div className="testimonial-card animate-on-scroll">
+            <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="stars">
                   <i className="fas fa-star"></i>
@@ -933,7 +933,7 @@ app.get('/', (c) => {
               </div>
             </div>
 
-            <div className="testimonial-card animate-on-scroll">
+            <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="stars">
                   <i className="fas fa-star"></i>
