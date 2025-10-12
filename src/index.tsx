@@ -31,6 +31,53 @@ app.get('/', (c) => {
                 Specializing in European Study Destinations with High Visa Success from UAE. Expert guidance for study visas, scholarships, university admissions, and IELTS/PTE preparation. 
                 Your trusted partner since 2023 - Established in Dubai.
               </p>
+              
+              {/* Compact Course Finder */}
+              <div className="hero-course-finder">
+                <form id="courseFinderFormHero" className="hero-finder-form">
+                  <div className="hero-finder-grid">
+                    <div className="hero-finder-field">
+                      <i className="fas fa-book-open"></i>
+                      <select id="studyFieldHero" required>
+                        <option value="">Field of Study</option>
+                        <option value="Computer Science">Computer Science & IT</option>
+                        <option value="Business Management">Business & Management</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Data Science">Data Science & Analytics</option>
+                        <option value="Healthcare">Healthcare & Medicine</option>
+                        <option value="Arts & Design">Arts & Design</option>
+                      </select>
+                    </div>
+                    
+                    <div className="hero-finder-field">
+                      <i className="fas fa-graduation-cap"></i>
+                      <select id="studyLevelHero" required>
+                        <option value="">Study Level</option>
+                        <option value="Bachelor">Bachelor's</option>
+                        <option value="Master">Master's</option>
+                        <option value="PhD">PhD</option>
+                      </select>
+                    </div>
+                    
+                    <div className="hero-finder-field">
+                      <i className="fas fa-euro-sign"></i>
+                      <select id="budgetHero" required>
+                        <option value="">Budget</option>
+                        <option value="0-5000">€0-5K</option>
+                        <option value="5000-15000">€5-15K</option>
+                        <option value="15000-30000">€15-30K</option>
+                        <option value="30000+">€30K+</option>
+                      </select>
+                    </div>
+                    
+                    <button type="submit" className="btn btn-accent hero-finder-btn">
+                      <i className="fas fa-search"></i>
+                      Find Course
+                    </button>
+                  </div>
+                </form>
+              </div>
+              
               <div className="hero-stats">
                 <div className="stat glass-card">
                   <div className="stat-number">2500</div>
@@ -293,412 +340,115 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Destinations by Budget Section - Clean Table Design */}
-      <section className="destinations-budget-section">
+      {/* Popular Study Destinations - Simplified */}
+      <section className="destinations-section">
         <div className="container">
           <div className="section-header animate-on-scroll">
-            <h2>Study Destinations by Budget</h2>
-            <p>Compare 40+ study destinations with transparent tuition fees</p>
+            <h2>Popular Study Destinations</h2>
+            <p>Discover top destinations for international students worldwide</p>
           </div>
           
-          {/* Budget Category Accordion */}
-          <div className="budget-accordion animate-on-scroll">
+          <div className="destinations-grid animate-on-scroll">
+            <div className="destination-card">
+              <div className="destination-flag">🇩🇪</div>
+              <h3>Germany</h3>
+              <p>European leader in engineering and technology</p>
+              <div className="destination-stats">
+                <span className="stat-item">
+                  <strong>€5,000-10,000</strong>
+                  <small>Annual Tuition</small>
+                </span>
+                <span className="stat-item">
+                  <strong>High Visa Success</strong>
+                  <small>95% Approval Rate</small>
+                </span>
+              </div>
+            </div>
             
-            {/* Budget-Friendly Category */}
-            <div className="budget-category-accordion">
-              <button className="budget-accordion-header active">
-                <div className="header-left">
-                  <span className="category-icon">💰</span>
-                  <span className="category-name">Budget-Friendly Destinations</span>
-                  <span className="category-range">(€2,500 - €5,000/year)</span>
-                </div>
-                <div className="header-right">
-                  <span className="country-count">13 Countries</span>
-                  <i className="fas fa-chevron-down"></i>
-                </div>
-              </button>
-              <div className="budget-accordion-content show">
-                <div className="destinations-table">
-                  <div className="table-row header-row">
-                    <div className="table-cell">Country</div>
-                    <div className="table-cell">Annual Tuition</div>
-                    <div className="table-cell">Living Cost</div>
-                    <div className="table-cell">Visa Success</div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇲🇹</span>
-                      <span className="country-name">Malta</span>
-                    </div>
-                    <div className="table-cell">€2,500 - €4,000</div>
-                    <div className="table-cell">€700-900/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇬🇪</span>
-                      <span className="country-name">Georgia</span>
-                    </div>
-                    <div className="table-cell">€2,500 - €4,000</div>
-                    <div className="table-cell">€400-600/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇧🇬</span>
-                      <span className="country-name">Bulgaria</span>
-                    </div>
-                    <div className="table-cell">€2,500 - €4,500</div>
-                    <div className="table-cell">€500-700/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇭🇷</span>
-                      <span className="country-name">Croatia</span>
-                    </div>
-                    <div className="table-cell">€2,800 - €4,800</div>
-                    <div className="table-cell">€600-800/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇵🇱</span>
-                      <span className="country-name">Poland</span>
-                    </div>
-                    <div className="table-cell">€3,000 - €5,000</div>
-                    <div className="table-cell">€500-700/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇱🇹</span>
-                      <span className="country-name">Lithuania</span>
-                    </div>
-                    <div className="table-cell">€3,000 - €4,500</div>
-                    <div className="table-cell">€600-800/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇨🇾</span>
-                      <span className="country-name">Cyprus</span>
-                    </div>
-                    <div className="table-cell">€3,000 - €5,000</div>
-                    <div className="table-cell">€700-900/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇭🇺</span>
-                      <span className="country-name">Hungary</span>
-                    </div>
-                    <div className="table-cell">€3,500 - €5,000</div>
-                    <div className="table-cell">€600-800/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇪🇸</span>
-                      <span className="country-name">Spain</span>
-                    </div>
-                    <div className="table-cell">€3,500 - €5,000</div>
-                    <div className="table-cell">€800-1,100/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇯🇵</span>
-                      <span className="country-name">Japan</span>
-                    </div>
-                    <div className="table-cell">€3,500 - €5,000</div>
-                    <div className="table-cell">€900-1,200/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇰🇿</span>
-                      <span className="country-name">Kazakhstan</span>
-                    </div>
-                    <div className="table-cell">€2,500 - €4,000</div>
-                    <div className="table-cell">€400-600/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇳🇿</span>
-                      <span className="country-name">New Zealand</span>
-                    </div>
-                    <div className="table-cell">€4,000 - €5,000</div>
-                    <div className="table-cell">€1,200-1,500/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇸🇬</span>
-                      <span className="country-name">Singapore</span>
-                    </div>
-                    <div className="table-cell">€4,500 - €5,000</div>
-                    <div className="table-cell">€1,000-1,300/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                </div>
+            <div className="destination-card">
+              <div className="destination-flag">🇨🇦</div>
+              <h3>Canada</h3>
+              <p>World-class education with work opportunities</p>
+              <div className="destination-stats">
+                <span className="stat-item">
+                  <strong>€8,000-15,000</strong>
+                  <small>Annual Tuition</small>
+                </span>
+                <span className="stat-item">
+                  <strong>Post-Study Work</strong>
+                  <small>3 Years Available</small>
+                </span>
               </div>
             </div>
-
-            {/* Mid-Range Category */}
-            <div className="budget-category-accordion">
-              <button className="budget-accordion-header">
-                <div className="header-left">
-                  <span className="category-icon">💵</span>
-                  <span className="category-name">Mid-Range Destinations</span>
-                  <span className="category-range">(€5,000 - €10,000/year)</span>
-                </div>
-                <div className="header-right">
-                  <span className="country-count">14 Countries</span>
-                  <i className="fas fa-chevron-down"></i>
-                </div>
-              </button>
-              <div className="budget-accordion-content">
-                <div className="destinations-table">
-                  <div className="table-row header-row">
-                    <div className="table-cell">Country</div>
-                    <div className="table-cell">Annual Tuition</div>
-                    <div className="table-cell">Living Cost</div>
-                    <div className="table-cell">Visa Success</div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇫🇷</span>
-                      <span className="country-name">France</span>
-                    </div>
-                    <div className="table-cell">€5,000 - €8,000</div>
-                    <div className="table-cell">€900-1,200/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇩🇪</span>
-                      <span className="country-name">Germany</span>
-                    </div>
-                    <div className="table-cell">€5,000 - €10,000</div>
-                    <div className="table-cell">€850-1,100/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇧🇪</span>
-                      <span className="country-name">Belgium</span>
-                    </div>
-                    <div className="table-cell">€6,000 - €9,000</div>
-                    <div className="table-cell">€900-1,200/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇫🇮</span>
-                      <span className="country-name">Finland</span>
-                    </div>
-                    <div className="table-cell">€6,500 - €9,500</div>
-                    <div className="table-cell">€800-1,100/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇳🇿</span>
-                      <span className="country-name">New Zealand</span>
-                    </div>
-                    <div className="table-cell">€6,000 - €10,000</div>
-                    <div className="table-cell">€1,200-1,600/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇮🇪</span>
-                      <span className="country-name">Ireland</span>
-                    </div>
-                    <div className="table-cell">€7,000 - €10,000</div>
-                    <div className="table-cell">€1,000-1,400/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇦🇺</span>
-                      <span className="country-name">Australia</span>
-                    </div>
-                    <div className="table-cell">€7,000 - €10,000</div>
-                    <div className="table-cell">€1,400-1,800/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇸🇪</span>
-                      <span className="country-name">Sweden</span>
-                    </div>
-                    <div className="table-cell">€8,000 - €10,000</div>
-                    <div className="table-cell">€900-1,200/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇨🇦</span>
-                      <span className="country-name">Canada</span>
-                    </div>
-                    <div className="table-cell">€8,000 - €10,000</div>
-                    <div className="table-cell">€1,200-1,600/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇦🇪</span>
-                      <span className="country-name">UAE</span>
-                    </div>
-                    <div className="table-cell">€7,000 - €10,000</div>
-                    <div className="table-cell">€1,200-1,800/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                </div>
+            
+            <div className="destination-card">
+              <div className="destination-flag">🇦🇺</div>
+              <h3>Australia</h3>
+              <p>Innovation hub with excellent quality of life</p>
+              <div className="destination-stats">
+                <span className="stat-item">
+                  <strong>€7,000-15,000</strong>
+                  <small>Annual Tuition</small>
+                </span>
+                <span className="stat-item">
+                  <strong>Work While Study</strong>
+                  <small>48 Hours/2 Weeks</small>
+                </span>
               </div>
             </div>
-
-            {/* Premium Category */}
-            <div className="budget-category-accordion">
-              <button className="budget-accordion-header">
-                <div className="header-left">
-                  <span className="category-icon">💎</span>
-                  <span className="category-name">Premium Destinations</span>
-                  <span className="category-range">(€12,000+/year)</span>
-                </div>
-                <div className="header-right">
-                  <span className="country-count">10 Countries</span>
-                  <i className="fas fa-chevron-down"></i>
-                </div>
-              </button>
-              <div className="budget-accordion-content">
-                <div className="destinations-table">
-                  <div className="table-row header-row">
-                    <div className="table-cell">Country</div>
-                    <div className="table-cell">Annual Tuition</div>
-                    <div className="table-cell">Living Cost</div>
-                    <div className="table-cell">Visa Success</div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇮🇪</span>
-                      <span className="country-name">Ireland (Top Unis)</span>
-                    </div>
-                    <div className="table-cell">€12,000 - €18,000</div>
-                    <div className="table-cell">€1,200-1,600/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇸🇬</span>
-                      <span className="country-name">Singapore (NUS/NTU)</span>
-                    </div>
-                    <div className="table-cell">€12,000 - €20,000</div>
-                    <div className="table-cell">€1,200-1,800/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇳🇱</span>
-                      <span className="country-name">Netherlands</span>
-                    </div>
-                    <div className="table-cell">€12,000 - €18,000</div>
-                    <div className="table-cell">€1,000-1,400/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇩🇰</span>
-                      <span className="country-name">Denmark</span>
-                    </div>
-                    <div className="table-cell">€12,000 - €16,000</div>
-                    <div className="table-cell">€1,100-1,500/month</div>
-                    <div className="table-cell"><span className="badge-high">High ✓</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇬🇧</span>
-                      <span className="country-name">United Kingdom</span>
-                    </div>
-                    <div className="table-cell">€15,000 - €25,000</div>
-                    <div className="table-cell">€1,200-1,800/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇨🇦</span>
-                      <span className="country-name">Canada (Top Unis)</span>
-                    </div>
-                    <div className="table-cell">€15,000 - €25,000</div>
-                    <div className="table-cell">€1,400-2,000/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇦🇺</span>
-                      <span className="country-name">Australia (Top Unis)</span>
-                    </div>
-                    <div className="table-cell">€15,000 - €25,000</div>
-                    <div className="table-cell">€1,600-2,200/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇺🇸</span>
-                      <span className="country-name">United States</span>
-                    </div>
-                    <div className="table-cell">€20,000 - €50,000</div>
-                    <div className="table-cell">€1,500-2,500/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                  
-                  <div className="table-row">
-                    <div className="table-cell">
-                      <span className="country-flag">🇦🇪</span>
-                      <span className="country-name">UAE (Premium)</span>
-                    </div>
-                    <div className="table-cell">€15,000 - €30,000</div>
-                    <div className="table-cell">€1,800-2,800/month</div>
-                    <div className="table-cell"><span className="badge-medium">Good</span></div>
-                  </div>
-                </div>
+            
+            <div className="destination-card">
+              <div className="destination-flag">🇳🇱</div>
+              <h3>Netherlands</h3>
+              <p>English-taught programs in Europe's heart</p>
+              <div className="destination-stats">
+                <span className="stat-item">
+                  <strong>€12,000-18,000</strong>
+                  <small>Annual Tuition</small>
+                </span>
+                <span className="stat-item">
+                  <strong>EU Location</strong>
+                  <small>Gateway to Europe</small>
+                </span>
               </div>
             </div>
-
+            
+            <div className="destination-card">
+              <div className="destination-flag">🇲🇹</div>
+              <h3>Malta</h3>
+              <p>Affordable EU education in English</p>
+              <div className="destination-stats">
+                <span className="stat-item">
+                  <strong>€2,500-4,000</strong>
+                  <small>Annual Tuition</small>
+                </span>
+                <span className="stat-item">
+                  <strong>EU Benefits</strong>
+                  <small>Mediterranean Life</small>
+                </span>
+              </div>
+            </div>
+            
+            <div className="destination-card">
+              <div className="destination-flag">🇸🇬</div>
+              <h3>Singapore</h3>
+              <p>Asia's education and business hub</p>
+              <div className="destination-stats">
+                <span className="stat-item">
+                  <strong>€12,000-20,000</strong>
+                  <small>Annual Tuition</small>
+                </span>
+                <span className="stat-item">
+                  <strong>Asian Gateway</strong>
+                  <small>Top Universities</small>
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="destinations-cta animate-on-scroll">
+            <p>Interested in exploring more destinations? Our consultants can help you find the perfect match for your goals and budget.</p>
+            <a href="#contact" className="cta-button primary">Explore All Destinations</a>
           </div>
         </div>
       </section>
