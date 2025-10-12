@@ -318,6 +318,14 @@
   --white: #ffffff;
   --black: #000000;
   --success: var(--success-500);
+  
+  /* High Contrast Text Colors for Better Accessibility */
+  --text-color: var(--neutral-800);           /* Dark text for light backgrounds */
+  --text-color-light: var(--neutral-100);     /* Light text for dark backgrounds */
+  --text-color-medium: var(--neutral-600);    /* Medium contrast text */
+  --heading-color: var(--neutral-900);        /* High contrast headings */
+  --heading-color-light: var(--white);        /* Light headings for dark backgrounds */
+  --muted-text: var(--neutral-500);          /* Muted text with minimum 4.5:1 contrast */
   --error: var(--error-500);
   --warning: var(--warning-500);
   
@@ -8284,5 +8292,208 @@ a:not(.btn):hover::after {
   
   .section {
     padding: 40px 16px !important;
+  }
+}
+
+/* =============================================
+   CONTRAST IMPROVEMENTS FOR ACCESSIBILITY
+   ============================================= */
+
+/* Override any low-contrast text colors with high-contrast alternatives */
+.section-header h2,
+.section-header h1,
+.hero-section h1,
+.hero-section h2,
+.mbbs-section h2,
+.destinations-section h2,
+.visa-success-section h2,
+.interactive-globe-section h2,
+.fee-structure-section h2 {
+  color: var(--heading-color) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 800;
+}
+
+/* Improve paragraph text contrast */
+.section-header p,
+.hero-section p,
+.mbbs-section p,
+.destinations-section p,
+.visa-success-section p,
+.interactive-globe-section p,
+.fee-structure-section p {
+  color: var(--text-color) !important;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Ensure proper contrast for card text */
+.visa-country-card h3,
+.mbbs-card h3,
+.service-card h3,
+.destination-card h3,
+.course-product-card h3 {
+  color: var(--heading-color) !important;
+  font-weight: 700;
+}
+
+.visa-country-card p,
+.mbbs-card p,
+.service-card p,
+.destination-card p,
+.course-product-card p {
+  color: var(--text-color) !important;
+  line-height: 1.5;
+}
+
+/* Fix highlight text on various backgrounds */
+.highlight-text {
+  color: var(--heading-color) !important;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 8px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure proper contrast for navigation */
+.nav-link,
+.footer-link {
+  color: var(--text-color) !important;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.footer-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Light text on dark backgrounds */
+.hero-section.dark,
+.footer,
+.cta-section {
+  color: var(--text-color-light) !important;
+}
+
+.hero-section.dark h1,
+.hero-section.dark h2,
+.footer h1,
+.footer h2,
+.footer h3,
+.cta-section h1,
+.cta-section h2 {
+  color: var(--heading-color-light) !important;
+}
+
+/* Ensure badges and labels have proper contrast */
+.badge,
+.label,
+.tag,
+.price-tag,
+.course-badge {
+  background: var(--primary-color) !important;
+  color: var(--white) !important;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+/* Fix form element contrast */
+.form-group label {
+  color: var(--text-color) !important;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  color: var(--text-color) !important;
+  border-color: var(--neutral-300) !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted-text) !important;
+  opacity: 1;
+}
+
+/* Ensure buttons have proper contrast */
+.btn-primary {
+  background: var(--primary-color) !important;
+  color: var(--white) !important;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  background: var(--white) !important;
+  color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color) !important;
+  font-weight: 600;
+}
+
+/* Fix modal and overlay text contrast */
+.modal-content,
+.country-modal .modal-content,
+.program-modal .modal-content {
+  background: var(--white) !important;
+  color: var(--text-color) !important;
+}
+
+.modal-content h1,
+.modal-content h2,
+.modal-content h3,
+.modal-content h4 {
+  color: var(--heading-color) !important;
+}
+
+/* Ensure table and list contrast */
+.table,
+.list {
+  color: var(--text-color) !important;
+}
+
+.table th {
+  color: var(--heading-color) !important;
+  background: var(--neutral-100) !important;
+}
+
+/* Fix specific problem areas */
+.fee-structure-section .section-header h2,
+.fee-structure-section .section-header p {
+  color: var(--heading-color) !important;
+}
+
+.destinations-globe-section .section-header h2,
+.destinations-globe-section .section-header p {
+  color: var(--heading-color) !important;
+}
+
+/* Ensure proper contrast ratios for all text elements */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-color: #000000;
+    --heading-color: #000000;
+    --background-color: #ffffff;
+  }
+  
+  .section-header h2,
+  .section-header p,
+  h1, h2, h3, h4, h5, h6,
+  p, span, div, a {
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+  
+  .btn-primary {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
   }
 }
