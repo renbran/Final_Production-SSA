@@ -8754,3 +8754,342 @@ a:not(.btn):hover::after {
   padding: 24px !important;
   margin-bottom: 20px !important;
 }
+
+/* Interactive Globe Styles */
+.destinations-globe-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #2c3e50 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.destinations-globe-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.destinations-globe-section .section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.destinations-globe-section .section-header h2 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.destinations-globe-section .section-header p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.destinations-globe-section .badge {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+/* Globe Container */
+.globe-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: radial-gradient(circle at center, rgba(30, 58, 138, 0.2) 0%, rgba(15, 20, 25, 0.8) 100%);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.interactive-globe {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.interactive-globe:active {
+  cursor: grabbing;
+}
+
+/* Globe Controls */
+.globe-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.globe-zoom-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.globe-control-btn {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.globe-control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Globe Loading */
+.globe-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5;
+  transition: opacity 0.5s ease;
+}
+
+.globe-loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.globe-loader p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+}
+
+/* Mobile Fallback */
+.mobile-destinations-fallback {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .globe-container {
+    height: 400px;
+  }
+  
+  .mobile-destinations-fallback {
+    display: block;
+    margin-top: 40px;
+  }
+  
+  .destinations-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .destinations-header h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .destinations-header p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Country Pin Styles */
+.country-pin {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 5;
+  animation: pulse 2s infinite;
+}
+
+.country-pin:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+  animation: none;
+}
+
+.country-pin::after {
+  content: attr(data-country);
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.country-pin:hover::after {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+  }
+}
+
+/* Country Modal Enhancements */
+.country-modal {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.country-modal .modal-content {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.country-modal .modal-header {
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.country-modal .modal-header h3 {
+  color: white;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-item i {
+  font-size: 1.5rem;
+  color: #f59e0b;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.stat-item small {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.programs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.program-tag {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .globe-container {
+    height: 500px;
+  }
+  
+  .destinations-globe-section .section-header h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .destinations-globe-section {
+    padding: 60px 0;
+  }
+  
+  .destinations-globe-section .section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .globe-controls {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .globe-control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .stat-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}

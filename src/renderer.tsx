@@ -684,6 +684,82 @@ export const renderer = jsxRenderer(({ children }) => {
                 globe.height(globe.height());
               }
             });
+
+            // Additional Globe Control Functions
+            window.resetGlobe = function() {
+              if (globe) {
+                globe.pointOfView({ lat: 0, lng: 0, altitude: 2.5 }, 1000);
+              }
+            };
+
+            window.toggleGlobeRotation = function() {
+              isAutoRotating = !isAutoRotating;
+              const rotationIcon = document.getElementById('rotation-icon');
+              
+              if (isAutoRotating) {
+                startAutoRotation();
+                if (rotationIcon) {
+                  rotationIcon.className = 'fas fa-pause';
+                }
+              } else {
+                stopAutoRotation();
+                if (rotationIcon) {
+                  rotationIcon.className = 'fas fa-play';
+                }
+              }
+            };
+
+            window.zoomGlobe = function(factor) {
+              if (!globe) return;
+              
+              const currentPov = globe.pointOfView();
+              const newAltitude = Math.max(1.5, Math.min(5, currentPov.altitude * factor));
+              
+              globe.pointOfView({
+                lat: currentPov.lat,
+                lng: currentPov.lng,
+                altitude: newAltitude
+              }, 300);
+            };
+
+            window.showDestinationModal = function(countryId) {
+              const country = studyDestinations.find(dest => dest.id === countryId);
+              if (!country) return;
+
+              const modal = document.getElementById('country-info-modal');
+              if (!modal) return;
+
+              // Update modal content
+              document.getElementById('modal-country-name').textContent = country.name;
+              document.getElementById('modal-country-flag').textContent = country.flag;
+              document.getElementById('modal-country-description').textContent = country.description;
+              document.getElementById('modal-tuition-range').textContent = country.tuitionRange;
+              document.getElementById('modal-living-cost').textContent = country.livingCost || 'Contact for details';
+              document.getElementById('modal-visa-success').textContent = country.visaSuccess;
+              document.getElementById('modal-work-permit').textContent = country.workPermit || 'Available';
+
+              // Update programs
+              const programsList = document.getElementById('modal-programs');
+              if (programsList && country.programs) {
+                programsList.innerHTML = country.programs.map(program => 
+                  '<span class="program-tag">' + program.name + ' (' + program.level + ')</span>'
+                ).join('');
+              }
+
+              // Show modal
+              modal.style.display = 'block';
+              document.body.style.overflow = 'hidden';
+            };
+
+            window.downloadCountryGuide = function() {
+              // This would trigger a download of country-specific guide
+              alert('Country guide download feature coming soon!');
+            };
+
+            // Initialize globe when DOM is ready
+            if (document.getElementById('interactive-globe')) {
+              initializeGlobe();
+            }
           });
 
           // Progressive Form Functions

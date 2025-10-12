@@ -255,14 +255,43 @@ app.get('/', (c) => {
       {/* Interactive Study Destinations Globe */}
       <section id="destinations-globe" className="destinations-globe-section">
         <div className="container">
-          <div className="section-header animate-on-scroll">
+          <div className="section-header">
             <div className="badge">🌍 Interactive Explorer</div>
             <h2>Explore Study Destinations Worldwide</h2>
             <p>Click on any country pin to discover programs, costs, visa requirements, and application details</p>
           </div>
           
-          <div className="destinations-interactive-grid">
-            {/* Mobile-First Destination Explorer */}
+          {/* Interactive 3D Globe Container */}
+          <div className="globe-container">
+            <div id="interactive-globe" className="interactive-globe"></div>
+            
+            {/* Globe Controls */}
+            <div className="globe-controls">
+              <button className="globe-control-btn" onclick="resetGlobe()" title="Reset View">
+                <i className="fas fa-home"></i>
+              </button>
+              <button className="globe-control-btn" onclick="toggleGlobeRotation()" title="Toggle Rotation">
+                <i className="fas fa-play" id="rotation-icon"></i>
+              </button>
+              <div className="globe-zoom-controls">
+                <button className="globe-control-btn" onclick="zoomGlobe(1.2)" title="Zoom In">
+                  <i className="fas fa-plus"></i>
+                </button>
+                <button className="globe-control-btn" onclick="zoomGlobe(0.8)" title="Zoom Out">
+                  <i className="fas fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            
+            {/* Loading Indicator */}
+            <div id="globe-loader" className="globe-loader">
+              <div className="loader-spinner"></div>
+              <p>Loading Interactive Globe...</p>
+            </div>
+          </div>
+          
+          {/* Mobile Fallback - Destination Cards */}
+          <div className="mobile-destinations-fallback">
             <div className="destinations-header">
               <h3>🌍 Top Study Destinations</h3>
               <p>Click any destination to explore programs, costs & requirements</p>
