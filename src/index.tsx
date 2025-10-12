@@ -173,110 +173,24 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* AI Course Finder Section - USP Feature */}
-      <section className="course-finder-section">
-        <div className="course-finder-container">
-          <div className="course-finder-header">
+      {/* Course Search Section - Simplified */}
+      <section className="course-search-section">
+        <div className="container">
+          <div className="section-header">
             <div className="badge">
-              <i className="fas fa-robot"></i> AI-Powered • Unique to SCHOLARIX
+              <i className="fas fa-search"></i> Find Your Program
             </div>
-            <h2>Find Your Perfect Course in Seconds!</h2>
-            <p>Our intelligent course finder matches you with the best programs based on your preferences, budget, and career goals.</p>
+            <h2>Explore Study Programs by Destination</h2>
+            <p>Browse through our study destinations and find programs that match your goals and budget.</p>
           </div>
-
-          <div className="course-finder-form">
-            <form id="courseFinderForm">
-              <div className="finder-form-grid">
-                <div className="finder-form-group">
-                  <label htmlFor="studyField">
-                    <i className="fas fa-book-open"></i>
-                    Field of Study
-                  </label>
-                  <select id="studyField" required>
-                    <option value="">Select your field...</option>
-                    <option value="Computer Science">Computer Science & IT</option>
-                    <option value="Business Management">Business & Management</option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Data Science">Data Science & Analytics</option>
-                    <option value="Healthcare">Healthcare & Medicine</option>
-                    <option value="Arts & Design">Arts & Design</option>
-                  </select>
-                </div>
-
-                <div className="finder-form-group">
-                  <label htmlFor="studyLevel">
-                    <i className="fas fa-graduation-cap"></i>
-                    Study Level
-                  </label>
-                  <select id="studyLevel" required>
-                    <option value="">Select level...</option>
-                    <option value="Bachelor">Bachelor's Degree</option>
-                    <option value="Master">Master's Degree</option>
-                    <option value="PhD">PhD / Doctorate</option>
-                    <option value="Diploma">Diploma / Certificate</option>
-                  </select>
-                </div>
-
-                <div className="finder-form-group">
-                  <label htmlFor="budget">
-                    <i className="fas fa-euro-sign"></i>
-                    Annual Budget
-                  </label>
-                  <select id="budget" required>
-                    <option value="">Select budget...</option>
-                    <option value="0-5000">€0 - €5,000 (Low Cost)</option>
-                    <option value="5000-15000">€5,000 - €15,000 (Moderate)</option>
-                    <option value="15000-30000">€15,000 - €30,000 (Premium)</option>
-                    <option value="30000+">€30,000+ (Luxury)</option>
-                  </select>
-                </div>
-
-                <div className="finder-form-group">
-                  <label htmlFor="preferredCountry">
-                    <i className="fas fa-globe-europe"></i>
-                    Preferred Country
-                  </label>
-                  <select id="preferredCountry" required>
-                    <option value="">Select country...</option>
-                    <option value="Germany">Germany</option>
-                    <option value="France">France</option>
-                    <option value="Ireland">Ireland</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="Canada">Canada</option>
-                    <option value="USA">United States</option>
-                  </select>
-                </div>
-
-                <div className="finder-form-group">
-                  <label htmlFor="intake">
-                    <i className="fas fa-calendar-alt"></i>
-                    Preferred Intake
-                  </label>
-                  <select id="intake" required>
-                    <option value="">Select intake...</option>
-                    <option value="Winter 2025">Winter 2025</option>
-                    <option value="Summer 2025">Summer 2025</option>
-                    <option value="Fall 2025">Fall 2025</option>
-                    <option value="Winter 2026">Winter 2026</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="finder-form-submit">
-                <button type="submit" className="btn btn-accent btn-large">
-                  <i className="fas fa-search"></i>
-                  Find My Perfect Course
-                </button>
-              </div>
-            </form>
+          
+          <div className="program-search-cta">
+            <a href="#destinations-globe" className="btn btn-primary btn-large">
+              <i className="fas fa-globe-europe"></i>
+              Explore Study Destinations
+            </a>
+            <p className="search-subtext">Click on any country pin to view programs, costs, and application requirements</p>
           </div>
-
-          <div id="finderLoading">
-            <div className="loading-spinner"></div>
-            <p>Our AI is finding the best courses for you...</p>
-          </div>
-
-          <div id="courseResults"></div>
         </div>
       </section>
 
@@ -338,115 +252,368 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Popular Study Destinations - Simplified */}
-      <section className="destinations-section">
+      {/* Interactive Study Destinations Globe */}
+      <section id="destinations-globe" className="destinations-globe-section">
         <div className="container">
           <div className="section-header animate-on-scroll">
-            <h2>Popular Study Destinations</h2>
-            <p>Discover top destinations for international students worldwide</p>
+            <div className="badge">🌍 Interactive Explorer</div>
+            <h2>Explore Study Destinations Worldwide</h2>
+            <p>Click on any country pin to discover programs, costs, visa requirements, and application details</p>
           </div>
           
-          <div className="destinations-grid animate-on-scroll">
-            <div className="destination-card">
-              <div className="destination-flag">🇩🇪</div>
-              <h3>Germany</h3>
-              <p>European leader in engineering and technology</p>
-              <div className="destination-stats">
-                <span className="stat-item">
-                  <strong>€5,000-10,000</strong>
-                  <small>Annual Tuition</small>
-                </span>
-                <span className="stat-item">
-                  <strong>High Visa Success</strong>
-                  <small>95% Approval Rate</small>
-                </span>
+          <div className="destinations-interactive-grid">
+            {/* Mobile-First Destination Explorer */}
+            <div className="destinations-header">
+              <h3>🌍 Top Study Destinations</h3>
+              <p>Click any destination to explore programs, costs & requirements</p>
+            </div>
+            
+            <div className="destinations-grid">
+              <div className="destination-card popular" onclick="showDestinationModal('germany')">
+                <div className="destination-flag">🇩🇪</div>
+                <div className="destination-info">
+                  <h4>Germany</h4>
+                  <div className="destination-stats">
+                    <span className="stat">250+ Universities</span>
+                    <span className="stat">95% Visa Success</span>
+                  </div>
+                  <div className="destination-highlight">Free Tuition Available</div>
+                </div>
+                <div className="destination-arrow">→</div>
+              </div>
+              
+              <div className="destination-card popular" onclick="showDestinationModal('canada')">
+                <div className="destination-flag">🇨🇦</div>
+                <div className="destination-info">
+                  <h4>Canada</h4>
+                  <div className="destination-stats">
+                    <span className="stat">500+ Universities</span>
+                    <span className="stat">85% Visa Success</span>
+                  </div>
+                  <div className="destination-highlight">3-Year Work Permit</div>
+                </div>
+                <div className="destination-arrow">→</div>
+              </div>
+              
+              <div className="destination-card popular" onclick="showDestinationModal('uk')">
+                <div className="destination-flag">🇬🇧</div>
+                <div className="destination-info">
+                  <h4>United Kingdom</h4>
+                  <div className="destination-stats">
+                    <span className="stat">400+ Universities</span>
+                    <span className="stat">88% Visa Success</span>
+                  </div>
+                  <div className="destination-highlight">World-Class Education</div>
+                </div>
+                <div className="destination-arrow">→</div>
+              </div>
+              
+              <div className="destination-card affordable" onclick="showDestinationModal('ireland')">
+                <div className="destination-flag">🇮🇪</div>
+                <div className="destination-info">
+                  <h4>Ireland</h4>
+                  <div className="destination-stats">
+                    <span className="stat">150+ Universities</span>
+                    <span className="stat">90% Visa Success</span>
+                  </div>
+                  <div className="destination-highlight">Tech Hub of Europe</div>
+                </div>
+                <div className="destination-arrow">→</div>
+              </div>
+              
+              <div className="destination-card premium" onclick="showDestinationModal('australia')">
+                <div className="destination-flag">🇦🇺</div>
+                <div className="destination-info">
+                  <h4>Australia</h4>
+                  <div className="destination-stats">
+                    <span className="stat">300+ Universities</span>
+                    <span className="stat">82% Visa Success</span>
+                  </div>
+                  <div className="destination-highlight">High Living Standard</div>
+                </div>
+                <div className="destination-arrow">→</div>
+              </div>
+              
+              <div className="destination-card affordable" onclick="showDestinationModal('france')">
+                <div className="destination-flag">🇫🇷</div>
+                <div className="destination-info">
+                  <h4>France</h4>
+                  <div className="destination-stats">
+                    <span className="stat">600+ Universities</span>
+                    <span className="stat">87% Visa Success</span>
+                  </div>
+                  <div className="destination-highlight">Low Cost, High Quality</div>
+                </div>
+                <div className="destination-arrow">→</div>
               </div>
             </div>
             
-            <div className="destination-card">
-              <div className="destination-flag">🇨🇦</div>
-              <h3>Canada</h3>
-              <p>World-class education with work opportunities</p>
-              <div className="destination-stats">
-                <span className="stat-item">
-                  <strong>€8,000-15,000</strong>
-                  <small>Annual Tuition</small>
-                </span>
-                <span className="stat-item">
-                  <strong>Post-Study Work</strong>
-                  <small>3 Years Available</small>
-                </span>
-              </div>
+            <div className="destinations-cta">
+              <button className="btn btn-primary" onclick="document.getElementById('consultationModal').style.display='block'">
+                <i className="fas fa-calendar-check"></i>
+                Get Personalized Guidance
+              </button>
             </div>
-            
-            <div className="destination-card">
-              <div className="destination-flag">🇦🇺</div>
-              <h3>Australia</h3>
-              <p>Innovation hub with excellent quality of life</p>
-              <div className="destination-stats">
-                <span className="stat-item">
-                  <strong>€7,000-15,000</strong>
-                  <small>Annual Tuition</small>
-                </span>
-                <span className="stat-item">
-                  <strong>Work While Study</strong>
-                  <small>48 Hours/2 Weeks</small>
-                </span>
+          </div>
+          
+          {/* Country Information Modal */}
+          <div id="country-info-modal" className="country-modal">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h3 id="modal-country-name">Country Name</h3>
+                <button id="modal-close-btn" className="modal-close" onclick="closeDestinationModal()" type="button" aria-label="Close modal">
+                  <i className="fas fa-times"></i>
+                </button>
               </div>
-            </div>
-            
-            <div className="destination-card">
-              <div className="destination-flag">🇳🇱</div>
-              <h3>Netherlands</h3>
-              <p>English-taught programs in Europe's heart</p>
-              <div className="destination-stats">
-                <span className="stat-item">
-                  <strong>€12,000-18,000</strong>
-                  <small>Annual Tuition</small>
-                </span>
-                <span className="stat-item">
-                  <strong>EU Location</strong>
-                  <small>Gateway to Europe</small>
-                </span>
-              </div>
-            </div>
-            
-            <div className="destination-card">
-              <div className="destination-flag">🇲🇹</div>
-              <h3>Malta</h3>
-              <p>Affordable EU education in English</p>
-              <div className="destination-stats">
-                <span className="stat-item">
-                  <strong>€2,500-4,000</strong>
-                  <small>Annual Tuition</small>
-                </span>
-                <span className="stat-item">
-                  <strong>EU Benefits</strong>
-                  <small>Mediterranean Life</small>
-                </span>
-              </div>
-            </div>
-            
-            <div className="destination-card">
-              <div className="destination-flag">🇸🇬</div>
-              <h3>Singapore</h3>
-              <p>Asia's education and business hub</p>
-              <div className="destination-stats">
-                <span className="stat-item">
-                  <strong>€12,000-20,000</strong>
-                  <small>Annual Tuition</small>
-                </span>
-                <span className="stat-item">
-                  <strong>Asian Gateway</strong>
-                  <small>Top Universities</small>
-                </span>
+              
+              <div className="modal-body">
+                <div className="country-overview">
+                  <div id="modal-country-flag" className="country-flag-large"></div>
+                  <div id="modal-country-description" className="country-description"></div>
+                </div>
+                
+                <div className="country-stats">
+                  <div class="stat-grid">
+                    <div class="stat-item">
+                      <i class="fas fa-euro-sign"></i>
+                      <div>
+                        <strong id="modal-tuition-range">€0 - €0</strong>
+                        <small>Annual Tuition</small>
+                      </div>
+                    </div>
+                    <div class="stat-item">
+                      <i class="fas fa-home"></i>
+                      <div>
+                        <strong id="modal-living-cost">€0 - €0</strong>
+                        <small>Living Cost</small>
+                      </div>
+                    </div>
+                    <div class="stat-item">
+                      <i class="fas fa-check-circle"></i>
+                      <div>
+                        <strong id="modal-visa-success">0%</strong>
+                        <small>Visa Success</small>
+                      </div>
+                    </div>
+                    <div class="stat-item">
+                      <i class="fas fa-briefcase"></i>
+                      <div>
+                        <strong id="modal-work-permit">N/A</strong>
+                        <small>Work Permit</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="program-highlights">
+                  <h4>Popular Programs</h4>
+                  <div id="modal-programs" className="programs-list">
+                    {/* Programs will be populated dynamically */}
+                  </div>
+                </div>
+                
+                <div className="modal-actions">
+                  <button className="btn btn-primary" onclick="openConsultationModal()">
+                    <i className="fas fa-calendar"></i>
+                    Book Consultation
+                  </button>
+                  <button className="btn btn-secondary" onclick="downloadCountryGuide()">
+                    <i className="fas fa-download"></i>
+                    Download Guide
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="destinations-cta animate-on-scroll">
-            <p>Interested in exploring more destinations? Our consultants can help you find the perfect match for your goals and budget.</p>
-            <a href="#contact" className="cta-button primary">Explore All Destinations</a>
+          {/* Program Inquiry Modal */}
+          <div id="program-inquiry-modal" className="program-modal">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h3 id="program-modal-title">Program Inquiry</h3>
+                <button id="program-modal-close-btn" className="modal-close" onclick="closeProgramInquiryModal()" type="button" aria-label="Close modal">
+                  <i className="fas fa-times"></i>
+                </button>
+              </div>
+              
+              <div className="modal-body">
+                <div className="program-overview">
+                  <div id="program-icon" className="program-icon-large">🎓</div>
+                  <div className="program-details">
+                    <h4 id="program-name">Program Name</h4>
+                    <div id="program-price-display" className="program-price-display">
+                      <span id="program-price">$0</span>
+                      <small id="program-duration">/year</small>
+                    </div>
+                    <div id="program-features-display" className="program-features-preview">
+                      {/* Features will be populated dynamically */}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="inquiry-form-section">
+                  <h4>Get Program Information</h4>
+                  <form id="program-inquiry-form" className="progressive-form">
+                    <div className="form-step active" data-step="1">
+                      <div className="form-grid">
+                        <div className="form-group">
+                          <label for="inquiry-full-name">
+                            <i className="fas fa-user"></i>
+                            Full Name *
+                          </label>
+                          <input 
+                            type="text" 
+                            id="inquiry-full-name" 
+                            name="fullName" 
+                            required 
+                            placeholder="Enter your full name"
+                          />
+                        </div>
+                        
+                        <div className="form-group">
+                          <label for="inquiry-email">
+                            <i className="fas fa-envelope"></i>
+                            Email Address *
+                          </label>
+                          <input 
+                            type="email" 
+                            id="inquiry-email" 
+                            name="email" 
+                            required 
+                            placeholder="your.email@example.com"
+                          />
+                        </div>
+                        
+                        <div className="form-group">
+                          <label for="inquiry-phone">
+                            <i className="fas fa-phone"></i>
+                            Phone Number *
+                          </label>
+                          <input 
+                            type="tel" 
+                            id="inquiry-phone" 
+                            name="phone" 
+                            required 
+                            placeholder="+971 50 123 4567"
+                          />
+                        </div>
+                        
+                        <div className="form-group full-width">
+                          <label for="inquiry-program">
+                            <i className="fas fa-graduation-cap"></i>
+                            Program of Interest *
+                          </label>
+                          <input 
+                            type="text" 
+                            id="inquiry-program" 
+                            name="program" 
+                            readonly 
+                            style="background-color: #f8f9fa; cursor: not-allowed;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="form-step" data-step="2">
+                      <div className="form-grid">
+                        <div className="form-group">
+                          <label for="inquiry-education-level">
+                            <i className="fas fa-book"></i>
+                            Current Education Level
+                          </label>
+                          <select id="inquiry-education-level" name="educationLevel">
+                            <option value="">Select your level</option>
+                            <option value="high-school">High School</option>
+                            <option value="undergraduate">Undergraduate</option>
+                            <option value="graduate">Graduate</option>
+                            <option value="postgraduate">Postgraduate</option>
+                            <option value="working-professional">Working Professional</option>
+                          </select>
+                        </div>
+                        
+                        <div className="form-group">
+                          <label for="inquiry-start-date">
+                            <i className="fas fa-calendar"></i>
+                            Preferred Start Date
+                          </label>
+                          <select id="inquiry-start-date" name="startDate">
+                            <option value="">Select timeline</option>
+                            <option value="immediate">Immediate (Next 3 months)</option>
+                            <option value="6-months">In 6 months</option>
+                            <option value="1-year">Next year</option>
+                            <option value="flexible">Flexible</option>
+                          </select>
+                        </div>
+                        
+                        <div className="form-group full-width">
+                          <label for="inquiry-message">
+                            <i className="fas fa-message"></i>
+                            Additional Questions (Optional)
+                          </label>
+                          <textarea 
+                            id="inquiry-message" 
+                            name="message" 
+                            rows={3}
+                            placeholder="Any specific questions about the program, admission requirements, or other concerns?"
+                          ></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="form-navigation">
+                      <div className="step-indicator">
+                        <div className="step active" data-step="1">1</div>
+                        <div className="progress-line">
+                          <div className="progress-fill"></div>
+                        </div>
+                        <div className="step" data-step="2">2</div>
+                      </div>
+                      
+                      <div className="form-buttons">
+                        <button type="button" id="program-form-prev" className="btn btn-secondary" style="display: none;">
+                          <i className="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" id="program-form-next" className="btn btn-primary">
+                          Next <i className="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="submit" id="program-form-submit" className="btn btn-primary" style="display: none;">
+                          <i className="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                
+                <div className="trust-indicators">
+                  <div className="trust-item">
+                    <i className="fas fa-shield-alt"></i>
+                    <span>Secure & Confidential</span>
+                  </div>
+                  <div className="trust-item">
+                    <i className="fas fa-clock"></i>
+                    <span>Response in 24 hours</span>
+                  </div>
+                  <div className="trust-item">
+                    <i className="fas fa-award"></i>
+                    <span>Expert Guidance</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="globe-footer">
+            <p className="globe-instruction">
+              <i className="fas fa-mouse"></i> 
+              Drag to rotate • Scroll to zoom • Click pins for details
+            </p>
+            <div className="popular-destinations-quick">
+              <span>Quick access:</span>
+              <button onclick="focusCountry('germany')" className="quick-country-btn">🇩🇪 Germany</button>
+              <button onclick="focusCountry('canada')" className="quick-country-btn">🇨🇦 Canada</button>
+              <button onclick="focusCountry('australia')" className="quick-country-btn">🇦🇺 Australia</button>
+              <button onclick="focusCountry('malta')" className="quick-country-btn">🇲🇹 Malta</button>
+            </div>
           </div>
         </div>
       </section>
@@ -475,7 +642,7 @@ app.get('/', (c) => {
                   <li><i className="fas fa-check"></i> Low Living Cost</li>
                   <li><i className="fas fa-check"></i> No Donation</li>
                 </ul>
-                <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                <button className="btn btn-primary btn-full" onclick="openProgramInquiryModal('georgia-mbbs', 'Georgia MBBS', '$4,500', '/year', '🇬🇪', ['WHO-Recognized', 'English-Taught', '6-Year Program', 'High Success Rate', 'Low Living Cost', 'No Donation'])">
                   Learn More
                 </button>
               </div>
@@ -495,7 +662,7 @@ app.get('/', (c) => {
                   <li><i className="fas fa-check"></i> Quality Education</li>
                   <li><i className="fas fa-check"></i> Safe Environment</li>
                 </ul>
-                <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+                <button className="btn btn-primary btn-full" onclick="openProgramInquiryModal('russia-mbbs', 'Russia MBBS', '$4,000', '/year', '🇷🇺', ['WHO-Recognized', 'English Medium', 'World-Class Facilities', 'Affordable Living', 'Quality Education', 'Safe Environment'])">
                   Learn More
                 </button>
               </div>
@@ -518,8 +685,8 @@ app.get('/', (c) => {
             <h2>Test Prep Course Marketplace</h2>
             <p>Ace your language proficiency tests with our expert-led courses</p>
           </div>
-          <div className="marketplace-grid">
-            <div className="course-product-card animate-on-scroll">
+          <div className="marketplace-grid" id="testPrepGrid">
+            <div className="course-product-card animate-on-scroll test-prep-visible">
               <div className="course-badge">Most Popular</div>
               <div className="course-icon">🎯</div>
               <h3>IELTS Preparation</h3>
@@ -535,12 +702,12 @@ app.get('/', (c) => {
                 <li><i className="fas fa-check"></i> Study Materials</li>
                 <li><i className="fas fa-check"></i> Personal Tutor Support</li>
               </ul>
-              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+              <button className="btn btn-primary btn-full" onclick="openProgramInquiryModal('ielts-prep', 'IELTS Preparation', 'AED 1,499', '', '🎯', ['60 Hours of Training', 'Live Online Classes', 'Mock Tests Included', 'Score 7+ Guarantee', 'Study Materials', 'Personal Tutor Support'])">
                 <i className="fas fa-shopping-cart"></i> Enroll Now
               </button>
             </div>
 
-            <div className="course-product-card animate-on-scroll">
+            <div className="course-product-card animate-on-scroll test-prep-visible">
               <div className="course-icon">🎓</div>
               <h3>PTE Academic</h3>
               <div className="course-price">
@@ -552,15 +719,15 @@ app.get('/', (c) => {
                 <li><i className="fas fa-check"></i> Computer-Based Practice</li>
                 <li><i className="fas fa-check"></i> 10 Full Mock Tests</li>
                 <li><i className="fas fa-check"></i> Score 65+ Guarantee</li>
-                <li><i className="fas fa-check"></i> AI Scoring Tool</li>
+                <li><i className="fas fa-check"></i> Practice Tests & Scoring</li>
                 <li><i className="fas fa-check"></i> Flexible Schedule</li>
               </ul>
-              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+              <button className="btn btn-primary btn-full" onclick="openProgramInquiryModal('pte-academic', 'PTE Academic', 'AED 1,299', '', '🎓', ['50 Hours of Training', 'Computer-Based Practice', '10 Full Mock Tests', 'Score 65+ Guarantee', 'Practice Tests & Scoring', 'Flexible Schedule'])">
                 <i className="fas fa-shopping-cart"></i> Enroll Now
               </button>
             </div>
 
-            <div className="course-product-card animate-on-scroll">
+            <div className="course-product-card animate-on-scroll test-prep-visible">
               <div className="course-icon">📖</div>
               <h3>TOEFL iBT</h3>
               <div className="course-price">
@@ -575,12 +742,12 @@ app.get('/', (c) => {
                 <li><i className="fas fa-check"></i> Expert Instructors</li>
                 <li><i className="fas fa-check"></i> Lifetime Materials Access</li>
               </ul>
-              <button className="btn btn-primary btn-full" onclick="openConsultationModal()">
+              <button className="btn btn-primary btn-full" onclick="openProgramInquiryModal('toefl-ibt', 'TOEFL iBT', 'AED 1,699', '', '📖', ['65 Hours of Training', 'Comprehensive Curriculum', '8 Practice Tests', 'Score 100+ Focus', 'Expert Instructors', 'Lifetime Materials Access'])">
                 <i className="fas fa-shopping-cart"></i> Enroll Now
               </button>
             </div>
 
-            <div className="course-product-card animate-on-scroll">
+            <div className="course-product-card animate-on-scroll test-prep-hidden">
               <div className="course-badge">New</div>
               <div className="course-icon">🌟</div>
               <h3>Duolingo English Test</h3>
@@ -601,6 +768,13 @@ app.get('/', (c) => {
               </button>
             </div>
           </div>
+          
+          <div className="test-prep-show-more">
+            <button id="showMoreTestPrep" className="btn btn-outline btn-large" onclick="toggleTestPrepCourses()">
+              <i className="fas fa-plus"></i> Show More Courses
+            </button>
+          </div>
+
           <div className="marketplace-cta">
             <p><i className="fas fa-gift"></i> <strong>Special Offer:</strong> Get 20% off when you enroll with our university admission package!</p>
           </div>
@@ -809,76 +983,117 @@ app.get('/', (c) => {
             <div className="form-content">
               <h2>Get Your Free Consultation</h2>
               <p>Fill out this form and our experts will contact you within 24 hours</p>
-              <form id="leadForm" className="lead-form">
-                <div className="form-row">
-                  <div className="form-group">
-                    <input type="text" name="firstName" placeholder="First Name*" required />
+              {/* Progressive Form - Simplified 3 Fields */}
+              <div className="progressive-form-container">
+                <form action="https://formspree.io/f/xyzgkjad" method="post" className="progressive-form" id="leadForm">
+                  <input type="hidden" name="_subject" value="New SCHOLARIX Consultation Request" />
+                  <input type="hidden" name="_next" value="https://scholarix-study-abroad.pages.dev/thank-you" />
+                  
+                  <div className="form-step active" id="step1">
+                    <div className="step-progress">
+                      <div className="progress-indicator">Step 1 of 2</div>
+                      <div className="progress-bar">
+                        <div className="progress-fill" style={{width: '50%'}}></div>
+                      </div>
+                    </div>
+                    
+                    <div className="form-fields">
+                      <div className="form-group">
+                        <input type="text" name="fullName" placeholder="Full Name*" required />
+                      </div>
+                      
+                      <div className="form-group">
+                        <input type="email" name="email" placeholder="Email Address*" required />
+                      </div>
+                      
+                      <div className="form-group">
+                        <div className="phone-input-wrapper">
+                          <select name="countryCode" className="country-code-select" required>
+                            <option value="+971">🇦🇪 +971</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+91">�� +91</option>
+                            <option value="+92">�� +92</option>
+                          </select>
+                          <input type="tel" name="phone" placeholder="Phone Number*" required />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <button type="button" className="btn btn-primary btn-large" onclick="showStep2()">
+                      <i className="fas fa-arrow-right"></i>
+                      Get Started
+                    </button>
+                    
+                    <div className="trust-indicators">
+                      <div className="trust-item">
+                        <i className="fas fa-shield-alt"></i>
+                        <span>Secure & Confidential</span>
+                      </div>
+                      <div className="trust-item">
+                        <i className="fas fa-clock"></i>
+                        <span>Response in 24 hours</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="form-group">
-                    <input type="text" name="lastName" placeholder="Last Name*" required />
+                  
+                  <div className="form-step" id="step2" style={{display: 'none'}}>
+                    <div className="step-progress">
+                      <div className="progress-indicator">Step 2 of 2</div>
+                      <div className="progress-bar">
+                        <div className="progress-fill" style={{width: '100%'}}></div>
+                      </div>
+                    </div>
+                    
+                    <div className="form-fields">
+                      <div className="form-group">
+                        <select name="destination" required>
+                          <option value="">Preferred Destination*</option>
+                          <option value="germany">🇩🇪 Germany</option>
+                          <option value="canada">🇨🇦 Canada</option>
+                          <option value="uk">🇬🇧 United Kingdom</option>
+                          <option value="ireland">🇮🇪 Ireland</option>
+                          <option value="australia">🇦🇺 Australia</option>
+                          <option value="france">🇫🇷 France</option>
+                        </select>
+                      </div>
+                      
+                      <div className="form-group">
+                        <select name="studyLevel" required>
+                          <option value="">Study Level*</option>
+                          <option value="bachelor">Bachelor's Degree</option>
+                          <option value="master">Master's Degree</option>
+                          <option value="phd">PhD/Research</option>
+                        </select>
+                      </div>
+                      
+                      <div className="form-group">
+                        <select name="timeline" required>
+                          <option value="">When to Start*</option>
+                          <option value="2025">2025</option>
+                          <option value="2026">2026</option>
+                          <option value="2027">2027 or later</option>
+                        </select>
+                      </div>
+                      
+                      <div className="form-group">
+                        <textarea name="message" placeholder="Any specific questions or requirements? (Optional)" rows={3}></textarea>
+                      </div>
+                    </div>
+                    
+                    <div className="form-actions">
+                      <button type="button" className="btn btn-secondary" onclick="showStep1()">
+                        <i className="fas fa-arrow-left"></i>
+                        Back
+                      </button>
+                      <button type="submit" className="btn btn-primary btn-large">
+                        <i className="fas fa-calendar-check"></i>
+                        Complete
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div className="form-row">
-                  <div className="form-group">
-                    <input type="email" name="email" placeholder="Email Address*" required />
-                  </div>
-                  <div className="form-group phone-input-group">
-                    <select name="countryCode" className="country-code-select" required>
-                      <option value="+971">🇦🇪 UAE (+971)</option>
-                      <option value="+1">🇺🇸 USA (+1)</option>
-                      <option value="+44">🇬🇧 UK (+44)</option>
-                      <option value="+1">🇨🇦 Canada (+1)</option>
-                      <option value="+61">🇦🇺 Australia (+61)</option>
-                      <option value="+49">🇩🇪 Germany (+49)</option>
-                      <option value="+64">🇳🇿 New Zealand (+64)</option>
-                      <option value="+91">🇮🇳 India (+91)</option>
-                      <option value="+92">🇵🇰 Pakistan (+92)</option>
-                      <option value="+880">🇧🇩 Bangladesh (+880)</option>
-                      <option value="+94">🇱🇰 Sri Lanka (+94)</option>
-                      <option value="+977">🇳🇵 Nepal (+977)</option>
-                      <option value="+60">🇲🇾 Malaysia (+60)</option>
-                      <option value="+65">🇸🇬 Singapore (+65)</option>
-                      <option value="+86">🇨🇳 China (+86)</option>
-                      <option value="+82">🇰🇷 South Korea (+82)</option>
-                      <option value="+81">🇯🇵 Japan (+81)</option>
-                      <option value="+234">🇳🇬 Nigeria (+234)</option>
-                      <option value="+27">🇿🇦 South Africa (+27)</option>
-                      <option value="+20">🇪🇬 Egypt (+20)</option>
-                    </select>
-                    <input type="tel" name="phone" placeholder="Phone Number*" className="phone-number-input" required />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <select name="country" required>
-                    <option value="">Preferred Study Destination*</option>
-                    <option value="usa">United States</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="canada">Canada</option>
-                    <option value="australia">Australia</option>
-                    <option value="germany">Germany</option>
-                    <option value="newzealand">New Zealand</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <select name="service" required>
-                    <option value="">Service Interested In*</option>
-                    <option value="visa">Study Visa Support</option>
-                    <option value="admission">University Admission</option>
-                    <option value="scholarship">Scholarships</option>
-                    <option value="ielts">IELTS/PTE Preparation</option>
-                    <option value="counselling">Career Counselling</option>
-                    <option value="complete">Complete Package</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <textarea name="message" placeholder="Tell us about your study goals and any specific questions..."></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary btn-large btn-full">
-                  <i className="fas fa-paper-plane"></i>
-                  Get My Free Consultation
-                </button>
-              </form>
+                </form>
+              </div>
             </div>
             <div className="form-image">
               <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX - Free Consultation" />
@@ -932,6 +1147,20 @@ app.get('/', (c) => {
             </button>
           </div>
         </div>
+      </div>
+      
+      {/* WhatsApp Sticky Button */}
+      <div className="whatsapp-sticky">
+        <a 
+          href="https://wa.me/971525438784?text=Hi%20SCHOLARIX%2C%20I%27m%20interested%20in%20studying%20abroad.%20Can%20you%20help%20me%3F" 
+          className="whatsapp-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with us on WhatsApp"
+        >
+          <i className="fab fa-whatsapp"></i>
+          <span className="whatsapp-text">Chat with us</span>
+        </a>
       </div>
     </div>
   )

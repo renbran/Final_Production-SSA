@@ -6,15 +6,692 @@ const navMenu = document.querySelector('.nav-menu');
 const consultationModal = document.getElementById('consultationModal');
 const leadForm = document.getElementById('leadForm');
 
-// Initialize app
-document.addEventListener('DOMContentLoaded', function() {
-    initializeNavigation();
-    initializeFormHandling();
-    initializeScrollEffects();
-    initializeAnimations();
-    initializeAnalytics();
-    initializeChatbot();
-});
+// Progressive Form Functions
+window.showStep2 = function() {
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    
+    if (step1 && step2) {
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+    }
+};
+
+window.showStep1 = function() {
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    
+    if (step1 && step2) {
+        step1.style.display = 'block';
+        step2.style.display = 'none';
+    }
+};
+
+// Country data for destination modals
+const destinationData = {
+    germany: {
+        name: 'Germany',
+        flag: '🇩🇪',
+        description: 'European leader in engineering and technology education with excellent post-study work opportunities.',
+        tuitionRange: '€0 - €3,000',
+        livingCost: '€800 - €1,200',
+        visaSuccess: '95%',
+        workPermit: '18 months post-study',
+        programs: [
+            'Computer Science & IT',
+            'Mechanical Engineering',
+            'Business Administration',
+            'Data Science & Analytics',
+            'Automotive Engineering',
+            'Renewable Energy'
+        ]
+    },
+    canada: {
+        name: 'Canada',
+        flag: '🇨🇦',
+        description: 'World-class education system with excellent immigration pathways and multicultural environment.',
+        tuitionRange: 'CAD 15,000 - 30,000',
+        livingCost: 'CAD 12,000 - 15,000',
+        visaSuccess: '85%',
+        workPermit: '3 years post-graduation',
+        programs: [
+            'Software Engineering',
+            'Business Analytics',
+            'Healthcare Management',
+            'Environmental Science',
+            'AI & Machine Learning',
+            'International Business'
+        ]
+    },
+    uk: {
+        name: 'United Kingdom',
+        flag: '🇬🇧',
+        description: 'World-renowned universities with rich academic heritage and global recognition.',
+        tuitionRange: '£10,000 - £38,000',
+        livingCost: '£12,000 - £15,000',
+        visaSuccess: '88%',
+        workPermit: '2 years graduate visa',
+        programs: [
+            'Computer Science',
+            'Business & Management',
+            'Engineering',
+            'Medicine & Healthcare',
+            'Finance & Economics',
+            'Creative Arts & Design'
+        ]
+    },
+    ireland: {
+        name: 'Ireland',
+        flag: '🇮🇪',
+        description: 'Tech hub of Europe with friendly culture and EU benefits for international students.',
+        tuitionRange: '€9,000 - €25,000',
+        livingCost: '€7,000 - €12,000',
+        visaSuccess: '90%',
+        workPermit: '2 years stay-back visa',
+        programs: [
+            'Computer Science',
+            'Data Analytics',
+            'International Business',
+            'Pharmaceutical Science',
+            'Digital Marketing',
+            'Biotechnology'
+        ]
+    },
+    australia: {
+        name: 'Australia',
+        flag: '🇦🇺',
+        description: 'Innovation hub with excellent quality of life and strong industry connections.',
+        tuitionRange: 'AUD 20,000 - 45,000',
+        livingCost: 'AUD 20,000 - 25,000',
+        visaSuccess: '82%',
+        workPermit: '2-4 years post-study',
+        programs: [
+            'Information Technology',
+            'Mining Engineering',
+            'International Business',
+            'Biotechnology',
+            'Tourism & Hospitality',
+            'Environmental Studies'
+        ]
+    },
+    france: {
+        name: 'France',
+        flag: '🇫🇷',
+        description: 'Low-cost, high-quality education in the heart of Europe with rich cultural heritage.',
+        tuitionRange: '€170 - €3,770',
+        livingCost: '€600 - €1,000',
+        visaSuccess: '87%',
+        workPermit: '2 years post-graduation',
+        programs: [
+            'Engineering',
+            'Business Management',
+            'Arts & Design',
+            'International Relations',
+            'Culinary Arts',
+            'Fashion & Luxury'
+        ]
+    }
+};
+
+// Destination Modal Functions (for new destination cards)
+window.showDestinationModal = function(countryId) {
+    try {
+        const modal = document.getElementById('country-info-modal');
+        const countryData = destinationData[countryId];
+        
+        if (!modal || !countryData) {
+            console.error('Modal or country data not found:', countryId);
+            return;
+        }
+
+        // Populate modal content
+        const modalCountryName = document.getElementById('modal-country-name');
+        const modalCountryFlag = document.getElementById('modal-country-flag');
+        const modalCountryDescription = document.getElementById('modal-country-description');
+        const modalTuitionRange = document.getElementById('modal-tuition-range');
+        const modalLivingCost = document.getElementById('modal-living-cost');
+        const modalVisaSuccess = document.getElementById('modal-visa-success');
+        const modalWorkPermit = document.getElementById('modal-work-permit');
+        const modalPrograms = document.getElementById('modal-programs');
+
+        if (modalCountryName) modalCountryName.textContent = countryData.name;
+        if (modalCountryFlag) modalCountryFlag.textContent = countryData.flag;
+        if (modalCountryDescription) modalCountryDescription.textContent = countryData.description;
+        if (modalTuitionRange) modalTuitionRange.textContent = countryData.tuitionRange;
+        if (modalLivingCost) modalLivingCost.textContent = countryData.livingCost;
+        if (modalVisaSuccess) modalVisaSuccess.textContent = countryData.visaSuccess;
+        if (modalWorkPermit) modalWorkPermit.textContent = countryData.workPermit;
+        
+        // Populate programs list
+        if (modalPrograms && countryData.programs) {
+            modalPrograms.innerHTML = countryData.programs
+                .map(program => `<span class="program-tag">${program}</span>`)
+                .join('');
+        }
+
+        // Show modal
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Reinitialize close handlers to ensure they work
+        setTimeout(() => {
+            initializeModalCloseHandlers();
+        }, 100);
+        
+        // Track event
+        if (typeof trackEvent === 'function') {
+            trackEvent('destination_modal_opened', {
+                country: countryId,
+                country_name: countryData.name
+            });
+        }
+
+    } catch (error) {
+        console.error('Error showing destination modal:', error);
+        handleError(error, 'showDestinationModal');
+    }
+};
+
+// Program Inquiry Modal Functions
+window.openProgramInquiryModal = function(programId, programName, price, duration, icon, features) {
+    try {
+        const modal = document.getElementById('program-inquiry-modal');
+        if (!modal) {
+            console.error('Program inquiry modal not found');
+            return;
+        }
+
+        // Populate program information
+        const titleElement = document.getElementById('program-modal-title');
+        const nameElement = document.getElementById('program-name');
+        const iconElement = document.getElementById('program-icon');
+        const priceElement = document.getElementById('program-price');
+        const durationElement = document.getElementById('program-duration');
+        const featuresElement = document.getElementById('program-features-display');
+        const programInputElement = document.getElementById('inquiry-program');
+
+        if (titleElement) titleElement.textContent = `${programName} - Inquiry`;
+        if (nameElement) nameElement.textContent = programName;
+        if (iconElement) iconElement.textContent = icon;
+        if (priceElement) priceElement.textContent = price;
+        if (durationElement) durationElement.textContent = duration;
+        if (programInputElement) programInputElement.value = programName;
+
+        // Populate features
+        if (featuresElement && features && Array.isArray(features)) {
+            featuresElement.innerHTML = features
+                .slice(0, 4) // Show only first 4 features
+                .map(feature => `<span class="feature-tag"><i class="fas fa-check"></i> ${feature}</span>`)
+                .join('');
+        }
+
+        // Reset form to first step
+        resetProgramInquiryForm();
+
+        // Show modal
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+
+        // Initialize form handlers
+        setTimeout(() => {
+            initializeProgramInquiryHandlers();
+        }, 100);
+
+        // Track event
+        if (typeof trackEvent === 'function') {
+            trackEvent('program_inquiry_opened', {
+                program_id: programId,
+                program_name: programName,
+                price: price
+            });
+        }
+
+    } catch (error) {
+        console.error('Error showing program inquiry modal:', error);
+        handleError(error, 'openProgramInquiryModal');
+    }
+};
+
+window.closeProgramInquiryModal = function() {
+    try {
+        const modal = document.getElementById('program-inquiry-modal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            
+            // Reset form
+            resetProgramInquiryForm();
+        }
+    } catch (error) {
+        console.error('Error closing program inquiry modal:', error);
+    }
+};
+
+function resetProgramInquiryForm() {
+    try {
+        const form = document.getElementById('program-inquiry-form');
+        if (form) {
+            form.reset();
+            
+            // Reset to first step
+            const steps = form.querySelectorAll('.form-step');
+            const indicators = document.querySelectorAll('.step-indicator .step');
+            const progressFill = document.querySelector('.progress-fill');
+            const nextBtn = document.getElementById('program-form-next');
+            const prevBtn = document.getElementById('program-form-prev');
+            const submitBtn = document.getElementById('program-form-submit');
+            
+            steps.forEach((step, index) => {
+                step.classList.toggle('active', index === 0);
+            });
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === 0);
+            });
+            
+            if (progressFill) progressFill.style.width = '0%';
+            if (nextBtn) nextBtn.style.display = 'inline-block';
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (submitBtn) submitBtn.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Error resetting program inquiry form:', error);
+    }
+}
+
+function initializeProgramInquiryHandlers() {
+    try {
+        const form = document.getElementById('program-inquiry-form');
+        const nextBtn = document.getElementById('program-form-next');
+        const prevBtn = document.getElementById('program-form-prev');
+        const submitBtn = document.getElementById('program-form-submit');
+        const modal = document.getElementById('program-inquiry-modal');
+        const closeBtn = document.getElementById('program-modal-close-btn');
+
+        if (!form) return;
+
+        // Next button handler
+        if (nextBtn) {
+            nextBtn.onclick = function() {
+                // Validate current step
+                const currentStep = form.querySelector('.form-step.active');
+                const requiredFields = currentStep.querySelectorAll('input[required], select[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('error');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+
+                if (isValid) {
+                    goToNextStep();
+                } else {
+                    showFormError('Please fill in all required fields');
+                }
+            };
+        }
+
+        // Previous button handler
+        if (prevBtn) {
+            prevBtn.onclick = function() {
+                goToPreviousStep();
+            };
+        }
+
+        // Form submission handler
+        if (submitBtn) {
+            submitBtn.onclick = function(e) {
+                e.preventDefault();
+                submitProgramInquiry();
+            };
+        }
+
+        // Close button handler
+        if (closeBtn) {
+            closeBtn.onclick = function() {
+                closeProgramInquiryModal();
+            };
+        }
+
+        // Outside click handler
+        if (modal) {
+            modal.onclick = function(e) {
+                if (e.target === modal) {
+                    closeProgramInquiryModal();
+                }
+            };
+        }
+
+        // ESC key handler
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeProgramInquiryModal();
+            }
+        });
+
+    } catch (error) {
+        console.error('Error initializing program inquiry handlers:', error);
+    }
+}
+
+function goToNextStep() {
+    try {
+        const form = document.getElementById('program-inquiry-form');
+        const currentStep = form.querySelector('.form-step.active');
+        const nextStep = currentStep.nextElementSibling;
+        
+        if (nextStep && nextStep.classList.contains('form-step')) {
+            currentStep.classList.remove('active');
+            nextStep.classList.add('active');
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.step-indicator .step');
+            const progressFill = document.querySelector('.progress-fill');
+            const currentStepIndex = parseInt(nextStep.dataset.step) - 1;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index <= currentStepIndex);
+            });
+            
+            if (progressFill) {
+                progressFill.style.width = (currentStepIndex / (indicators.length - 1)) * 100 + '%';
+            }
+            
+            // Update buttons
+            const nextBtn = document.getElementById('program-form-next');
+            const prevBtn = document.getElementById('program-form-prev');
+            const submitBtn = document.getElementById('program-form-submit');
+            
+            if (nextStep.dataset.step === '2') {
+                if (nextBtn) nextBtn.style.display = 'none';
+                if (submitBtn) submitBtn.style.display = 'inline-block';
+            }
+            if (prevBtn) prevBtn.style.display = 'inline-block';
+        }
+    } catch (error) {
+        console.error('Error going to next step:', error);
+    }
+}
+
+function goToPreviousStep() {
+    try {
+        const form = document.getElementById('program-inquiry-form');
+        const currentStep = form.querySelector('.form-step.active');
+        const prevStep = currentStep.previousElementSibling;
+        
+        if (prevStep && prevStep.classList.contains('form-step')) {
+            currentStep.classList.remove('active');
+            prevStep.classList.add('active');
+            
+            // Update indicators
+            const indicators = document.querySelectorAll('.step-indicator .step');
+            const progressFill = document.querySelector('.progress-fill');
+            const currentStepIndex = parseInt(prevStep.dataset.step) - 1;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index <= currentStepIndex);
+            });
+            
+            if (progressFill) {
+                progressFill.style.width = (currentStepIndex / (indicators.length - 1)) * 100 + '%';
+            }
+            
+            // Update buttons
+            const nextBtn = document.getElementById('program-form-next');
+            const prevBtn = document.getElementById('program-form-prev');
+            const submitBtn = document.getElementById('program-form-submit');
+            
+            if (prevStep.dataset.step === '1') {
+                if (prevBtn) prevBtn.style.display = 'none';
+            }
+            if (nextBtn) nextBtn.style.display = 'inline-block';
+            if (submitBtn) submitBtn.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Error going to previous step:', error);
+    }
+}
+
+function submitProgramInquiry() {
+    try {
+        const form = document.getElementById('program-inquiry-form');
+        if (!form) return;
+
+        // Validate all required fields
+        const requiredFields = form.querySelectorAll('input[required], select[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.classList.add('error');
+                isValid = false;
+            } else {
+                field.classList.remove('error');
+            }
+        });
+
+        if (!isValid) {
+            showFormError('Please fill in all required fields');
+            return;
+        }
+
+        // Collect form data
+        const formData = new FormData(form);
+        const inquiryData = {
+            fullName: formData.get('fullName'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            program: formData.get('program'),
+            educationLevel: formData.get('educationLevel'),
+            startDate: formData.get('startDate'),
+            message: formData.get('message'),
+            inquiryType: 'program',
+            timestamp: new Date().toISOString()
+        };
+
+        // Show loading state
+        const submitBtn = document.getElementById('program-form-submit');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        }
+
+        // Submit via existing API endpoint
+        submitProgramInquiryToAPI(inquiryData).then(() => {
+            showProgramInquirySuccess();
+            
+            // Track conversion
+            if (typeof trackEvent === 'function') {
+                trackEvent('program_inquiry_submitted', {
+                    program: inquiryData.program,
+                    education_level: inquiryData.educationLevel,
+                    start_date: inquiryData.startDate
+                });
+            }
+        }).catch(error => {
+            console.error('Program inquiry submission error:', error);
+            showFormError('Failed to send inquiry. Please try again.');
+            
+            // Reset button
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
+            }
+        });
+
+    } catch (error) {
+        console.error('Error submitting program inquiry:', error);
+        showFormError('An error occurred. Please try again.');
+    }
+}
+
+function showProgramInquirySuccess() {
+    try {
+        const modal = document.getElementById('program-inquiry-modal');
+        const modalBody = modal.querySelector('.modal-body');
+        
+        if (modalBody) {
+            modalBody.innerHTML = `
+                <div class="form-success-message">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Inquiry Sent Successfully!</h3>
+                    <p>Thank you for your interest in our programs. Our education consultants will contact you within 24 hours with detailed information.</p>
+                    
+                    <div class="success-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Personal consultant assigned</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Detailed program brochure</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-phone"></i>
+                            <span>Free consultation call</span>
+                        </div>
+                    </div>
+                    
+                    <div class="success-actions">
+                        <button class="btn btn-primary" onclick="closeProgramInquiryModal()">
+                            <i class="fas fa-check"></i> Got it!
+                        </button>
+                        <button class="btn btn-secondary" onclick="window.open('https://wa.me/971501234567', '_blank')">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Auto close after 10 seconds
+        setTimeout(() => {
+            closeProgramInquiryModal();
+        }, 10000);
+        
+    } catch (error) {
+        console.error('Error showing success message:', error);
+    }
+}
+
+function showFormError(message) {
+    try {
+        // Create or update error message
+        let errorElement = document.querySelector('.form-error-message');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.classList.add('form-error-message');
+            const form = document.getElementById('program-inquiry-form');
+            if (form) {
+                form.insertBefore(errorElement, form.firstChild);
+            }
+        }
+        
+        errorElement.innerHTML = `
+            <i class="fas fa-exclamation-triangle"></i>
+            ${message}
+        `;
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (errorElement) {
+                errorElement.remove();
+            }
+        }, 5000);
+        
+    } catch (error) {
+        console.error('Error showing form error:', error);
+    }
+}
+
+// Submit program inquiry to API
+async function submitProgramInquiryToAPI(inquiryData) {
+    try {
+        // Format data for existing API endpoint
+        const formattedData = {
+            fullName: inquiryData.fullName,
+            email: inquiryData.email,
+            phone: inquiryData.phone,
+            service: 'Program Inquiry',
+            studyLevel: inquiryData.educationLevel || 'Not specified',
+            timeline: inquiryData.startDate || 'Flexible',
+            message: `Program of Interest: ${inquiryData.program}\n\nEducation Level: ${inquiryData.educationLevel || 'Not specified'}\nPreferred Start Date: ${inquiryData.startDate || 'Flexible'}\n\nAdditional Questions:\n${inquiryData.message || 'None'}`,
+            source: 'Program Inquiry Modal',
+            timestamp: inquiryData.timestamp,
+            programSpecific: {
+                program: inquiryData.program,
+                educationLevel: inquiryData.educationLevel,
+                startDate: inquiryData.startDate,
+                inquiryType: inquiryData.inquiryType
+            }
+        };
+
+        const response = await fetch('/api/lead', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formattedData)
+        });
+
+        const result = await response.json();
+        
+        if (!response.ok) {
+            throw new Error(result.error || 'Failed to submit inquiry');
+        }
+        
+        return result;
+        
+    } catch (error) {
+        console.error('Program inquiry API error:', error);
+        throw error;
+    }
+}
+
+// Initialize app with enhanced error handling
+safeDOMReady(function() {
+    // Initialize core functionality with error boundaries
+    const initFunctions = [
+        { name: 'Navigation', fn: initializeNavigation },
+        { name: 'Form Handling', fn: initializeFormHandling },
+        { name: 'Scroll Effects', fn: initializeScrollEffects },
+        { name: 'Animations', fn: initializeAnimations },
+        { name: 'Analytics', fn: initializeAnalytics },
+        { name: 'Chatbot', fn: initializeChatbot },
+        { name: 'Newsletter', fn: initializeNewsletter },
+        { name: 'Browser Extension Compatibility', fn: initializeBrowserExtensionCompatibility },
+        { name: 'Performance Monitoring', fn: initializePerformanceMonitoring },
+        { name: 'Content Security Policy', fn: enforceCSP }
+    ];
+    
+    initFunctions.forEach(({ name, fn }) => {
+        try {
+            if (typeof fn === 'function') {
+                fn();
+                if (typeof console !== 'undefined' && console.log) {
+                    console.log(`✅ ${name} initialized successfully`);
+                }
+            }
+        } catch (error) {
+            handleError({
+                message: error.message,
+                filename: 'Initialization',
+                lineno: 0,
+                error: error
+            }, name);
+        }
+    });
+    
+    // Initialize animations after DOM is ready
+    initializeAnimationSystem();
+    
+}, 'Main App Initialization');
 
 // Navigation
 function initializeNavigation() {
@@ -33,6 +710,13 @@ function initializeNavigation() {
             navToggle.classList.remove('active');
         }
     });
+
+    // Initialize destination modal close functionality with retry
+    initializeModalCloseHandlers();
+    
+    // Set up a retry mechanism in case modal is not ready yet
+    setTimeout(initializeModalCloseHandlers, 100);
+    setTimeout(initializeModalCloseHandlers, 500);
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -90,36 +774,76 @@ async function handleFormSubmit(e) {
     const formData = new FormData(leadForm);
     const submitButton = leadForm.querySelector('button[type="submit"]');
     const buttonText = submitButton.innerHTML;
-    
+
     // Show loading state
     submitButton.innerHTML = '<span class="spinner"></span> Sending...';
     submitButton.disabled = true;
+
+    // Normalize form data for backward compatibility
+    const formObj = Object.fromEntries(formData);
     
+    // Handle fullName -> firstName/lastName split for progressive form
+    if (formObj.fullName && !formObj.firstName && !formObj.lastName) {
+        const nameParts = formObj.fullName.trim().split(' ');
+        formObj.firstName = nameParts[0] || '';
+        formObj.lastName = nameParts.slice(1).join(' ') || '';
+    }
+    
+    // Map new field names to expected backend fields
+    if (formObj.studyLevel && !formObj.service) {
+        formObj.service = formObj.studyLevel;
+    }
+    
+    if (formObj.timeline && !formObj.message) {
+        formObj.message = `Preferred timeline: ${formObj.timeline}. ${formObj.message || ''}`.trim();
+    }
+
     try {
         const response = await fetch('/api/lead', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(Object.fromEntries(formData))
-        });
-        
-        const result = await response.json();
+            body: JSON.stringify(formObj)
+        });        const result = await response.json();
         
         if (result.success) {
             showNotification(result.message, 'success');
-            leadForm.reset();
+            
+            // Show success state in progressive form
+            const step2 = document.getElementById('step2');
+            if (step2) {
+                step2.innerHTML = `
+                    <div class="form-success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Thank You!</h3>
+                        <p>Your consultation request has been submitted successfully. Our expert counselors will contact you within 24 hours.</p>
+                        <div class="success-actions">
+                            <a href="tel:+971508908777" class="btn btn-primary">
+                                <i class="fas fa-phone"></i> Call Us Now
+                            </a>
+                            <button type="button" class="btn btn-secondary" onclick="location.reload()">
+                                <i class="fas fa-plus"></i> Submit Another Request
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                leadForm.reset();
+                
+                // Show success modal or redirect
+                setTimeout(() => {
+                    openConsultationModal();
+                }, 2000);
+            }
             
             // Track conversion
             trackEvent('lead_generated', {
-                service: formData.get('service'),
-                country: formData.get('country')
+                service: formObj.service || formObj.studyLevel,
+                country: formObj.country,
+                timeline: formObj.timeline,
+                form_type: 'progressive'
             });
-            
-            // Show success modal or redirect
-            setTimeout(() => {
-                openConsultationModal();
-            }, 2000);
             
         } else {
             showNotification(result.message, 'error');
@@ -297,11 +1021,77 @@ function openDestinationModal(country) {
     trackEvent('destination_interest', { country: country });
 }
 
+// Initialize modal close handlers
+function initializeModalCloseHandlers() {
+    try {
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const countryModal = document.getElementById('country-info-modal');
+        
+        // Close button handler
+        if (modalCloseBtn && !modalCloseBtn.hasAttribute('data-close-handler-added')) {
+            modalCloseBtn.addEventListener('click', closeDestinationModal);
+            modalCloseBtn.setAttribute('data-close-handler-added', 'true');
+            
+            if (typeof console !== 'undefined' && console.log) {
+                console.log('✅ Modal close button handler added');
+            }
+        }
+        
+        // Close when clicking outside modal
+        if (countryModal && !countryModal.hasAttribute('data-outside-click-handler-added')) {
+            countryModal.addEventListener('click', function(e) {
+                if (e.target === countryModal) {
+                    closeDestinationModal();
+                }
+            });
+            countryModal.setAttribute('data-outside-click-handler-added', 'true');
+            
+            if (typeof console !== 'undefined' && console.log) {
+                console.log('✅ Modal outside click handler added');
+            }
+        }
+        
+        // ESC key handler
+        if (!document.hasAttribute('data-modal-esc-handler-added')) {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const modal = document.getElementById('country-info-modal');
+                    if (modal && modal.style.display === 'block') {
+                        closeDestinationModal();
+                    }
+                }
+            });
+            document.setAttribute('data-modal-esc-handler-added', 'true');
+            
+            if (typeof console !== 'undefined' && console.log) {
+                console.log('✅ Modal ESC key handler added');
+            }
+        }
+        
+    } catch (error) {
+        if (typeof console !== 'undefined' && console.error) {
+            console.error('Error initializing modal close handlers:', error);
+        }
+        handleError(error, 'initializeModalCloseHandlers');
+    }
+}
+
 function closeDestinationModal() {
-    const modal = document.getElementById('destinationModal');
-    if (modal) {
-        modal.remove();
-        document.body.style.overflow = 'auto';
+    try {
+        const modal = document.getElementById('country-info-modal');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            
+            if (typeof console !== 'undefined' && console.log) {
+                console.log('✅ Destination modal closed');
+            }
+        }
+    } catch (error) {
+        if (typeof console !== 'undefined' && console.error) {
+            console.error('Error closing destination modal:', error);
+        }
+        handleError(error, 'closeDestinationModal');
     }
 }
 
@@ -677,18 +1467,546 @@ window.addEventListener('load', function() {
     }
 });
 
-// Error Handling
-window.addEventListener('error', function(e) {
-    // Log JavaScript errors (in production, send to error monitoring service)
-    console.error('JavaScript Error:', e.error);
+// Enhanced Error Handling with Deduplication
+let errorCache = new Map();
+let errorCount = 0;
+const MAX_ERRORS = 10;
+
+function handleError(error, context = '') {
+    const errorKey = `${error.message}-${error.filename}-${error.lineno}`;
+    const now = Date.now();
+    
+    // Deduplicate errors (only log if not seen in last 5 seconds)
+    if (errorCache.has(errorKey)) {
+        const lastTime = errorCache.get(errorKey);
+        if (now - lastTime < 5000) {
+            return; // Skip duplicate error
+        }
+    }
+    
+    errorCache.set(errorKey, now);
+    errorCount++;
+    
+    // Prevent error spam
+    if (errorCount > MAX_ERRORS) {
+        console.warn('Too many errors detected, suppressing further error logs');
+        return;
+    }
+    
+    // Enhanced error logging
+    console.group(`🚨 JavaScript Error ${context ? `[${context}]` : ''}`);
+    console.error('Message:', error.message);
+    console.error('File:', error.filename);
+    console.error('Line:', error.lineno);
+    console.error('Stack:', error.error?.stack);
+    console.groupEnd();
     
     // Track errors for monitoring
     trackEvent('javascript_error', {
-        message: e.message,
-        filename: e.filename,
-        line: e.lineno
+        message: error.message,
+        filename: error.filename,
+        line: error.lineno,
+        context: context,
+        timestamp: now
     });
+    
+    // Clean old errors from cache
+    if (errorCache.size > 50) {
+        const oldestTime = now - 60000; // 1 minute
+        for (let [key, time] of errorCache) {
+            if (time < oldestTime) {
+                errorCache.delete(key);
+            }
+        }
+    }
+}
+
+// Global error handler
+window.addEventListener('error', function(e) {
+    handleError(e, 'Global');
 });
+
+// Unhandled promise rejection handler
+window.addEventListener('unhandledrejection', function(e) {
+    handleError({
+        message: e.reason?.message || 'Unhandled Promise Rejection',
+        filename: 'Promise',
+        lineno: 0,
+        error: e.reason
+    }, 'Promise');
+});
+
+// Safe MutationObserver utility
+function createSafeMutationObserver(callback, options = {}) {
+    return {
+        observe: function(target, config) {
+            try {
+                // Validate target exists and is a valid DOM node
+                if (!target) {
+                    console.warn('MutationObserver: Target is null or undefined');
+                    return null;
+                }
+                
+                if (!(target instanceof Node)) {
+                    console.warn('MutationObserver: Target is not a valid DOM Node', target);
+                    return null;
+                }
+                
+                // Create observer with error handling
+                const observer = new MutationObserver(function(mutations, obs) {
+                    try {
+                        callback(mutations, obs);
+                    } catch (error) {
+                        handleError({
+                            message: error.message,
+                            filename: 'MutationObserver',
+                            lineno: 0,
+                            error: error
+                        }, 'MutationObserver Callback');
+                    }
+                });
+                
+                // Observe with default config
+                const defaultConfig = {
+                    childList: true,
+                    subtree: true,
+                    attributes: false,
+                    ...config
+                };
+                
+                observer.observe(target, defaultConfig);
+                return observer;
+                
+            } catch (error) {
+                handleError({
+                    message: error.message,
+                    filename: 'MutationObserver',
+                    lineno: 0,
+                    error: error
+                }, 'MutationObserver Creation');
+                return null;
+            }
+        }
+    };
+}
+
+// DOM Ready utility with error handling
+function safeDOMReady(callback, context = '') {
+    try {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                try {
+                    callback();
+                } catch (error) {
+                    handleError({
+                        message: error.message,
+                        filename: 'DOMReady',
+                        lineno: 0,
+                        error: error
+                    }, context);
+                }
+            });
+        } else {
+            callback();
+        }
+    } catch (error) {
+        handleError({
+            message: error.message,
+            filename: 'DOMReady',
+            lineno: 0,
+            error: error
+        }, context);
+    }
+}
+
+// Safe element query with retry mechanism
+function safeQuerySelector(selector, retries = 3, delay = 100) {
+    return new Promise((resolve) => {
+        function attempt(remainingRetries) {
+            try {
+                const element = document.querySelector(selector);
+                if (element && element instanceof Node) {
+                    resolve(element);
+                    return;
+                }
+                
+                if (remainingRetries > 0) {
+                    setTimeout(() => attempt(remainingRetries - 1), delay);
+                } else {
+                    console.warn(`Element not found after ${retries} attempts: ${selector}`);
+                    resolve(null);
+                }
+            } catch (error) {
+                handleError({
+                    message: error.message,
+                    filename: 'SafeQuery',
+                    lineno: 0,
+                    error: error
+                }, 'Element Query');
+                resolve(null);
+            }
+        }
+        attempt(retries);
+    });
+}
+
+// Newsletter Subscription
+function initializeNewsletter() {
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('input[name="email"]');
+            const submitBtn = this.querySelector('.newsletter-btn');
+            const email = emailInput.value.trim();
+            
+            if (!email || !isValidEmail(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            try {
+                // Simulate API call (replace with actual newsletter service)
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Success
+                showNotification('Thank you for subscribing! You\'ll receive study abroad tips and updates.', 'success');
+                emailInput.value = '';
+                
+                // Track subscription
+                trackEvent('newsletter_subscription', { email: email });
+                
+            } catch (error) {
+                console.error('Newsletter subscription error:', error);
+                showNotification('Something went wrong. Please try again later.', 'error');
+            } finally {
+                // Reset button
+                submitBtn.innerHTML = '<i class="fas fa-arrow-right"></i>';
+                submitBtn.disabled = false;
+            }
+        });
+    }
+}
+
+// Email validation helper
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            <span>${message}</span>
+            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => notification.classList.add('show'), 100);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 5000);
+}
+
+// Browser Extension Compatibility
+function initializeBrowserExtensionCompatibility() {
+    // Detect common browser extensions that might interfere
+    const extensionMarkers = [
+        'data-odoo-debug',
+        'data-chrome-extension',
+        'data-firefox-addon',
+        '__REACT_DEVTOOLS_GLOBAL_HOOK__',
+        '__VUE_DEVTOOLS_GLOBAL_HOOK__'
+    ];
+    
+    // Check for extension markers
+    extensionMarkers.forEach(marker => {
+        if (document.body.hasAttribute && document.body.hasAttribute(marker)) {
+            console.info(`🔧 Detected browser extension marker: ${marker}`);
+        }
+        if (window[marker]) {
+            console.info(`🔧 Detected browser extension global: ${marker}`);
+        }
+    });
+    
+    // Protect critical functions from extension interference
+    const criticalFunctions = [
+        'openConsultationModal',
+        'closeConsultationModal',
+        'trackEvent',
+        'showNotification'
+    ];
+    
+    criticalFunctions.forEach(fnName => {
+        if (window[fnName]) {
+            const original = window[fnName];
+            window[fnName] = function(...args) {
+                try {
+                    return original.apply(this, args);
+                } catch (error) {
+                    handleError({
+                        message: error.message,
+                        filename: 'Extension Protected Function',
+                        lineno: 0,
+                        error: error
+                    }, `Protected Function: ${fnName}`);
+                    
+                    // Provide fallback behavior
+                    if (fnName === 'showNotification') {
+                        console.warn('Notification system unavailable due to extension conflict');
+                    }
+                }
+            };
+        }
+    });
+    
+    // Monitor for DOM modifications by extensions
+    if (typeof MutationObserver !== 'undefined') {
+        const extensionObserver = createSafeMutationObserver(function(mutations) {
+            mutations.forEach(mutation => {
+                if (mutation.addedNodes) {
+                    mutation.addedNodes.forEach(node => {
+                        if (node.nodeType === Node.ELEMENT_NODE) {
+                            // Check for common extension injected elements
+                            if (node.classList && (
+                                node.classList.contains('react-extension') ||
+                                node.classList.contains('vue-devtools') ||
+                                node.classList.contains('chrome-extension')
+                            )) {
+                                console.info('🔧 Browser extension DOM modification detected');
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        
+        if (extensionObserver) {
+            extensionObserver.observe(document.body, {
+                childList: true,
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['data-*', 'class']
+            });
+        }
+    }
+}
+
+// Performance monitoring
+function initializePerformanceMonitoring() {
+    if ('performance' in window && 'PerformanceObserver' in window) {
+        try {
+            // Monitor Long Tasks
+            const longTaskObserver = new PerformanceObserver(function(list) {
+                list.getEntries().forEach(entry => {
+                    if (entry.duration > 50) { // Tasks longer than 50ms
+                        trackEvent('performance_long_task', {
+                            duration: entry.duration,
+                            startTime: entry.startTime
+                        });
+                    }
+                });
+            });
+            longTaskObserver.observe({ entryTypes: ['longtask'] });
+            
+            // Monitor Layout Shifts
+            const clsObserver = new PerformanceObserver(function(list) {
+                let clsValue = 0;
+                list.getEntries().forEach(entry => {
+                    if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                    }
+                });
+                if (clsValue > 0.1) { // CLS threshold
+                    trackEvent('performance_layout_shift', { cls: clsValue });
+                }
+            });
+            clsObserver.observe({ entryTypes: ['layout-shift'] });
+            
+        } catch (error) {
+            handleError({
+                message: error.message,
+                filename: 'Performance Monitoring',
+                lineno: 0,
+                error: error
+            }, 'Performance Observer');
+        }
+    }
+}
+
+// Content Security Policy helper
+function enforceCSP() {
+    // Report CSP violations
+    document.addEventListener('securitypolicyviolation', function(e) {
+        handleError({
+            message: `CSP Violation: ${e.violatedDirective}`,
+            filename: e.sourceFile || 'Unknown',
+            lineno: e.lineNumber || 0,
+            error: new Error(e.originalPolicy)
+        }, 'CSP Violation');
+        
+        trackEvent('security_csp_violation', {
+            directive: e.violatedDirective,
+            blockedURI: e.blockedURI,
+            sourceFile: e.sourceFile
+        });
+    });
+}
+
+// Test Prep Show More/Less Toggle
+function toggleTestPrepCourses() {
+    try {
+        const hiddenCourses = document.querySelectorAll('.test-prep-hidden');
+        const showMoreBtn = document.getElementById('showMoreTestPrep');
+        
+        if (!showMoreBtn) return;
+        
+        const isExpanded = showMoreBtn.getAttribute('data-expanded') === 'true';
+        
+        hiddenCourses.forEach(course => {
+            if (isExpanded) {
+                course.style.display = 'none';
+                course.classList.remove('animate-on-scroll');
+            } else {
+                course.style.display = 'block';
+                course.classList.add('animate-on-scroll');
+                // Trigger animation if AOS is available
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }
+        });
+        
+        // Update button text and state
+        if (isExpanded) {
+            showMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Show More Courses';
+            showMoreBtn.setAttribute('data-expanded', 'false');
+        } else {
+            showMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Courses';
+            showMoreBtn.setAttribute('data-expanded', 'true');
+        }
+        
+        // Track the interaction
+        trackEvent('test_prep_toggle', {
+            action: isExpanded ? 'collapse' : 'expand',
+            visible_courses: isExpanded ? 3 : 4
+        });
+        
+    } catch (error) {
+        handleError(error, 'toggleTestPrepCourses');
+    }
+}
+
+// Animation System Initialization
+function initializeAnimationSystem() {
+    try {
+        // Initialize scroll-triggered animations
+        initializeScrollAnimations();
+        
+        // Initialize button animations
+        initializeButtonAnimations();
+        
+        // Initialize form animations
+        initializeFormAnimations();
+        
+        if (typeof console !== 'undefined' && console.log) {
+            console.log('✅ Animation system initialized');
+        }
+    } catch (error) {
+        handleError(error, 'initializeAnimationSystem');
+    }
+}
+
+// Scroll-based animations
+function initializeScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+        
+        animatedElements.forEach(el => observer.observe(el));
+    } else {
+        // Fallback for older browsers
+        animatedElements.forEach(el => el.classList.add('animated'));
+    }
+}
+
+// Button hover and click animations
+function initializeButtonAnimations() {
+    const buttons = document.querySelectorAll('.btn, button');
+    
+    buttons.forEach(button => {
+        if (!button.hasAttribute('data-animation-initialized')) {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = '';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+            
+            button.setAttribute('data-animation-initialized', 'true');
+        }
+    });
+}
+
+// Form field animations
+function initializeFormAnimations() {
+    const formFields = document.querySelectorAll('input, textarea, select');
+    
+    formFields.forEach(field => {
+        if (!field.hasAttribute('data-animation-initialized')) {
+            field.addEventListener('focus', function() {
+                this.parentNode.classList.add('focused');
+            });
+            
+            field.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentNode.classList.remove('focused');
+                }
+            });
+            
+            // Check if field has value on load
+            if (field.value) {
+                field.parentNode.classList.add('focused');
+            }
+            
+            field.setAttribute('data-animation-initialized', 'true');
+        }
+    });
+}
 
 // Export functions for global use
 window.openConsultationModal = openConsultationModal;
@@ -697,3 +2015,11 @@ window.openDestinationModal = openDestinationModal;
 window.closeDestinationModal = closeDestinationModal;
 window.openChatbot = openChatbot;
 window.trackEvent = trackEvent;
+window.initializeNewsletter = initializeNewsletter;
+window.showNotification = showNotification;
+window.safeDOMReady = safeDOMReady;
+window.safeQuerySelector = safeQuerySelector;
+window.createSafeMutationObserver = createSafeMutationObserver;
+window.handleError = handleError;
+window.toggleTestPrepCourses = toggleTestPrepCourses;
+window.initializeAnimationSystem = initializeAnimationSystem;
