@@ -8625,3 +8625,132 @@ a:not(.btn):hover::after {
   color: #64748b !important;
   font-size: 0.9rem !important;
 }
+
+/* Fix for services section visibility */
+.services-section {
+  display: block !important;
+  visibility: visible !important;
+  padding: 80px 0 !important;
+  background-color: #f8fafc !important;
+}
+
+.services-section .section-header {
+  text-align: center;
+  margin-bottom: 48px !important;
+}
+
+.services-section .section-header h2 {
+  color: #1e3a8a !important;
+  font-size: 2.5rem !important;
+  margin-bottom: 16px !important;
+}
+
+.services-section .section-header p {
+  color: #64748b !important;
+  font-size: 1.1rem !important;
+}
+
+.services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 32px !important;
+  visibility: visible !important;
+}
+
+.services-section .service-card {
+  background-color: #ffffff !important;
+  padding: 32px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0 !important;
+  transition: all 0.3s ease !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.services-section .service-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.services-section .service-icon {
+  font-size: 2.5rem !important;
+  margin-bottom: 16px !important;
+  color: #1e3a8a !important;
+}
+
+.services-section .service-card h3 {
+  color: #1e3a8a !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 12px !important;
+}
+
+.services-section .service-card p {
+  color: #475569 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+}
+
+.services-section .service-link {
+  color: #3b82f6 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.services-section .service-link:hover {
+  color: #1e3a8a !important;
+  text-decoration: none !important;
+}
+
+/* Global fix for animate-on-scroll visibility issues */
+.visa-country-card,
+.mbbs-card,
+.course-product-card,
+.section-header,
+.hero-text,
+.hero-search-bar {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  display: block !important;
+}
+
+/* Ensure all cards and sections are visible */
+.visa-countries-grid,
+.mbbs-grid,
+.course-products-grid {
+  display: grid !important;
+  visibility: visible !important;
+}
+
+/* Fix for any remaining invisible content */
+.visa-country-card {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin-bottom: 20px !important;
+}
+
+.mbbs-card {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin-bottom: 20px !important;
+}
+
+.course-product-card {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin-bottom: 20px !important;
+}

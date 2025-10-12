@@ -116,7 +116,7 @@ app.get('/', (c) => {
             <p>Comprehensive support for your international education journey</p>
           </div>
           <div className="services-grid">
-            <div className="service-card animate-on-scroll">
+            <div className="service-card">
               <div className="service-icon">
                 <i className="fas fa-passport text-primary"></i>
               </div>
@@ -125,7 +125,7 @@ app.get('/', (c) => {
               <a href="/services/visa" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
             
-            <div className="service-card animate-on-scroll">
+            <div className="service-card">
               <div className="service-icon">
                 <i className="fas fa-graduation-cap text-primary"></i>
               </div>
@@ -134,7 +134,7 @@ app.get('/', (c) => {
               <a href="/services/admissions" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card animate-on-scroll">
+            <div className="service-card">
               <div className="service-icon">
                 <i className="fas fa-trophy text-accent"></i>
               </div>
@@ -143,7 +143,7 @@ app.get('/', (c) => {
               <a href="/services/scholarships" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card animate-on-scroll">
+            <div className="service-card">
               <div className="service-icon">
                 <i className="fas fa-book text-primary"></i>
               </div>
@@ -152,7 +152,7 @@ app.get('/', (c) => {
               <a href="/services/test-prep" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card animate-on-scroll">
+            <div className="service-card">
               <div className="service-icon">
                 <i className="fas fa-user-tie text-primary"></i>
               </div>
@@ -161,7 +161,7 @@ app.get('/', (c) => {
               <a href="/services/counselling" className="service-link">Learn More <i className="fas fa-arrow-right"></i></a>
             </div>
 
-            <div className="service-card animate-on-scroll">
+            <div className="service-card">
               <div className="service-icon">
                 <i className="fas fa-plane text-accent"></i>
               </div>
