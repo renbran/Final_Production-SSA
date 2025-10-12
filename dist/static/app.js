@@ -173,7 +173,10 @@ window.showDestinationModal = function(countryId) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
         
-        // Reinitialize close handlers to ensure they work
+        // Initialize close handlers immediately
+        initializeModalCloseHandlers();
+        
+        // Also reinitialize with a delay as backup
         setTimeout(() => {
             initializeModalCloseHandlers();
         }, 100);
@@ -1027,13 +1030,33 @@ function initializeModalCloseHandlers() {
         const modalCloseBtn = document.getElementById('modal-close-btn');
         const countryModal = document.getElementById('country-info-modal');
         
-        // Close button handler
+        // Close button handler with multiple event types
         if (modalCloseBtn && !modalCloseBtn.hasAttribute('data-close-handler-added')) {
-            modalCloseBtn.addEventListener('click', closeDestinationModal);
+            // Add multiple event listeners for reliability
+            modalCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeDestinationModal();
+            });
+            
+            modalCloseBtn.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeDestinationModal();
+            });
+            
+            // Also ensure inline onclick works
+            modalCloseBtn.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeDestinationModal(); 
+                return false;
+            };
+            
             modalCloseBtn.setAttribute('data-close-handler-added', 'true');
             
             if (typeof console !== 'undefined' && console.log) {
-                console.log('✅ Modal close button handler added');
+                console.log('✅ Modal close button handlers added (click, touch, inline)');
             }
         }
         
@@ -1078,22 +1101,46 @@ function initializeModalCloseHandlers() {
 
 function closeDestinationModal() {
     try {
+        if (typeof console !== 'undefined' && console.log) {
+            console.log('🔄 closeDestinationModal function called');
+        }
+        
         const modal = document.getElementById('country-info-modal');
         if (modal) {
-            modal.style.display = 'none';
+            if (typeof console !== 'undefined' && console.log) {
+                console.log('✅ Modal found, closing...');
+            }
+            
+            // Add closing animation
+            modal.style.opacity = '0';
+            modal.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modal.style.opacity = '';
+                modal.style.transform = '';
+            }, 200);
+            
             document.body.style.overflow = 'auto'; // Restore scrolling
             
             if (typeof console !== 'undefined' && console.log) {
-                console.log('✅ Destination modal closed');
+                console.log('✅ Destination modal closed successfully');
+            }
+        } else {
+            if (typeof console !== 'undefined' && console.warn) {
+                console.warn('⚠️ Modal not found');
             }
         }
     } catch (error) {
         if (typeof console !== 'undefined' && console.error) {
-            console.error('Error closing destination modal:', error);
+            console.error('❌ Error closing destination modal:', error);
         }
         handleError(error, 'closeDestinationModal');
     }
 }
+
+// Make sure the function is immediately available
+window.closeDestinationModal = closeDestinationModal;
 
 // Notification System
 function showNotification(message, type = 'info') {
