@@ -805,6 +805,17 @@ a:hover {
   z-index: 1001;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-link:hover {
+  transform: scale(1.05);
+}
+
 .nav-brand .logo {
   height: 50px;
   width: auto;
@@ -816,7 +827,6 @@ a:hover {
 
 .nav-brand .logo:hover {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
-  transform: scale(1.05);
 }
 
 @media (max-width: 1024px) {
@@ -838,6 +848,17 @@ a:hover {
     height: 38px;
     max-width: 140px;
   }
+}
+
+.footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-logo-link:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .footer-logo {
@@ -8496,4 +8517,30 @@ a:not(.btn):hover::after {
     color: #ffffff !important;
     border: 2px solid #000000 !important;
   }
+}
+
+/* Fix for testimonials section visibility */
+.testimonials-section .testimonial-card {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0 !important;
+  min-height: 200px;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.testimonials-section .testimonial-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.testimonials-section {
+  min-height: 400px !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.testimonials-grid {
+  display: grid !important;
+  visibility: visible !important;
 }

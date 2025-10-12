@@ -90,7 +90,9 @@ export const renderer = jsxRenderer(({ children }) => {
           <nav className="navbar">
             <div className="nav-container">
               <div className="nav-brand">
-                <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX Study Abroad" className="logo" />
+                <a href="/" className="logo-link">
+                  <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX Study Abroad" className="logo" />
+                </a>
               </div>
               
               <div className="nav-menu" id="navMenu">
@@ -140,7 +142,9 @@ export const renderer = jsxRenderer(({ children }) => {
             <div className="footer-content">
               {/* Brand Section */}
               <div className="footer-brand">
-                <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX" className="footer-logo" />
+                <a href="/" className="footer-logo-link">
+                  <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX" className="footer-logo" />
+                </a>
                 <p className="footer-tagline">Your trusted study abroad partner since 2023</p>
               </div>
               
