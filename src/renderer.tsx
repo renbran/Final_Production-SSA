@@ -75,44 +75,47 @@ export const renderer = jsxRenderer(({ children }) => {
         {/* 3D Floating Study Elements Background */}
         <div id="floating-3d-elements"></div>
         
-        {/* Header */}
+        {/* Minimalist Header */}
         <header className="header">
           <nav className="navbar">
             <div className="nav-container">
-                          <div className="nav-brand">
-              <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX Study Abroad" className="logo" />
-            </div>
+              <div className="nav-brand">
+                <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX Study Abroad" className="logo" />
+              </div>
+              
               <div className="nav-menu" id="navMenu">
                 <a href="/" className="nav-link">Home</a>
                 <div className="nav-dropdown">
                   <a href="#" className="nav-link dropdown-toggle">Services <i className="fas fa-chevron-down"></i></a>
                   <div className="dropdown-content">
-                    <a href="/services/visa">Study Visa Support</a>
-                    <a href="/services/admissions">University Admissions</a>
-                    <a href="/services/scholarships">Scholarships</a>
-                    <a href="/services/test-prep">IELTS/PTE Preparation</a>
-                    <a href="/services/counselling">Career Counselling</a>
-                    <a href="/services/pre-departure">Pre-Departure Support</a>
+                    <a href="/services/visa"><i className="fas fa-passport"></i>Visa Support</a>
+                    <a href="/services/admissions"><i className="fas fa-graduation-cap"></i>University Admissions</a>
+                    <a href="/services/scholarships"><i className="fas fa-trophy"></i>Scholarships</a>
+                    <a href="/services/test-prep"><i className="fas fa-book"></i>Test Preparation</a>
+                    <a href="/services/counselling"><i className="fas fa-user-tie"></i>Career Counselling</a>
+                    <a href="/services/pre-departure"><i className="fas fa-plane"></i>Pre-Departure</a>
                   </div>
                 </div>
                 <a href="/about" className="nav-link">About</a>
-                <a href="/blog" className="nav-link">Blog</a>
                 <a href="/contact" className="nav-link">Contact</a>
+                <div className="mobile-cta">
+                  <button className="nav-cta-btn" onclick="openConsultationModal()">
+                    Free Consultation
+                  </button>
+                </div>
               </div>
+              
               <div className="nav-actions">
-                <button className="btn btn-outline btn-small" onclick="openChatbot()">
-                  <i className="fas fa-comments"></i>
-                  Live Chat
-                </button>
-                <button className="btn btn-primary btn-small" onclick="openConsultationModal()">
+                <button className="nav-cta-btn" onclick="openConsultationModal()">
                   Free Consultation
                 </button>
               </div>
-              <div className="nav-toggle" id="navToggle">
+              
+              <button className="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
-              </div>
+              </button>
             </div>
           </nav>
         </header>
@@ -217,6 +220,73 @@ export const renderer = jsxRenderer(({ children }) => {
         {/* Jotform Chatbot */}
         <script src="https://cdn.jotfor.ms/agent/embedjs/01998a5c603976e5940cc26a09b91e250511/embed.js"></script>
         
+        {/* Mobile Navigation JavaScript */}
+        <script>
+          {`
+          // Mobile Navigation Toggle
+          document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            const header = document.querySelector('.header');
+            
+            // Mobile menu toggle
+            if (navToggle && navMenu) {
+              navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+              });
+              
+              // Close menu when clicking nav links
+              navMenu.addEventListener('click', function(e) {
+                if (e.target.matches('.nav-link') && !e.target.matches('.dropdown-toggle')) {
+                  closeMenu();
+                }
+              });
+              
+              // Close menu when clicking outside
+              document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                  closeMenu();
+                }
+              });
+              
+              // Close menu function
+              function closeMenu() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+              }
+              
+              // Handle window resize
+              window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                  closeMenu();
+                }
+              });
+            }
+            
+            // Header scroll effect
+            if (header) {
+              let lastScroll = 0;
+              window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 10) {
+                  header.classList.add('scrolled');
+                } else {
+                  header.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+              });
+            }
+          });
+          `}
+        </script>
+
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
         <script>

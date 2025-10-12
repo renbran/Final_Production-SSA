@@ -32,50 +32,48 @@ app.get('/', (c) => {
                 Your trusted partner since 2023 - Established in Dubai.
               </p>
               
-              {/* Compact Course Finder */}
-              <div className="hero-course-finder">
-                <form id="courseFinderFormHero" className="hero-finder-form">
-                  <div className="hero-finder-grid">
-                    <div className="hero-finder-field">
-                      <i className="fas fa-book-open"></i>
-                      <select id="studyFieldHero" required>
-                        <option value="">Field of Study</option>
-                        <option value="Computer Science">Computer Science & IT</option>
-                        <option value="Business Management">Business & Management</option>
-                        <option value="Engineering">Engineering</option>
-                        <option value="Data Science">Data Science & Analytics</option>
-                        <option value="Healthcare">Healthcare & Medicine</option>
-                        <option value="Arts & Design">Arts & Design</option>
-                      </select>
+              {/* Modern Course Search Bar */}
+              <div className="hero-search-bar animate-on-scroll">
+                <div className="search-container">
+                  <form id="heroSearchForm" className="hero-search-form">
+                    <div className="search-fields">
+                      <div className="search-field">
+                        <div className="field-icon">
+                          <i className="fas fa-book-open"></i>
+                        </div>
+                        <select id="heroStudyField" aria-label="Select field of study" required>
+                          <option value="">What do you want to study?</option>
+                          <option value="Computer Science">Computer Science & IT</option>
+                          <option value="Business Management">Business & Management</option>
+                          <option value="Engineering">Engineering</option>
+                          <option value="Data Science">Data Science & Analytics</option>
+                          <option value="Healthcare">Healthcare & Medicine</option>
+                          <option value="Arts & Design">Arts & Design</option>
+                        </select>
+                      </div>
+                      
+                      <div className="search-field">
+                        <div className="field-icon">
+                          <i className="fas fa-globe-europe"></i>
+                        </div>
+                        <select id="heroCountry" aria-label="Select study destination" required>
+                          <option value="">Where do you want to study?</option>
+                          <option value="Germany">Germany</option>
+                          <option value="France">France</option>
+                          <option value="Ireland">Ireland</option>
+                          <option value="UK">United Kingdom</option>
+                          <option value="Canada">Canada</option>
+                          <option value="USA">United States</option>
+                        </select>
+                      </div>
+                      
+                      <button type="submit" className="search-submit-btn">
+                        <i className="fas fa-search"></i>
+                        <span>Find Courses</span>
+                      </button>
                     </div>
-                    
-                    <div className="hero-finder-field">
-                      <i className="fas fa-graduation-cap"></i>
-                      <select id="studyLevelHero" required>
-                        <option value="">Study Level</option>
-                        <option value="Bachelor">Bachelor's</option>
-                        <option value="Master">Master's</option>
-                        <option value="PhD">PhD</option>
-                      </select>
-                    </div>
-                    
-                    <div className="hero-finder-field">
-                      <i className="fas fa-euro-sign"></i>
-                      <select id="budgetHero" required>
-                        <option value="">Budget</option>
-                        <option value="0-5000">€0-5K</option>
-                        <option value="5000-15000">€5-15K</option>
-                        <option value="15000-30000">€15-30K</option>
-                        <option value="30000+">€30K+</option>
-                      </select>
-                    </div>
-                    
-                    <button type="submit" className="btn btn-accent hero-finder-btn">
-                      <i className="fas fa-search"></i>
-                      Find Course
-                    </button>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
               
               <div className="hero-stats">
