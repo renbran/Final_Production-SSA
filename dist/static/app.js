@@ -665,6 +665,7 @@ safeDOMReady(function() {
         { name: 'Form Handling', fn: initializeFormHandling },
         { name: 'Scroll Effects', fn: initializeScrollEffects },
         { name: 'Animations', fn: initializeAnimations },
+        { name: 'Cinematic Typewriter', fn: initializeCinematicTypewriter },
         { name: 'Analytics', fn: initializeAnalytics },
         { name: 'Chatbot', fn: initializeChatbot },
         { name: 'Newsletter', fn: initializeNewsletter },
@@ -2070,3 +2071,90 @@ window.createSafeMutationObserver = createSafeMutationObserver;
 window.handleError = handleError;
 window.toggleTestPrepCourses = toggleTestPrepCourses;
 window.initializeAnimationSystem = initializeAnimationSystem;
+
+// Cinematic Typewriter Effect for Hero Section
+function initializeCinematicTypewriter() {
+    console.log('🎬 Starting cinematic typewriter initialization...');
+    
+    const typewriterElement = document.getElementById('typewriter-text');
+    if (!typewriterElement) {
+        console.error('❌ Typewriter element not found');
+        return;
+    }
+
+    console.log('✅ Found typewriter element');
+
+    // Force visibility styles
+    typewriterElement.style.display = 'inline-block';
+    typewriterElement.style.visibility = 'visible';
+    typewriterElement.style.opacity = '1';
+    typewriterElement.style.color = '#1e3a8a'; // Primary color fallback
+
+    // Function to initialize Typed.js animation
+    function startTypedAnimation() {
+        if (typeof Typed !== 'undefined') {
+            console.log('� Starting Typed.js animation...');
+            
+            try {
+                // Clear existing content before starting animation
+                typewriterElement.innerHTML = '';
+                
+                // Create new Typed instance
+                const typed = new Typed('#typewriter-text', {
+                    strings: [
+                        'Your Dream <span class="text-accent">Study Abroad</span> Journey Starts Here',
+                        'Transform Your Future with <span class="text-accent">Global Education</span>',
+                        'Unlock World-Class Universities in <span class="text-accent">Europe & Beyond</span>',
+                        'Your Gateway to <span class="text-accent">International Success</span> Awaits'
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    backDelay: 2000,
+                    startDelay: 800,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|',
+                    contentType: 'html',
+                    smartBackspace: true,
+                    autoInsertCss: false
+                });
+                
+                console.log('✅ Typed.js animation started successfully');
+                return true;
+                
+            } catch (error) {
+                console.error('❌ Error initializing Typed.js:', error);
+                // Restore fallback text if Typed.js fails
+                typewriterElement.innerHTML = 'Your Dream <span class="text-accent">Study Abroad</span> Journey Starts Here';
+                return false;
+            }
+        } else {
+            console.log('⏳ Typed.js not yet available, keeping fallback text');
+            return false;
+        }
+    }
+
+    // Try immediate initialization
+    if (!attemptTypedInit()) {
+        // If immediate fails, try again after delays
+        setTimeout(() => {
+            console.log('🔄 Retry attempt 1...');
+            if (!attemptTypedInit()) {
+                setTimeout(() => {
+                    console.log('� Retry attempt 2...');
+                    attemptTypedInit();
+                }, 2000);
+            }
+        }, 1000);
+    }
+
+    // Ensure element visibility
+    typewriterElement.style.display = 'inline-block';
+    typewriterElement.style.visibility = 'visible';
+    typewriterElement.style.opacity = '1';
+    
+    console.log('🎬 Typewriter initialization process completed');
+}
+
+// Export the typewriter function
+window.initializeCinematicTypewriter = initializeCinematicTypewriter;

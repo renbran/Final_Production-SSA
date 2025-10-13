@@ -25,7 +25,7 @@ app.get('/', (c) => {
           <div className="hero-content">
             <div className="hero-text animate-on-scroll">
               <h1 className="hero-title">
-                Your Dream <span className="text-accent">Study Abroad</span> Journey Starts Here
+                <span id="typewriter-text">Your Dream Study Abroad Journey Starts Here</span>
               </h1>
               <p className="hero-subtitle">
                 Specializing in European Study Destinations with High Visa Success from UAE. Expert guidance for study visas, scholarships, university admissions, and IELTS/PTE preparation. 
@@ -798,11 +798,7 @@ app.get('/', (c) => {
             </div>
           </div>
           
-          <div className="test-prep-show-more">
-            <button id="showMoreTestPrep" className="btn btn-outline btn-large" onclick="toggleTestPrepCourses()">
-              <i className="fas fa-plus"></i> Show More Courses
-            </button>
-          </div>
+
 
           <div className="marketplace-cta">
             <p><i className="fas fa-gift"></i> <strong>Special Offer:</strong> Get 20% off when you enroll with our university admission package!</p>

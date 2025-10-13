@@ -58,6 +58,47 @@ export const renderer = jsxRenderer(({ children }) => {
         {/* Particles.js for Background Effects */}
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
         
+        {/* Typed.js for Typewriter Effect */}
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        
+        {/* Simple Text Animation */}
+        <script>
+          {`
+          // Ensure text is always visible
+          document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎬 Ensuring text visibility...');
+            
+            const element = document.getElementById('typewriter-text');
+            if (element) {
+              // Force visibility styles
+              element.style.display = 'inline-block';
+              element.style.visibility = 'visible';
+              element.style.opacity = '1';
+              element.style.color = '#1e3a8a';
+              element.style.fontWeight = '700';
+              element.style.background = 'none';
+              
+              // Ensure text content is always there
+              if (!element.innerHTML || element.innerHTML.trim() === '') {
+                element.innerHTML = 'Your Dream <span class="text-accent">Study Abroad</span> Journey Starts Here';
+              }
+              
+              console.log('✅ Text visibility ensured:', element.innerHTML);
+              
+              // Add simple fade-in animation
+              element.style.animation = 'fadeInUp 1s ease-out';
+              
+              // Optional: Add subtle text glow animation
+              setTimeout(function() {
+                element.classList.add('hero-text-glow');
+              }, 500);
+            } else {
+              console.error('❌ Typewriter element not found');
+            }
+          });
+          `}
+        </script>
+        
         {/* Schema.org */}
         <script type="application/ld+json">
           {JSON.stringify({
@@ -858,6 +899,50 @@ export const renderer = jsxRenderer(({ children }) => {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'GA_MEASUREMENT_ID');
+          `}
+        </script>
+        
+        {/* Backup Typewriter Initialization */}
+        <script>
+          {`
+          // Backup initialization after all scripts load
+          window.addEventListener('load', function() {
+            setTimeout(function() {
+              if (typeof window.initializeCinematicTypewriter === 'function') {
+                const typewriterElement = document.getElementById('typewriter-text');
+                if (typewriterElement && (!typewriterElement.innerHTML.trim() || typewriterElement.innerHTML === '')) {
+                  console.log('🔄 Running backup typewriter initialization...');
+                  window.initializeCinematicTypewriter();
+                }
+              } else {
+                console.log('⚠️ Typewriter function not available, trying manual initialization...');
+                const typewriterElement = document.getElementById('typewriter-text');
+                if (typewriterElement && !typewriterElement.innerHTML.trim()) {
+                  typewriterElement.innerHTML = 'Your Dream <span class="text-accent">Study Abroad</span> Journey Starts Here';
+                }
+              }
+            }, 1000);
+          });
+          `}
+        </script>
+        
+        {/* Immediate typewriter initialization */}
+        <script>
+          {`
+          // Immediate check and initialization
+          document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM loaded, checking typewriter...');
+            const element = document.getElementById('typewriter-text');
+            if (element) {
+              console.log('✅ Found typewriter element with content:', element.innerHTML);
+              if (!element.innerHTML.trim() || element.innerHTML === '') {
+                element.innerHTML = 'Your Dream <span class="text-accent">Study Abroad</span> Journey Starts Here';
+                console.log('🔧 Added emergency fallback text');
+              }
+            } else {
+              console.error('❌ Typewriter element not found in DOM');
+            }
+          });
           `}
         </script>
       </body>

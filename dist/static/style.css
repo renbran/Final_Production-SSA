@@ -1274,10 +1274,112 @@ a:hover {
   font-weight: 600;
   text-align: center;
   color: var(--primary-color);
+  min-height: 2.5em; /* Prevent layout shift during typewriter */
+}
+
+/* Hero Text - Always Visible with Simple Animation */
+#typewriter-text {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #1e3a8a !important;
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+  text-shadow: 0 3px 6px rgba(30, 58, 138, 0.3);
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  transition: all 0.3s ease;
+}
+
+/* Accent text styling */
+#typewriter-text .text-accent {
+  color: #f59e0b !important;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+}
+
+/* Simple fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional text glow effect */
+.hero-text-glow {
+  animation: subtleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes subtleGlow {
+  0% {
+    text-shadow: 0 3px 6px rgba(30, 58, 138, 0.3);
+  }
+  100% {
+    text-shadow: 0 3px 6px rgba(30, 58, 138, 0.3), 0 0 15px rgba(30, 58, 138, 0.2);
+  }
+}
+
+/* Enhanced cursor styling */
+.typed-cursor {
+  opacity: 1 !important;
+  color: #f59e0b !important;
+  font-weight: 800;
+  animation: typewriterBlink 1.2s infinite;
+  text-shadow: 0 0 8px #f59e0b;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+@keyframes typewriterBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Typewriter text animation */
+.typed-text-element {
+  animation: typewriterGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes typewriterGlow {
+  0% { text-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+  100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(245, 158, 11, 0.3); }
 }
 
 .text-accent {
-  color: var(--accent-color);
+  color: #f59e0b !important;
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  font-weight: 900;
+}
+
+/* Mobile optimizations for typewriter */
+@media (max-width: 768px) {
+  .hero-title {
+    min-height: 3em; /* More space on mobile for line breaks */
+    font-size: 2rem !important;
+  }
+  
+  #typewriter-text {
+    line-height: 1.2;
+  }
+  
+  .typed-cursor {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    min-height: 3.5em;
+    font-size: 1.75rem !important;
+  }
 }
 
 .hero-subtitle {
