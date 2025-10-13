@@ -9195,3 +9195,316 @@ a:not(.btn):hover::after {
     gap: 15px;
   }
 }
+
+/* ==============================================
+   PROGRESSIVE FORM OPTIMIZATION
+   ============================================== */
+
+/* Progressive Form Styles */
+.progressive-form {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--neutral-dark, #1f2937);
+  font-size: 0.875rem;
+}
+
+.progressive-form .form-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  min-height: 48px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.progressive-form .form-input:focus {
+  outline: none;
+  border-color: var(--secondary-color, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.progressive-form .form-input:invalid {
+  border-color: #ef4444;
+}
+
+.progressive-form .form-input[aria-invalid="true"] {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.progress-indicator {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color, #1e3a8a), var(--secondary-color, #3b82f6));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: var(--neutral-medium, #64748b);
+}
+
+/* Button enhancements for progressive forms */
+.progressive-form .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+.progressive-form .btn-primary {
+  background-color: var(--accent-color, #f59e0b);
+  color: white;
+}
+
+.progressive-form .btn-primary:hover {
+  background-color: #e08e0b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.progressive-form .btn-primary:focus {
+  outline: 3px solid rgba(245, 158, 11, 0.5);
+  outline-offset: 2px;
+}
+
+.progressive-form .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Mobile responsiveness for progressive forms */
+@media (max-width: 768px) {
+  .progressive-form {
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 0.75rem;
+  }
+  
+  .progressive-form .form-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .progressive-form h3 {
+    font-size: 1.5rem;
+  }
+  
+  .progressive-form .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==============================================
+   MOBILE-FIRST OPTIMIZATIONS
+   ============================================== */
+
+/* Mobile-first base styles override */
+body {
+  font-size: 16px; /* Prevent iOS zoom */
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header mobile optimization override */
+.header {
+  padding: 0.5rem 0;
+}
+
+.header-container {
+  padding: 0 1rem;
+}
+
+.logo img {
+  height: 40px; /* Mobile default */
+  max-width: 150px;
+}
+
+/* Navigation mobile enhancement */
+.mobile-menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  color: var(--neutral-dark, #1f2937);
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 999;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 0.75rem 0;
+  color: var(--neutral-dark);
+  text-decoration: none;
+  border-bottom: 1px solid #e5e7eb;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* Hero mobile optimization override */
+.hero {
+  padding: 6rem 1rem 3rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Tablet and desktop styles */
+@media (min-width: 768px) {
+  .logo img {
+    height: 50px;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex !important;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    gap: 2rem;
+  }
+  
+  .mobile-menu a {
+    border-bottom: none;
+    padding: 0;
+    min-height: auto;
+  }
+  
+  .hero {
+    padding: 6rem 2rem 3rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo img {
+    height: 60px;
+  }
+  
+  .hero {
+    padding: 8rem 2rem 4rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Touch targets (WCAG 2.2 AA) enhancement */
+a, button, input, select, textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Focus indicators enhancement */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 3px solid var(--secondary-color, #3b82f6);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support enhancement */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .btn:hover {
+    transform: none;
+  }
+  
+  .form-group.focused {
+    transform: none;
+  }
+}

@@ -5,7 +5,25 @@ export const renderer = jsxRenderer(({ children }) => {
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        
+        {/* DNS prefetch for external domains */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+        
+        {/* Preconnect to critical external resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload critical resources */}
+        <link rel="preload" href="/static/style.css" as="style" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" />
+        
         <title>SCHOLARIX - Study Abroad Consultants | Visa, Admission &amp; IELTS</title>
         <meta name="description" content="Expert study abroad guidance for students. Get support for study visas, university admissions, scholarships, and IELTS/PTE preparation. 99% visa success rate. Book free consultation today!" />
         <meta name="keywords" content="study abroad, student visa, university admission, scholarships, IELTS, PTE, career counselling, international education" />
@@ -33,15 +51,489 @@ export const renderer = jsxRenderer(({ children }) => {
         <link rel="icon" type="image/png" href="/static/images/scholarix-logo-icon-hd.png" />
         <link rel="apple-touch-icon" href="/static/images/scholarix-logo-icon-hd.png" />
         
-        {/* Fonts */}
+        {/* Critical CSS inline - Above-the-fold performance optimization */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            :root {
+              --primary-color: #1e3a8a;
+              --secondary-color: #3b82f6;
+              --accent-color: #f59e0b;
+              --neutral-light: #f1f5f9;
+              --neutral-medium: #64748b;
+              --neutral-dark: #1f2937;
+            }
+            
+            * {
+              box-sizing: border-box;
+            }
+            
+            html {
+              scroll-behavior: smooth;
+              overflow-x: hidden;
+              width: 100%;
+              height: 100%;
+            }
+            
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+              line-height: 1.6;
+              color: #1f2937;
+              font-size: 16px;
+              width: 100%;
+              min-height: 100vh;
+              overflow-x: hidden;
+              position: relative;
+              -webkit-text-size-adjust: 100%;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              -webkit-overflow-scrolling: touch;
+              zoom: 1;
+            }
+            
+            /* Prevent zoom on iOS */
+            input, select, textarea, button {
+              font-size: 16px !important;
+              -webkit-appearance: none;
+              border-radius: 0;
+            }
+            
+            .header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              z-index: 1000;
+              background: rgba(255, 255, 255, 0.95);
+              backdrop-filter: blur(10px);
+              padding: 0.5rem 0;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            
+            .header-container {
+              padding: 0 1rem;
+              max-width: 1200px;
+              margin: 0 auto;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+            
+            .logo img {
+              height: 40px;
+              width: auto;
+              max-width: 150px;
+            }
+            
+            @media (min-width: 768px) {
+              .logo img { height: 50px; }
+              .header { padding: 0.75rem 0; }
+              .header-container { padding: 0 2rem; }
+            }
+            
+            @media (min-width: 1024px) {
+              .logo img { height: 60px; }
+            }
+            
+            .hero {
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+              color: white;
+              padding: 6rem 1rem 3rem;
+              text-align: center;
+            }
+            
+            .hero-content h1 {
+              font-size: 2rem;
+              line-height: 1.2;
+              margin-bottom: 1rem;
+              font-weight: 700;
+            }
+            
+            @media (min-width: 768px) {
+              .hero {
+                padding: 6rem 2rem 3rem;
+                text-align: left;
+              }
+              .hero-content h1 { font-size: 3rem; }
+            }
+            
+            @media (min-width: 1024px) {
+              .hero { padding: 8rem 2rem 4rem; }
+              .hero-content h1 { font-size: 3.5rem; }
+            }
+            
+            .btn-primary {
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5rem;
+              padding: 0.875rem 2rem;
+              background-color: var(--accent-color);
+              color: white;
+              text-decoration: none;
+              border-radius: 0.5rem;
+              font-weight: 600;
+              min-height: 48px;
+              min-width: 48px;
+              transition: all 0.2s ease;
+              border: none;
+              cursor: pointer;
+              font-size: 1rem;
+            }
+            
+            .btn-primary:hover {
+              background-color: #e08e0b;
+              transform: translateY(-1px);
+              box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+            }
+            
+            .btn-primary:focus {
+              outline: 3px solid rgba(245, 158, 11, 0.5);
+              outline-offset: 2px;
+            }
+            
+            /* Enhanced Interactive Form Styles */
+            .form-group {
+              position: relative;
+              margin-bottom: 1.5rem;
+            }
+            
+            .form-input, .form-select, .form-textarea {
+              width: 100%;
+              padding: 1rem 1rem 1rem 3rem;
+              border: 2px solid #e5e7eb;
+              border-radius: 0.75rem;
+              font-size: 16px;
+              min-height: 56px;
+              font-family: inherit;
+              background: #fafbfc;
+              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+              position: relative;
+              z-index: 2;
+            }
+            
+            .form-input:focus, .form-select:focus, .form-textarea:focus {
+              outline: none;
+              border-color: var(--secondary-color);
+              background: #ffffff;
+              box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), 0 8px 25px rgba(59, 130, 246, 0.15);
+              transform: translateY(-2px);
+            }
+            
+            .form-input:valid, .form-select:valid, .form-textarea:valid {
+              border-color: #10b981;
+              background: #f0fdf4;
+            }
+            
+            .form-input:invalid:not(:placeholder-shown) {
+              border-color: #ef4444;
+              background: #fef2f2;
+            }
+            
+            .form-label {
+              position: absolute;
+              left: 3rem;
+              top: 50%;
+              transform: translateY(-50%);
+              font-size: 16px;
+              color: #6b7280;
+              transition: all 0.3s ease;
+              pointer-events: none;
+              z-index: 1;
+            }
+            
+            .form-input:focus + .form-label,
+            .form-input:not(:placeholder-shown) + .form-label {
+              top: -0.5rem;
+              left: 1rem;
+              font-size: 12px;
+              color: var(--secondary-color);
+              background: white;
+              padding: 0 0.5rem;
+            }
+            
+            .form-icon {
+              position: absolute;
+              left: 1rem;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #9ca3af;
+              font-size: 1.125rem;
+              z-index: 3;
+              transition: color 0.3s ease;
+            }
+            
+            .form-group:focus-within .form-icon {
+              color: var(--secondary-color);
+            }
+            
+            .form-validation {
+              position: absolute;
+              right: 1rem;
+              top: 50%;
+              transform: translateY(-50%);
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
+            
+            .form-input:valid + .form-label + .form-validation .success-icon {
+              opacity: 1;
+              color: #10b981;
+            }
+            
+            .form-input:invalid:not(:placeholder-shown) + .form-label + .form-validation .error-icon {
+              opacity: 1;
+              color: #ef4444;
+            }
+            
+            .form-help-text {
+              font-size: 0.875rem;
+              color: #6b7280;
+              margin-top: 0.5rem;
+              padding-left: 3rem;
+              transition: color 0.3s ease;
+            }
+            
+            .form-group:focus-within .form-help-text {
+              color: var(--secondary-color);
+            }
+            
+            /* Touch targets (WCAG 2.2 AA) */
+            a, button, input, select, textarea {
+              min-height: 44px;
+              min-width: 44px;
+            }
+            
+            /* Focus indicators */
+            a:focus, button:focus, input:focus, select:focus, textarea:focus {
+              outline: 3px solid var(--secondary-color);
+              outline-offset: 2px;
+            }
+            
+            /* Enhanced Form Animations */
+            @keyframes slideInRight {
+              from {
+                opacity: 0;
+                transform: translateX(30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+            
+            @keyframes slideInLeft {
+              from {
+                opacity: 0;
+                transform: translateX(-30px);
+              }
+              to {
+                opacity: 1;
+                transform: translateX(0);
+              }
+            }
+            
+            @keyframes shake {
+              0%, 100% { transform: translateX(0); }
+              25% { transform: translateX(-5px); }
+              75% { transform: translateX(5px); }
+            }
+            
+            @keyframes pulse {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.7; }
+            }
+            
+            .slide-in-right {
+              animation: slideInRight 0.3s ease-out;
+            }
+            
+            .slide-in-left {
+              animation: slideInLeft 0.3s ease-out;
+            }
+            
+            .form-step {
+              transition: all 0.3s ease;
+            }
+            
+            .field-error {
+              color: #ef4444;
+              font-size: 0.875rem;
+              margin-top: 0.25rem;
+              padding-left: 3rem;
+              animation: slideInRight 0.3s ease-out;
+            }
+            
+            .form-input.error, .form-select.error, .form-textarea.error {
+              border-color: #ef4444 !important;
+              background: #fef2f2 !important;
+              box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+            }
+            
+            /* Enhanced Progress Indicators */
+            .step-indicator {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-bottom: 2rem;
+            }
+            
+            .step {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              background: #e5e7eb;
+              color: #6b7280;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 600;
+              transition: all 0.3s ease;
+              position: relative;
+            }
+            
+            .step.active {
+              background: var(--secondary-color);
+              color: white;
+              transform: scale(1.1);
+              box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            }
+            
+            .step.completed {
+              background: #10b981;
+              color: white;
+            }
+            
+            .step.completed::after {
+              content: '✓';
+              position: absolute;
+            }
+            
+            .progress-line {
+              height: 2px;
+              background: #e5e7eb;
+              flex: 1;
+              margin: 0 0.5rem;
+              position: relative;
+              overflow: hidden;
+            }
+            
+            .progress-fill {
+              height: 100%;
+              background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+              transition: width 0.5s ease;
+              position: relative;
+            }
+            
+            .progress-fill::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+              animation: shimmer 2s infinite;
+            }
+            
+            @keyframes shimmer {
+              0% { transform: translateX(-100%); }
+              100% { transform: translateX(100%); }
+            }
+            
+            /* Responsive Enhancements */
+            @media (max-width: 768px) {
+              .form-input, .form-select, .form-textarea {
+                padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+                font-size: 16px;
+              }
+              
+              .form-label {
+                left: 2.5rem;
+                font-size: 15px;
+              }
+              
+              .form-icon {
+                left: 0.75rem;
+                font-size: 1rem;
+              }
+              
+              .form-help-text {
+                padding-left: 2.5rem;
+                font-size: 0.8rem;
+              }
+              
+              .step {
+                width: 28px;
+                height: 28px;
+                font-size: 0.875rem;
+              }
+            }
+            
+            /* Globe Container Responsive */
+            .interactive-globe {
+              width: 100% !important;
+              max-width: 100% !important;
+              height: auto !important;
+              min-height: 400px;
+              max-height: 600px;
+            }
+            
+            @media (max-width: 768px) {
+              .interactive-globe {
+                min-height: 300px;
+                max-height: 400px;
+              }
+            }
+            
+            /* Prevent zoom on mobile forms */
+            @media screen and (max-width: 768px) {
+              input[type="text"],
+              input[type="email"],
+              input[type="tel"],
+              input[type="password"],
+              select,
+              textarea {
+                font-size: 16px !important;
+                transform: scale(1);
+              }
+            }
+            
+            /* Full viewport lock */
+            .viewport-lock {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100vw;
+              height: 100vh;
+              overflow: hidden;
+            }
+            
+            /* Reduced motion support */
+            @media (prefers-reduced-motion: reduce) {
+              * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+              }
+            }
+          `
+        }} />
+        
+        {/* Fonts - Load asynchronously after critical CSS */}
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         
-        {/* Icons */}
+        {/* Icons - Load asynchronously */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         
         {/* Styles */}
         <link href="/static/style.css" rel="stylesheet" />
         <link href="/static/enhanced-styles.css" rel="stylesheet" />
+        <link href="/static/enhanced-forms.css" rel="stylesheet" />
+        <link href="/static/interactive-planner.css" rel="stylesheet" />
         <link href="/static/enhanced-loader-3d.css" rel="stylesheet" />
         <link href="/static/course-finder.css" rel="stylesheet" />
         
@@ -159,7 +651,7 @@ export const renderer = jsxRenderer(({ children }) => {
               </div>
               
               <div className="nav-actions">
-                <a href="https://scholarixstudy.com" target="_blank" className="nav-employee-btn">
+                <a href="https://scholarixstudy.com" target="_blank" rel="noopener noreferrer" className="nav-employee-btn">
                   Employee Login
                 </a>
                 <button className="nav-cta-btn" onclick="openConsultationModal()">
@@ -280,6 +772,8 @@ export const renderer = jsxRenderer(({ children }) => {
 
         {/* Scripts */}
         <script src="/static/app.js" defer></script>
+        <script src="/static/enhanced-forms.js" defer></script>
+        <script src="/static/interactive-planner.js" defer></script>
         <script src="/static/enhanced-animations.js"></script>
         <script src="/static/study-abroad-3d.js"></script>
         <script src="/static/interactive-globe.js" defer></script>
@@ -289,9 +783,63 @@ export const renderer = jsxRenderer(({ children }) => {
         {/* Jotform Chatbot */}
         <script src="https://cdn.jotfor.ms/agent/embedjs/01998a5c603976e5940cc26a09b91e250511/embed.js"></script>
         
-        {/* Mobile Navigation JavaScript */}
+        {/* Viewport and Zoom Control */}
         <script>
           {`
+          // Prevent zoom and maintain responsive behavior
+          (function() {
+            // Disable zoom on iOS Safari
+            document.addEventListener('touchstart', function(event) {
+              if (event.touches.length > 1) {
+                event.preventDefault();
+              }
+            }, { passive: false });
+            
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+              const now = (new Date()).getTime();
+              if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+              }
+              lastTouchEnd = now;
+            }, false);
+            
+            // Prevent zoom with keyboard
+            document.addEventListener('keydown', function(event) {
+              if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '0')) {
+                event.preventDefault();
+              }
+            });
+            
+            // Force responsive behavior
+            function enforceResponsiveView() {
+              const viewport = document.querySelector('meta[name="viewport"]');
+              if (viewport) {
+                viewport.setAttribute('content', 
+                  'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover'
+                );
+              }
+              
+              // Reset any zoom
+              if (window.outerWidth && window.innerWidth) {
+                const zoomLevel = Math.round((window.outerWidth / window.innerWidth) * 100) / 100;
+                if (zoomLevel !== 1) {
+                  document.body.style.zoom = '1';
+                  document.documentElement.style.zoom = '1';
+                }
+              }
+            }
+            
+            // Run on load and resize
+            window.addEventListener('load', enforceResponsiveView);
+            window.addEventListener('resize', enforceResponsiveView);
+            window.addEventListener('orientationchange', function() {
+              setTimeout(enforceResponsiveView, 100);
+            });
+            
+            enforceResponsiveView();
+          })();
+          
           // Mobile Navigation Toggle
           document.addEventListener('DOMContentLoaded', function() {
             const navToggle = document.getElementById('navToggle');
@@ -754,14 +1302,59 @@ export const renderer = jsxRenderer(({ children }) => {
               if (!globe) return;
               
               const currentPov = globe.pointOfView();
-              const newAltitude = Math.max(1.5, Math.min(5, currentPov.altitude * factor));
+              const newAltitude = Math.max(1.2, Math.min(4, currentPov.altitude * factor));
               
               globe.pointOfView({
                 lat: currentPov.lat,
                 lng: currentPov.lng,
                 altitude: newAltitude
-              }, 300);
+              }, 400);
+              
+              // Auto-fit to screen after zoom
+              setTimeout(() => {
+                if (globe) {
+                  const container = document.getElementById('interactive-globe');
+                  if (container) {
+                    const rect = container.getBoundingClientRect();
+                    globe.width(rect.width).height(Math.min(rect.height, 600));
+                  }
+                }
+              }, 450);
             };
+            
+            // Enhanced responsive globe resizing
+            window.resetGlobeView = function() {
+              if (!globe) return;
+              
+              // Reset to optimal view
+              globe.pointOfView({ lat: 20, lng: 0, altitude: 2.2 }, 1000);
+              
+              // Adjust size to container
+              setTimeout(() => {
+                const container = document.getElementById('interactive-globe');
+                if (container && globe) {
+                  const rect = container.getBoundingClientRect();
+                  const optimalHeight = Math.min(window.innerHeight * 0.6, 600);
+                  globe.width(rect.width).height(optimalHeight);
+                }
+              }, 100);
+            };
+            
+            // Auto-resize globe on window resize
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+              clearTimeout(resizeTimeout);
+              resizeTimeout = setTimeout(() => {
+                if (globe) {
+                  const container = document.getElementById('interactive-globe');
+                  if (container) {
+                    const rect = container.getBoundingClientRect();
+                    const optimalHeight = Math.min(window.innerHeight * 0.6, 600);
+                    globe.width(rect.width).height(optimalHeight);
+                  }
+                }
+              }, 100);
+            });
 
             window.showDestinationModal = function(countryId) {
               const country = studyDestinations.find(dest => dest.id === countryId);
@@ -945,6 +1538,302 @@ export const renderer = jsxRenderer(({ children }) => {
           });
           `}
         </script>
+        
+        {/* Performance monitoring script */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Critical performance monitoring
+            if ('PerformanceObserver' in window) {
+              const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                  if (entry.entryType === 'largest-contentful-paint') {
+                    console.log('🎯 LCP:', entry.startTime.toFixed(2) + 'ms');
+                  }
+                  if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+                    console.log('📐 CLS:', entry.value.toFixed(4));
+                  }
+                  if (entry.entryType === 'first-contentful-paint') {
+                    console.log('⚡ FCP:', entry.startTime.toFixed(2) + 'ms');
+                  }
+                }
+              });
+              
+              try {
+                observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift', 'first-contentful-paint'] });
+                console.log('🔍 Performance monitoring active');
+              } catch (e) {
+                console.log('⚠️ Performance monitoring not supported');
+              }
+            }
+            
+            // Enhanced Progressive Form System
+            document.addEventListener('DOMContentLoaded', function() {
+              console.log('🚀 Initializing enhanced progressive form system...');
+              
+              // Initialize all progressive forms
+              const forms = document.querySelectorAll('.progressive-form');
+              forms.forEach(initializeProgressiveForm);
+              
+              // Initialize enhanced form inputs
+              initializeEnhancedInputs();
+              
+              function initializeProgressiveForm(form) {
+                const steps = form.querySelectorAll('.form-step');
+                const nextButtons = form.querySelectorAll('[data-next-step], .btn-next-step');
+                const prevButtons = form.querySelectorAll('[data-prev-step], .btn-prev-step');
+                let currentStep = 0;
+                
+                function showStep(n, direction = 'forward') {
+                  if (n < 0 || n >= steps.length) return;
+                  
+                  steps.forEach((step, index) => {
+                    step.classList.remove('active', 'slide-in-right', 'slide-in-left');
+                    
+                    if (index === n) {
+                      step.style.display = 'block';
+                      setTimeout(() => {
+                        step.classList.add('active');
+                        if (direction === 'forward') {
+                          step.classList.add('slide-in-right');
+                        } else {
+                          step.classList.add('slide-in-left');
+                        }
+                      }, 10);
+                    } else {
+                      setTimeout(() => {
+                        step.style.display = 'none';
+                      }, 300);
+                    }
+                  });
+                  
+                  updateProgressIndicator(n, steps.length);
+                  currentStep = n;
+                  
+                  // Focus first input in new step
+                  setTimeout(() => {
+                    const firstInput = steps[n].querySelector('input, select, textarea');
+                    if (firstInput) firstInput.focus();
+                  }, 350);
+                }
+                
+                function updateProgressIndicator(step, total) {
+                  const progressFill = form.querySelector('.progress-fill');
+                  const progressText = form.querySelector('.progress-indicator, .progress-text');
+                  const stepIndicators = form.querySelectorAll('.step-indicator .step');
+                  
+                  if (progressFill) {
+                    const progress = ((step + 1) / total) * 100;
+                    progressFill.style.width = progress + '%';
+                  }
+                  
+                  if (progressText) {
+                    progressText.textContent = 'Step ' + (step + 1) + ' of ' + total;
+                  }
+                  
+                  // Update step indicators
+                  stepIndicators.forEach((indicator, index) => {
+                    indicator.classList.remove('active', 'completed');
+                    if (index === step) {
+                      indicator.classList.add('active');
+                    } else if (index < step) {
+                      indicator.classList.add('completed');
+                    }
+                  });
+                }
+                
+                // Initialize first step
+                showStep(0);
+                
+                // Handle next buttons
+                nextButtons.forEach(button => {
+                  button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const currentStepElement = steps[currentStep];
+                    if (validateStep(currentStepElement)) {
+                      if (currentStep < steps.length - 1) {
+                        showStep(currentStep + 1, 'forward');
+                        
+                        // Track step completion
+                        if (typeof gtag !== 'undefined') {
+                          gtag('event', 'form_step_completed', {
+                            step_number: currentStep + 1,
+                            form_name: form.id || 'progressive_form'
+                          });
+                        }
+                      }
+                    }
+                  });
+                });
+                
+                // Handle previous buttons
+                prevButtons.forEach(button => {
+                  button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (currentStep > 0) {
+                      showStep(currentStep - 1, 'backward');
+                    }
+                  });
+                });
+                
+                console.log('✅ Progressive form initialized with', steps.length, 'steps');
+              }
+              
+              function validateStep(stepElement) {
+                const requiredFields = stepElement.querySelectorAll('[required]');
+                let isValid = true;
+                let firstInvalidField = null;
+                
+                requiredFields.forEach(field => {
+                  const isFieldValid = validateField(field);
+                  if (!isFieldValid && !firstInvalidField) {
+                    firstInvalidField = field;
+                  }
+                  isValid = isValid && isFieldValid;
+                });
+                
+                if (!isValid && firstInvalidField) {
+                  firstInvalidField.focus();
+                  showFieldError(firstInvalidField, 'This field is required');
+                }
+                
+                return isValid;
+              }
+              
+              function validateField(field) {
+                const value = field.value.trim();
+                const fieldType = field.type;
+                const fieldName = field.name;
+                
+                // Basic required validation
+                if (field.hasAttribute('required') && !value) {
+                  return false;
+                }
+                
+                // Email validation
+                if (fieldType === 'email' && value) {
+                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  if (!emailRegex.test(value)) {
+                    showFieldError(field, 'Please enter a valid email address');
+                    return false;
+                  }
+                }
+                
+                // Phone validation
+                if (fieldType === 'tel' && value) {
+                  const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+                  if (!phoneRegex.test(value)) {
+                    showFieldError(field, 'Please enter a valid phone number');
+                    return false;
+                  }
+                }
+                
+                // Name validation
+                if (fieldName === 'fullName' && value) {
+                  if (value.length < 2) {
+                    showFieldError(field, 'Name must be at least 2 characters');
+                    return false;
+                  }
+                }
+                
+                clearFieldError(field);
+                return true;
+              }
+              
+              function showFieldError(field, message) {
+                field.classList.add('error');
+                field.setAttribute('aria-invalid', 'true');
+                
+                // Remove existing error message
+                const existingError = field.parentNode.querySelector('.field-error');
+                if (existingError) {
+                  existingError.remove();
+                }
+                
+                // Add new error message
+                const errorElement = document.createElement('div');
+                errorElement.className = 'field-error';
+                errorElement.textContent = message;
+                field.parentNode.appendChild(errorElement);
+                
+                // Add shake animation
+                field.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                  field.style.animation = '';
+                }, 500);
+              }
+              
+              function clearFieldError(field) {
+                field.classList.remove('error');
+                field.setAttribute('aria-invalid', 'false');
+                
+                const errorElement = field.parentNode.querySelector('.field-error');
+                if (errorElement) {
+                  errorElement.remove();
+                }
+              }
+              
+              function initializeEnhancedInputs() {
+                // Add floating label behavior
+                const formInputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+                
+                formInputs.forEach(input => {
+                  // Real-time validation
+                  input.addEventListener('blur', function() {
+                    validateField(this);
+                  });
+                  
+                  // Clear errors on focus
+                  input.addEventListener('focus', function() {
+                    clearFieldError(this);
+                  });
+                  
+                  // Auto-format phone numbers
+                  if (input.type === 'tel') {
+                    input.addEventListener('input', function() {
+                      let value = this.value.replace(/\D/g, '');
+                      if (value.length > 0) {
+                        if (value.length <= 3) {
+                          value = value;
+                        } else if (value.length <= 6) {
+                          value = value.slice(0, 3) + ' ' + value.slice(3);
+                        } else if (value.length <= 10) {
+                          value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6);
+                        } else {
+                          value = value.slice(0, 3) + ' ' + value.slice(3, 6) + ' ' + value.slice(6, 10);
+                        }
+                      }
+                      this.value = value;
+                    });
+                  }
+                  
+                  // Auto-capitalize names
+                  if (input.name === 'fullName' || input.name === 'firstName' || input.name === 'lastName') {
+                    input.addEventListener('input', function() {
+                      this.value = this.value.replace(/\b\w/g, l => l.toUpperCase());
+                    });
+                  }
+                });
+                
+                console.log('✅ Enhanced input behaviors initialized');
+              }
+            });
+            
+            // Preload next page resources on hover
+            let preloadedLinks = new Set();
+            document.addEventListener('mouseover', function(e) {
+              const link = e.target.closest('a[href]');
+              if (link && link.hostname === location.hostname && !preloadedLinks.has(link.href)) {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'prefetch';
+                preloadLink.href = link.href;
+                document.head.appendChild(preloadLink);
+                preloadedLinks.add(link.href);
+                console.log('🔮 Prefetched:', link.href);
+              }
+            }, { passive: true });
+          `
+        }} />
       </body>
     </html>
   )
