@@ -14,7 +14,12 @@
     "git:init": "git init && git add . && git commit -m 'Initial commit'",
     "git:commit": "git add . && git commit -m",
     "git:status": "git status",
-    "git:log": "git log --oneline"
+    "git:log": "git log --oneline",
+    "optimize:images": "node scripts/optimize-images.js",
+    "audit:performance": "node scripts/performance-audit.js",
+    "audit:lighthouse": "lighthouse https://scholarixstudy.com --only-categories=performance,accessibility --form-factor=mobile --output=html --output-path=./mobile-audit.html",
+    "optimize:all": "npm run optimize:images && npm run build && npm run audit:performance",
+    "setup:optimization": "npm install --save-dev sharp glob"
   },
   "dependencies": {
     "aos": "^2.3.4",
