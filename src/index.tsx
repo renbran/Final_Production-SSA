@@ -806,110 +806,6 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Fee Structure Section */}
-      <section className="fee-structure-section">
-        <div className="container">
-          <div className="section-header animate-on-scroll">
-            <div className="badge">💰 Transparent Pricing</div>
-            <h2>Our Fee Structure</h2>
-            <p>Clear, affordable pricing with no hidden costs - Pay after guaranteed admission!</p>
-          </div>
-          <div className="fee-structure-content">
-            <div className="fee-highlight animate-on-scroll">
-              <div className="discount-banner">
-                <span className="old-fee">AED 5,000</span>
-                <span className="arrow">→</span>
-                <span className="new-fee">AED 2,500</span>
-                <div className="discount-badge">50% OFF</div>
-              </div>
-              <h3>Limited Time Offer - Total Service Fee</h3>
-            </div>
-
-            <div className="payment-timeline animate-on-scroll">
-              <div className="timeline-step">
-                <div className="step-number">1</div>
-                <div className="step-content">
-                  <h4>Free Consultation</h4>
-                  <p className="step-price">AED 0</p>
-                  <p>Initial assessment, course selection, university recommendations</p>
-                </div>
-              </div>
-
-              <div className="timeline-connector"></div>
-
-              <div className="timeline-step highlight">
-                <div className="step-number">2</div>
-                <div className="step-content">
-                  <h4>100% Guaranteed Admission</h4>
-                  <p className="step-price">AED 1,500</p>
-                  <p>Pay only after receiving your admission letter with our 100% guarantee</p>
-                </div>
-              </div>
-
-              <div className="timeline-connector"></div>
-
-              <div className="timeline-step">
-                <div className="step-number">3</div>
-                <div className="step-content">
-                  <h4>After Visa Approval</h4>
-                  <p className="step-price">AED 1,000</p>
-                  <p>Final payment after your student visa is successfully approved</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="fee-inclusions animate-on-scroll">
-              <h3>What's Included in Your Package</h3>
-              <div className="inclusions-grid">
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>University Selection & Applications</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Document Preparation & Review</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Visa Application Support</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Scholarship Assistance</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Interview Preparation</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Pre/Post Departure Support</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Accommodation Assistance</span>
-                </div>
-                <div className="inclusion-item">
-                  <i className="fas fa-check-circle"></i>
-                  <span>Ongoing Support & Guidance</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="fee-cta animate-on-scroll">
-              <button className="btn btn-accent btn-large" onclick="openConsultationModal()">
-                <i className="fas fa-calendar-check"></i>
-                Start with Free Consultation
-              </button>
-              <p className="guarantee-text">
-                <i className="fas fa-shield-alt"></i>
-                <strong>100% Money-Back Guarantee</strong> - If we don't get you admitted, you pay nothing!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials Section */}
       <section className="testimonials-section">
         <div className="container">
@@ -1001,149 +897,255 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Mobile-Optimized Contact Form Section */}
       <section className="contact-form-section" id="contact-form">
         <div className="container">
-          <div className="form-container">
-            <div className="form-content">
-              <h2>Get Your Free Consultation</h2>
-              <p>Fill out this form and our experts will contact you within 24 hours</p>
-              {/* Progressive Form - Simplified 3 Fields */}
+          <div className="section-header mobile-centered">
+            <div className="badge mobile-badge">
+              <i className="fas fa-headset"></i> Free Consultation
+            </div>
+            <h2 className="mobile-title">Get Your Free Consultation</h2>
+            <p className="mobile-subtitle">Fill out this form and our experts will contact you within 24 hours</p>
+          </div>
+
+          <div className="mobile-form-layout">
+            {/* Mobile-First Form */}
+            <div className="mobile-form-card">
               <div className="progressive-form-container">
-                <form action="https://formspree.io/f/xyzgkjad" method="post" className="progressive-form" id="leadForm">
+                <form action="https://formspree.io/f/xyzgkjad" method="post" className="mobile-progressive-form" id="mobileLeadForm">
                   <input type="hidden" name="_subject" value="New SCHOLARIX Consultation Request" />
                   <input type="hidden" name="_next" value="https://scholarixstudy.com/thank-you" />
                   
-                  <div className="form-step active" id="step1">
-                    <div className="step-progress">
-                      <div className="progress-indicator">Step 1 of 2</div>
-                      <div className="progress-bar">
-                        <div className="progress-fill" style={{width: '50%'}}></div>
+                  {/* Step 1 - Basic Information */}
+                  <div className="mobile-form-step active" id="mobileStep1">
+                    <div className="mobile-step-header">
+                      <div className="step-indicator-mobile">
+                        <div className="step-number active">1</div>
+                        <div className="step-divider"></div>
+                        <div className="step-number">2</div>
+                      </div>
+                      <div className="step-title">Basic Information</div>
+                      <div className="mobile-progress-bar">
+                        <div className="mobile-progress-fill" style={{width: '50%'}}></div>
                       </div>
                     </div>
                     
-                    <div className="form-fields">
-                      <div className="form-group">
-                        <input type="text" name="fullName" placeholder="Full Name*" required />
+                    <div className="mobile-form-fields">
+                      <div className="mobile-input-group">
+                        <label className="mobile-label">
+                          <i className="fas fa-user input-icon"></i>
+                          Full Name *
+                        </label>
+                        <input type="text" name="fullName" className="mobile-input" placeholder="Enter your full name" required />
                       </div>
                       
-                      <div className="form-group">
-                        <input type="email" name="email" placeholder="Email Address*" required />
+                      <div className="mobile-input-group">
+                        <label className="mobile-label">
+                          <i className="fas fa-envelope input-icon"></i>
+                          Email Address *
+                        </label>
+                        <input type="email" name="email" className="mobile-input" placeholder="your.email@example.com" required />
                       </div>
                       
-                      <div className="form-group">
-                        <div className="phone-input-wrapper">
-                          <select name="countryCode" className="country-code-select" required>
+                      <div className="mobile-input-group">
+                        <label className="mobile-label">
+                          <i className="fas fa-phone input-icon"></i>
+                          Phone Number *
+                        </label>
+                        <div className="mobile-phone-wrapper">
+                          <select name="countryCode" className="mobile-country-select" required>
                             <option value="+971">🇦🇪 +971</option>
                             <option value="+1">🇺🇸 +1</option>
                             <option value="+44">🇬🇧 +44</option>
-                            <option value="+91">�� +91</option>
-                            <option value="+92">�� +92</option>
+                            <option value="+91">🇮🇳 +91</option>
+                            <option value="+92">🇵🇰 +92</option>
+                            <option value="+966">🇸🇦 +966</option>
+                            <option value="+974">🇶🇦 +974</option>
                           </select>
-                          <input type="tel" name="phone" placeholder="Phone Number*" required />
+                          <input type="tel" name="phone" className="mobile-phone-input" placeholder="50 123 4567" required />
                         </div>
                       </div>
                     </div>
                     
-                    <button type="button" className="btn btn-primary btn-large" onclick="showStep2()">
+                    <button type="button" className="mobile-next-btn" onclick="showMobileStep2()">
+                      <span>Continue</span>
                       <i className="fas fa-arrow-right"></i>
-                      Get Started
                     </button>
                     
-                    <div className="trust-indicators">
-                      <div className="trust-item">
+                    <div className="mobile-trust-indicators">
+                      <div className="mobile-trust-item">
                         <i className="fas fa-shield-alt"></i>
-                        <span>Secure & Confidential</span>
+                        <span>100% Secure</span>
                       </div>
-                      <div className="trust-item">
+                      <div className="mobile-trust-item">
                         <i className="fas fa-clock"></i>
-                        <span>Response in 24 hours</span>
+                        <span>24h Response</span>
+                      </div>
+                      <div className="mobile-trust-item">
+                        <i className="fas fa-award"></i>
+                        <span>Expert Guidance</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="form-step" id="step2" style={{display: 'none'}}>
-                    <div className="step-progress">
-                      <div className="progress-indicator">Step 2 of 2</div>
-                      <div className="progress-bar">
-                        <div className="progress-fill" style={{width: '100%'}}></div>
+                  {/* Step 2 - Study Preferences */}
+                  <div className="mobile-form-step" id="mobileStep2" style={{display: 'none'}}>
+                    <div className="mobile-step-header">
+                      <div className="step-indicator-mobile">
+                        <div className="step-number completed">1</div>
+                        <div className="step-divider active"></div>
+                        <div className="step-number active">2</div>
+                      </div>
+                      <div className="step-title">Study Preferences</div>
+                      <div className="mobile-progress-bar">
+                        <div className="mobile-progress-fill" style={{width: '100%'}}></div>
                       </div>
                     </div>
                     
-                    <div className="form-fields">
-                      <div className="form-group">
-                        <select name="destination" required>
-                          <option value="">Preferred Destination*</option>
+                    <div className="mobile-form-fields">
+                      <div className="mobile-input-group">
+                        <label className="mobile-label">
+                          <i className="fas fa-globe input-icon"></i>
+                          Preferred Destination *
+                        </label>
+                        <select name="destination" className="mobile-select" required>
+                          <option value="">Select your destination</option>
                           <option value="germany">🇩🇪 Germany</option>
                           <option value="canada">🇨🇦 Canada</option>
                           <option value="uk">🇬🇧 United Kingdom</option>
                           <option value="ireland">🇮🇪 Ireland</option>
                           <option value="australia">🇦🇺 Australia</option>
                           <option value="france">🇫🇷 France</option>
+                          <option value="usa">🇺🇸 United States</option>
+                          <option value="malta">🇲🇹 Malta</option>
                         </select>
                       </div>
                       
-                      <div className="form-group">
-                        <select name="studyLevel" required>
-                          <option value="">Study Level*</option>
+                      <div className="mobile-input-group">
+                        <label className="mobile-label">
+                          <i className="fas fa-graduation-cap input-icon"></i>
+                          Study Level *
+                        </label>
+                        <select name="studyLevel" className="mobile-select" required>
+                          <option value="">Select study level</option>
                           <option value="bachelor">Bachelor's Degree</option>
                           <option value="master">Master's Degree</option>
                           <option value="phd">PhD/Research</option>
+                          <option value="diploma">Diploma/Certificate</option>
+                          <option value="foundation">Foundation Course</option>
                         </select>
                       </div>
                       
-                      <div className="form-group">
-                        <select name="timeline" required>
-                          <option value="">When to Start*</option>
-                          <option value="2025">2025</option>
+                      <div className="mobile-input-group">
+                        <label className="mobile-label">
+                          <i className="fas fa-calendar input-icon"></i>
+                          When to Start *
+                        </label>
+                        <select name="timeline" className="mobile-select" required>
+                          <option value="">Select timeline</option>
+                          <option value="2025-spring">Spring 2025</option>
+                          <option value="2025-fall">Fall 2025</option>
                           <option value="2026">2026</option>
                           <option value="2027">2027 or later</option>
+                          <option value="flexible">Flexible</option>
                         </select>
                       </div>
                       
-                      <div className="form-group">
-                        <textarea name="message" placeholder="Any specific questions or requirements? (Optional)" rows={3}></textarea>
+                      <div className="mobile-input-group">
+                        <label className="mobile-label optional">
+                          <i className="fas fa-comment input-icon"></i>
+                          Additional Questions (Optional)
+                        </label>
+                        <textarea name="message" className="mobile-textarea" placeholder="Any specific questions about programs, costs, scholarships, or requirements?" rows={3}></textarea>
                       </div>
                     </div>
                     
-                    <div className="form-actions">
-                      <button type="button" className="btn btn-secondary" onclick="showStep1()">
+                    <div className="mobile-form-actions">
+                      <button type="button" className="mobile-back-btn" onclick="showMobileStep1()">
                         <i className="fas fa-arrow-left"></i>
-                        Back
+                        <span>Back</span>
                       </button>
-                      <button type="submit" className="btn btn-primary btn-large">
-                        <i className="fas fa-calendar-check"></i>
-                        Complete
+                      <button type="submit" className="mobile-submit-btn">
+                        <i className="fas fa-paper-plane"></i>
+                        <span>Get Free Consultation</span>
                       </button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
-            <div className="form-image">
-              <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX - Free Consultation" />
-              <div className="contact-info">
-                <h3>Contact Information</h3>
-                <div className="contact-item">
-                  <i className="fas fa-phone text-primary"></i>
-                  <div>
-                    <strong>Call Us</strong>
-                    <p>+971 52 543 8784</p>
+
+            {/* Mobile Contact Information Card */}
+            <div className="mobile-contact-card">
+              <div className="contact-header">
+                <div className="contact-logo">
+                  <img src="/static/images/scholarix-logo-professional.png" alt="SCHOLARIX" className="mobile-logo" />
+                </div>
+                <h3 className="contact-title">Contact Information</h3>
+                <p className="contact-subtitle">Get in touch with our experts</p>
+              </div>
+              
+              <div className="mobile-contact-methods">
+                <a href="tel:+971525438784" className="mobile-contact-item primary">
+                  <div className="contact-icon-wrapper phone">
+                    <i className="fas fa-phone"></i>
+                  </div>
+                  <div className="contact-details">
+                    <span className="contact-label">Call Us Now</span>
+                    <span className="contact-value">+971 52 543 8784</span>
+                    <span className="contact-note">Available 9 AM - 9 PM</span>
+                  </div>
+                  <i className="fas fa-chevron-right contact-arrow"></i>
+                </a>
+                
+                <a href="https://wa.me/971525438784?text=Hi%20SCHOLARIX%2C%20I%27m%20interested%20in%20studying%20abroad.%20Can%20you%20help%20me%3F" className="mobile-contact-item whatsapp" target="_blank" rel="noopener noreferrer">
+                  <div className="contact-icon-wrapper whatsapp">
+                    <i className="fab fa-whatsapp"></i>
+                  </div>
+                  <div className="contact-details">
+                    <span className="contact-label">WhatsApp Chat</span>
+                    <span className="contact-value">+971 52 543 8784</span>
+                    <span className="contact-note">Instant Response</span>
+                  </div>
+                  <i className="fas fa-chevron-right contact-arrow"></i>
+                </a>
+                
+                <a href="mailto:info@scholarixstudy.com" className="mobile-contact-item email">
+                  <div className="contact-icon-wrapper email">
+                    <i className="fas fa-envelope"></i>
+                  </div>
+                  <div className="contact-details">
+                    <span className="contact-label">Email Us</span>
+                    <span className="contact-value">info@scholarixstudy.com</span>
+                    <span className="contact-note">24-hour response</span>
+                  </div>
+                  <i className="fas fa-chevron-right contact-arrow"></i>
+                </a>
+                
+                <div className="mobile-contact-item location">
+                  <div className="contact-icon-wrapper location">
+                    <i className="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div className="contact-details">
+                    <span className="contact-label">Visit Our Office</span>
+                    <span className="contact-value">Dubai, UAE</span>
+                    <span className="contact-note">By appointment only</span>
                   </div>
                 </div>
-                <div className="contact-item">
-                  <i className="fas fa-envelope text-primary"></i>
-                  <div>
-                    <strong>Email Us</strong>
-                    <p>info@scholarixstudy.com</p>
-                  </div>
+              </div>
+              
+              <div className="mobile-social-proof">
+                <div className="social-stat">
+                  <div className="stat-number">2500+</div>
+                  <div className="stat-label">Students Helped</div>
                 </div>
-                <div className="contact-item">
-                  <i className="fas fa-comments text-accent"></i>
-                  <div>
-                    <strong>Live Chat</strong>
-                    <p>Available 24/7</p>
-                  </div>
+                <div className="social-stat">
+                  <div className="stat-number">95%</div>
+                  <div className="stat-label">Visa Success</div>
+                </div>
+                <div className="social-stat">
+                  <div className="stat-number">24/7</div>
+                  <div className="stat-label">Support</div>
                 </div>
               </div>
             </div>

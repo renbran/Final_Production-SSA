@@ -536,6 +536,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <link href="/static/interactive-planner.css" rel="stylesheet" />
         <link href="/static/enhanced-loader-3d.css" rel="stylesheet" />
         <link href="/static/course-finder.css" rel="stylesheet" />
+        <link href="/static/mobile-contact-form.css" rel="stylesheet" />
         
         {/* Three.js for 3D Globe and Study Elements */}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
@@ -774,6 +775,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <script src="/static/app.js" defer></script>
         <script src="/static/enhanced-forms.js" defer></script>
         <script src="/static/interactive-planner.js" defer></script>
+        <script src="/static/mobile-contact-form.js" defer></script>
         <script src="/static/enhanced-animations.js"></script>
         <script src="/static/study-abroad-3d.js"></script>
         <script src="/static/interactive-globe.js" defer></script>

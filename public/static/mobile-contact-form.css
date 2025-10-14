@@ -1,0 +1,681 @@
+/* ========================================
+   MOBILE-OPTIMIZED CONTACT FORM STYLES
+   ======================================== */
+
+/* Section Layout */
+.contact-form-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Mobile-Centered Header */
+.section-header.mobile-centered {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.mobile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.mobile-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.mobile-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Mobile Layout Container */
+.mobile-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Mobile Form Card */
+.mobile-form-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+}
+
+/* Mobile Step Header */
+.mobile-step-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.step-indicator-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #64748b;
+  transition: all 0.3s ease;
+}
+
+.step-number.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.step-number.completed {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+.step-divider {
+  width: 60px;
+  height: 2px;
+  background: #e2e8f0;
+  margin: 0 16px;
+  transition: background-color 0.3s ease;
+}
+
+.step-divider.active {
+  background: #10b981;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 12px;
+}
+
+.mobile-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mobile-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* Mobile Form Fields */
+.mobile-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.mobile-input-group {
+  position: relative;
+}
+
+.mobile-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.mobile-label.optional::after {
+  content: '(Optional)';
+  font-weight: 400;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.input-icon {
+  color: #3b82f6;
+  font-size: 16px;
+}
+
+.mobile-input,
+.mobile-select,
+.mobile-textarea {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.mobile-input:focus,
+.mobile-select:focus,
+.mobile-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.mobile-input::placeholder,
+.mobile-textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Mobile Phone Input */
+.mobile-phone-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.mobile-country-select {
+  flex: 0 0 120px;
+  padding: 16px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-phone-input {
+  flex: 1;
+  padding: 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 16px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.mobile-country-select:focus,
+.mobile-phone-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Mobile Select Styling */
+.mobile-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  padding-right: 48px;
+  cursor: pointer;
+}
+
+/* Mobile Buttons */
+.mobile-next-btn,
+.mobile-submit-btn {
+  width: 100%;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.mobile-next-btn:hover,
+.mobile-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.mobile-next-btn:active,
+.mobile-submit-btn:active {
+  transform: translateY(0);
+}
+
+.mobile-back-btn {
+  flex: 1;
+  padding: 16px 24px;
+  background: #f8fafc;
+  color: #64748b;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mobile-back-btn:hover {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+.mobile-form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.mobile-form-actions .mobile-submit-btn {
+  flex: 2;
+}
+
+/* Mobile Trust Indicators */
+.mobile-trust-indicators {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.mobile-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.mobile-trust-item i {
+  color: #10b981;
+  font-size: 20px;
+}
+
+.mobile-trust-item span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Mobile Contact Card */
+.mobile-contact-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contact-logo {
+  margin-bottom: 16px;
+}
+
+.mobile-logo {
+  height: 40px;
+  width: auto;
+}
+
+.contact-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.contact-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Mobile Contact Methods */
+.mobile-contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.mobile-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mobile-contact-item:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.mobile-contact-item.primary {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border-color: #3b82f6;
+}
+
+.mobile-contact-item.primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+.mobile-contact-item.whatsapp {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border-color: #10b981;
+}
+
+.mobile-contact-item.whatsapp:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.contact-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-icon-wrapper.phone {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.contact-icon-wrapper.whatsapp {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.contact-icon-wrapper.email {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.contact-icon-wrapper.location {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.contact-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-label {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.contact-value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.contact-note {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.contact-arrow {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+}
+
+.mobile-contact-item:not(.primary):not(.whatsapp) .contact-arrow {
+  color: #9ca3af;
+}
+
+/* Mobile Social Proof */
+.mobile-social-proof {
+  display: flex;
+  justify-content: space-around;
+  padding: 24px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.social-stat {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .mobile-form-layout {
+    max-width: 600px;
+    gap: 40px;
+  }
+  
+  .mobile-form-card,
+  .mobile-contact-card {
+    padding: 40px 32px;
+  }
+  
+  .mobile-title {
+    font-size: 32px;
+  }
+  
+  .mobile-subtitle {
+    font-size: 18px;
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-form-layout {
+    flex-direction: row;
+    max-width: 1000px;
+    align-items: flex-start;
+  }
+  
+  .mobile-form-card {
+    flex: 2;
+  }
+  
+  .mobile-contact-card {
+    flex: 1;
+    position: sticky;
+    top: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-form-section {
+    padding: 80px 0;
+  }
+  
+  .mobile-form-layout {
+    gap: 60px;
+  }
+}
+
+/* Form Validation States */
+.mobile-input.error,
+.mobile-select.error,
+.mobile-textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.mobile-input.success,
+.mobile-select.success,
+.mobile-textarea.success {
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+/* Loading States */
+.mobile-next-btn.loading,
+.mobile-submit-btn.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.mobile-next-btn.loading::after,
+.mobile-submit-btn.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Accessibility Improvements */
+.mobile-input:focus-visible,
+.mobile-select:focus-visible,
+.mobile-textarea:focus-visible,
+.mobile-next-btn:focus-visible,
+.mobile-submit-btn:focus-visible,
+.mobile-back-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .contact-form-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  }
+  
+  .mobile-title {
+    color: white;
+  }
+  
+  .mobile-subtitle {
+    color: #cbd5e1;
+  }
+  
+  .mobile-form-card,
+  .mobile-contact-card {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .mobile-input,
+  .mobile-select,
+  .mobile-textarea {
+    background: #334155;
+    border-color: #475569;
+    color: white;
+  }
+  
+  .mobile-input::placeholder,
+  .mobile-textarea::placeholder {
+    color: #94a3b8;
+  }
+}
