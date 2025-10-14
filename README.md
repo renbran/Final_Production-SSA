@@ -3,7 +3,7 @@
 ## 🎯 Project Overview
 **SCHOLARIX** is a comprehensive study abroad consultancy website designed to help students achieve their international education dreams. The platform serves students aged 18-30 and their families with expert guidance on study visas, scholarships, university admissions, and test preparation.
 
-**🌐 Live URL**: https://scholarix-study-abroad.pages.dev  
+**🌐 Live URL**: https://scholarixstudy.com  
 **🛠️ Sandbox Development**: https://3000-ibe3lqhmqpsmbrvtmtmxr-6532622b.e2b.dev
 
 ## ✨ Completed Features

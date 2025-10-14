@@ -1012,7 +1012,7 @@ app.get('/', (c) => {
               <div className="progressive-form-container">
                 <form action="https://formspree.io/f/xyzgkjad" method="post" className="progressive-form" id="leadForm">
                   <input type="hidden" name="_subject" value="New SCHOLARIX Consultation Request" />
-                  <input type="hidden" name="_next" value="https://scholarix-study-abroad.pages.dev/thank-you" />
+                  <input type="hidden" name="_next" value="https://scholarixstudy.com/thank-you" />
                   
                   <div className="form-step active" id="step1">
                     <div className="step-progress">

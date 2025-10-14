@@ -18,6 +18,7 @@
     "optimize:images": "node scripts/optimize-images.js",
     "audit:performance": "node scripts/performance-audit.js",
     "audit:lighthouse": "lighthouse https://scholarixstudy.com --only-categories=performance,accessibility --form-factor=mobile --output=html --output-path=./mobile-audit.html",
+    "deploy:custom": "npm run build && wrangler pages deploy dist --project-name scholarix-study-abroad-v0 --commit-dirty=true",
     "optimize:all": "npm run optimize:images && npm run build && npm run audit:performance",
     "setup:optimization": "npm install --save-dev sharp glob"
   },
