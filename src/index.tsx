@@ -252,27 +252,90 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* Interactive Study Destinations Globe */}
+      {/* Enhanced Interactive Study Destinations Globe */}
       <section id="destinations-globe" className="destinations-globe-section">
         <div className="container">
           <div className="section-header">
-            <div className="badge">🌍 Interactive Explorer</div>
-            <h2>Explore Study Destinations Worldwide</h2>
-            <p>Click on any country pin to discover programs, costs, visa requirements, and application details</p>
+            <div className="badge">🌍 Interactive Study Explorer</div>
+            <h2>Discover Your Perfect Study Destination</h2>
+            <p>Explore universities, costs, scholarships, and visa requirements through our interactive globe experience</p>
           </div>
           
-          {/* Interactive 3D Globe Container */}
+          {/* Study Journey Visualization */}
+          <div className="study-journey-preview">
+            <div className="journey-step" data-step="1">
+              <div className="step-icon">🎯</div>
+              <h4>Choose Destination</h4>
+              <p>Explore countries</p>
+            </div>
+            <div className="journey-connector"></div>
+            <div className="journey-step" data-step="2">
+              <div className="step-icon">🏛️</div>
+              <h4>Select University</h4>
+              <p>Browse programs</p>
+            </div>
+            <div className="journey-connector"></div>
+            <div className="journey-step" data-step="3">
+              <div className="step-icon">📝</div>
+              <h4>Apply & Get Visa</h4>
+              <p>Complete process</p>
+            </div>
+            <div className="journey-connector"></div>
+            <div className="journey-step" data-step="4">
+              <div className="step-icon">✈️</div>
+              <h4>Start Journey</h4>
+              <p>Study abroad</p>
+            </div>
+          </div>
+          
+          {/* Enhanced Interactive 3D Globe Container */}
           <div className="globe-container">
-            <div id="interactive-globe" className="interactive-globe"></div>
+            <div id="interactive-globe" className="interactive-globe">
+              {/* Globe Statistics Overlay */}
+              <div className="globe-stats-overlay">
+                <div className="stat-bubble" data-country="germany">
+                  <span className="stat-number">250+</span>
+                  <span className="stat-label">Universities</span>
+                </div>
+                <div className="stat-bubble" data-country="canada">
+                  <span className="stat-number">500+</span>
+                  <span className="stat-label">Programs</span>
+                </div>
+                <div className="stat-bubble" data-country="uk">
+                  <span className="stat-number">95%</span>
+                  <span className="stat-label">Success Rate</span>
+                </div>
+              </div>
+            </div>
             
-            {/* Globe Controls */}
+            {/* Enhanced Globe Controls */}
             <div className="globe-controls">
-              <button className="globe-control-btn" onclick="resetGlobe()" title="Reset View">
-                <i className="fas fa-home"></i>
-              </button>
-              <button className="globe-control-btn" onclick="toggleGlobeRotation()" title="Toggle Rotation">
-                <i className="fas fa-play" id="rotation-icon"></i>
-              </button>
+              <div className="control-group">
+                <button className="globe-control-btn" onclick="resetGlobe()" title="Reset View">
+                  <i className="fas fa-home"></i>
+                  <span>Reset</span>
+                </button>
+                <button className="globe-control-btn" onclick="toggleGlobeRotation()" title="Toggle Rotation">
+                  <i className="fas fa-play" id="rotation-icon"></i>
+                  <span>Auto Rotate</span>
+                </button>
+              </div>
+              
+              <div className="view-modes">
+                <button className="mode-btn active" data-mode="universities" title="View Universities">
+                  <i className="fas fa-graduation-cap"></i>
+                  <span>Universities</span>
+                </button>
+                <button className="mode-btn" data-mode="costs" title="View Costs">
+                  <i className="fas fa-euro-sign"></i>
+                  <span>Costs</span>
+                </button>
+                <button className="mode-btn" data-mode="visas" title="View Visa Info">
+                  <i className="fas fa-passport"></i>
+                  <span>Visas</span>
+                </button>
+              </div>
+              
               <div className="globe-zoom-controls">
                 <button className="globe-control-btn" onclick="zoomGlobe(1.2)" title="Zoom In">
                   <i className="fas fa-plus"></i>
@@ -283,10 +346,34 @@ app.get('/', (c) => {
               </div>
             </div>
             
-            {/* Loading Indicator */}
+            {/* Enhanced Loading Indicator */}
             <div id="globe-loader" className="globe-loader">
-              <div className="loader-spinner"></div>
-              <p>Loading Interactive Globe...</p>
+              <div className="loader-content">
+                <div className="loader-spinner"></div>
+                <h3>Loading Interactive Globe...</h3>
+                <p>Preparing your study abroad exploration experience</p>
+                <div className="loading-progress">
+                  <div className="progress-bar">
+                    <div className="progress-fill"></div>
+                  </div>
+                  <span className="progress-text">Loading destinations...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Enhanced Globe Footer with Instructions */}
+          <div className="globe-footer">
+            <p className="globe-instruction">
+              <i className="fas fa-mouse"></i>
+              Drag to rotate • Scroll to zoom • Click pins for details
+            </p>
+            <div className="popular-destinations-quick">
+              <span>Quick access:</span>
+              <button onclick="focusCountry('germany')" className="quick-country-btn">🇩🇪 Germany</button>
+              <button onclick="focusCountry('canada')" className="quick-country-btn">🇨🇦 Canada</button>
+              <button onclick="focusCountry('australia')" className="quick-country-btn">🇦🇺 Australia</button>
+              <button onclick="focusCountry('malta')" className="quick-country-btn">🇲🇹 Malta</button>
             </div>
           </div>
           
