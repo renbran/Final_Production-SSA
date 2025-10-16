@@ -1,0 +1,467 @@
+/* Enhanced Animations for Clean White Background - SCHOLARIX */
+
+/* ==============================================
+   ENHANCED ANIMATIONS FOR WHITE BACKGROUND
+   Optimized animations that work beautifully on clean white
+   ============================================== */
+
+/* Smooth entrance animations with better contrast */
+@keyframes fadeInUpEnhanced {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeftEnhanced {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightEnhanced {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleInEnhanced {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced floating animation for 3D elements */
+@keyframes floatEnhanced {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+/* Subtle pulse animation for CTAs */
+@keyframes pulseEnhanced {
+  0% {
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
+    transform: scale(1.02);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+    transform: scale(1);
+  }
+}
+
+/* Enhanced shimmer effect for loading states */
+@keyframes shimmerEnhanced {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Smooth rotation for loading spinners */
+@keyframes spinEnhanced {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced bounce animation */
+@keyframes bounceEnhanced {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -15px, 0);
+  }
+  70% {
+    transform: translate3d(0, -8px, 0);
+  }
+  90% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+/* ==============================================
+   ENHANCED SCROLL ANIMATIONS
+   ============================================== */
+
+/* Main scroll animation class - enhanced for white background */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variant animations */
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fade-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-scale-in.animated {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==============================================
+   ENHANCED CARD ANIMATIONS
+   ============================================== */
+
+/* Service card hover animations - enhanced for white background */
+.service-card {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center bottom;
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Destination card animations */
+.destination-card {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+.destination-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* MBBS card animations */
+.mbbs-card {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mbbs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Course product card animations */
+.course-product-card {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.course-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Testimonial card animations */
+.testimonial-card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ==============================================
+   ENHANCED BUTTON ANIMATIONS
+   ============================================== */
+
+.btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.3);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s;
+}
+
+/* Primary button enhanced animations */
+.btn-primary {
+  position: relative;
+}
+
+.btn-primary:hover {
+  animation: pulseEnhanced 2s infinite;
+}
+
+/* ==============================================
+   ENHANCED FORM ANIMATIONS
+   ============================================== */
+
+.form-group {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.form-group.focused {
+  transform: translateY(-2px);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+  transform: none;
+}
+
+/* Progressive form step animations */
+.mobile-form-step {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-form-step.active {
+  animation: fadeInUpEnhanced 0.6s ease-out;
+}
+
+/* Step indicator animations */
+.step-indicator-mobile .step-number {
+  transition: all 0.3s ease;
+}
+
+.step-indicator-mobile .step-number.active {
+  animation: scaleInEnhanced 0.4s ease-out;
+}
+
+/* Progress bar animation */
+.mobile-progress-fill {
+  transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ==============================================
+   ENHANCED GLOBE AND 3D ANIMATIONS
+   ============================================== */
+
+/* Globe loading animation */
+.globe-loader {
+  animation: fadeInUpEnhanced 0.6s ease-out;
+}
+
+.loader-spinner {
+  animation: spinEnhanced 1s linear infinite;
+}
+
+/* Globe control buttons */
+.globe-control-btn {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.globe-control-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.2);
+}
+
+/* Country pin animations */
+.country-pin {
+  animation: bounceEnhanced 2s infinite;
+  animation-delay: var(--animation-delay, 0s);
+}
+
+/* ==============================================
+   ENHANCED MODAL ANIMATIONS
+   ============================================== */
+
+.modal {
+  transition: all 0.3s ease;
+}
+
+.modal.show {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: scaleInEnhanced 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ==============================================
+   ENHANCED LOADING STATES
+   ============================================== */
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmerEnhanced 1.5s infinite;
+}
+
+/* ==============================================
+   ENHANCED FLOATING ELEMENTS
+   ============================================== */
+
+.floating-element {
+  animation: floatEnhanced 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(odd) {
+  animation-delay: -2s;
+  animation-duration: 8s;
+}
+
+.floating-element:nth-child(even) {
+  animation-delay: -4s;
+  animation-duration: 7s;
+}
+
+/* ==============================================
+   ENHANCED STAGGER ANIMATIONS
+   ============================================== */
+
+.stagger-animation > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpEnhanced 0.6s ease-out forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* ==============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================== */
+
+/* GPU acceleration for better performance */
+.animate-on-scroll,
+.service-card,
+.destination-card,
+.btn {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce animations on slower devices */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll,
+  .service-card,
+  .btn,
+  .floating-element {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE ANIMATION ADJUSTMENTS
+   ============================================== */
+
+@media (max-width: 768px) {
+  /* Reduce animation intensity on mobile */
+  .animate-on-scroll {
+    transform: translateY(20px);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Minimal animations on small screens */
+  .animate-on-scroll {
+    transform: translateY(15px);
+  }
+  
+  .floating-element {
+    animation-duration: 4s;
+  }
+}

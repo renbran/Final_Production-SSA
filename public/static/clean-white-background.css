@@ -1,0 +1,286 @@
+/* Clean White Background Override - SCHOLARIX */
+
+/* ==============================================
+   CLEAN WHITE BACKGROUND SYSTEM
+   Force all sections to have clean white backgrounds
+   while maintaining animations and functionality
+   ============================================== */
+
+/* Global body background - pure white */
+body {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Hero Section - Clean White */
+.hero-section {
+  background: #ffffff !important;
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
+
+/* All main sections - Clean White */
+.services-section,
+.destinations-section,
+.visa-success-section,
+.destinations-globe-section,
+.mbbs-section,
+.test-prep-marketplace,
+.testimonials-section,
+.cta-section,
+.contact-form-section {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Globe section - Clean White */
+#destinations-globe {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Course search section - Clean White */
+.course-search-section {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+
+/* Newsletter and footer sections - Keep distinct but clean */
+.footer {
+  background-color: #f8fafc !important; /* Very light gray for contrast */
+}
+
+/* Service cards - Enhanced for white background */
+.service-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.service-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+/* Destination cards - Enhanced contrast on white */
+.destination-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.destination-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* MBBS cards - Enhanced for white background */
+.mbbs-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.mbbs-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Course product cards - Enhanced for white background */
+.course-product-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+.course-product-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Testimonial cards - Enhanced for white background */
+.testimonial-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Mobile contact cards - Enhanced for white background */
+.mobile-form-card,
+.mobile-contact-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Visa country cards - Enhanced shadows for white background */
+.visa-country-card {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.visa-country-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Glass cards - Adjusted for white background */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: none !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hero stats - Enhanced for white background */
+.hero-stats .stat {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Search container - Enhanced for white background */
+.search-container {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Globe container - Clean white */
+.globe-container {
+  background-color: #ffffff !important;
+}
+
+/* Interactive globe - Clean white background */
+.interactive-globe {
+  background-color: #ffffff !important;
+}
+
+/* Country modal - Clean white */
+.country-modal .modal-content {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Program modal - Clean white */
+.program-modal .modal-content {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Section dividers - Subtle on white */
+.section-divider {
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent) !important;
+}
+
+/* Enhanced text contrast for white backgrounds */
+.section-header h2 {
+  color: var(--primary-color) !important;
+  text-shadow: none !important;
+}
+
+.section-header p {
+  color: var(--neutral-medium) !important;
+}
+
+/* Badge styling for white background */
+.badge {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.2) !important;
+}
+
+/* CTA section - Subtle background for distinction */
+.cta-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* Maintain animation performance on white backgrounds */
+.animate-on-scroll {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.animate-on-scroll.animated {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Floating elements - Enhanced for white background */
+#floating-3d-elements {
+  background: transparent !important;
+}
+
+/* Particles - Adjusted for white background */
+#particles-js {
+  background: transparent !important;
+}
+
+/* ==============================================
+   RESPONSIVE ENHANCEMENTS FOR WHITE BACKGROUND
+   ============================================== */
+
+@media (max-width: 768px) {
+  /* Mobile sections - Clean white */
+  .hero-section,
+  .services-section,
+  .destinations-section,
+  .contact-form-section {
+    background-color: #ffffff !important;
+  }
+  
+  /* Mobile cards - Enhanced shadows */
+  .service-card,
+  .destination-card,
+  .mobile-form-card {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small mobile - Clean white with enhanced contrast */
+  body {
+    background-color: #ffffff !important;
+  }
+  
+  .hero-section {
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+}
+
+/* ==============================================
+   DARK MODE COMPATIBILITY
+   ============================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Respect user preference but maintain clean appearance */
+  body {
+    background-color: #ffffff !important; /* Force white even in dark mode for brand consistency */
+  }
+  
+  .hero-section,
+  .services-section,
+  .destinations-section {
+    background-color: #ffffff !important;
+  }
+}
+
+/* ==============================================
+   PRINT STYLES - CLEAN WHITE
+   ============================================== */
+
+@media print {
+  body,
+  .hero-section,
+  .services-section,
+  .destinations-section {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+  }
+}
