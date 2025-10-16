@@ -1,0 +1,116 @@
+{
+  "name": "SCHOLARIX Study Abroad Consultants",
+  "short_name": "SCHOLARIX",
+  "description": "Expert study abroad guidance with 99% visa success rate. Get support for visas, admissions, scholarships & test prep.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "categories": ["education", "lifestyle", "travel"],
+  "icons": [
+    {
+      "src": "/static/images/scholarix-logo-icon-hd.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/static/images/scholarix-logo-icon-hd.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/static/images/scholarix-logo-icon-hd.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/scholarix-logo-icon-hd.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/scholarix-logo-icon-hd.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/scholarix-logo-icon-hd.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Consultation",
+      "short_name": "Consult",
+      "description": "Book a free consultation with our experts",
+      "url": "/#contact-form",
+      "icons": [
+        {
+          "src": "/static/images/scholarix-logo-icon-hd.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Explore Destinations",
+      "short_name": "Destinations",
+      "description": "Explore study destinations worldwide",
+      "url": "/#destinations-globe",
+      "icons": [
+        {
+          "src": "/static/images/scholarix-logo-icon-hd.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "short_name": "Services",
+      "description": "View our study abroad services",
+      "url": "/services/visa",
+      "icons": [
+        {
+          "src": "/static/images/scholarix-logo-icon-hd.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/contact?email=%s"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/static/images/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "SCHOLARIX Study Abroad homepage on desktop"
+    },
+    {
+      "src": "/static/images/screenshot-narrow.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "SCHOLARIX Study Abroad homepage on mobile"
+    }
+  ]
+}

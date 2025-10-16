@@ -26,30 +26,83 @@ export const renderer = jsxRenderer(({ children }) => {
         
         <title>SCHOLARIX - Study Abroad Consultants | Visa, Admission &amp; IELTS</title>
         <meta name="description" content="Expert study abroad guidance for students. Get support for study visas, university admissions, scholarships, and IELTS/PTE preparation. 99% visa success rate. Book free consultation today!" />
-        <meta name="keywords" content="study abroad, student visa, university admission, scholarships, IELTS, PTE, career counselling, international education" />
+        <meta name="keywords" content="study abroad, student visa, university admission, scholarships, IELTS, PTE, career counselling, international education, Germany study visa, Canada student visa, UK admission, Ireland universities" />
         <meta name="author" content="SCHOLARIX Study Abroad Consultants" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="language" content="en" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="geo.region" content="AE-DU" />
+        <meta name="geo.placename" content="Dubai" />
+        <meta name="geo.position" content="25.2048;55.2708" />
+        <meta name="ICBM" content="25.2048, 55.2708" />
         
-        {/* Open Graph */}
-        <meta property="og:title" content="SCHOLARIX - Study Abroad Consultants" />
-        <meta property="og:description" content="Expert study abroad guidance with 99% visa success rate. Get support for visas, admissions, scholarships &amp; test prep." />
+        {/* Enhanced Open Graph */}
+        <meta property="og:title" content="SCHOLARIX - Study Abroad Consultants | 99% Visa Success Rate" />
+        <meta property="og:description" content="Expert study abroad guidance with 99% visa success rate. Get support for visas, admissions, scholarships &amp; test prep. Serving students from Dubai, UAE since 2023." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/static/images/og-image.jpg" />
+        <meta property="og:url" content="https://scholarixstudy.com" />
+        <meta property="og:site_name" content="SCHOLARIX Study Abroad" />
+        <meta property="og:image" content="https://scholarixstudy.com/static/images/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="SCHOLARIX Study Abroad Consultants - Your trusted partner for international education" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="business:contact_data:street_address" content="Dubai, UAE" />
+        <meta property="business:contact_data:locality" content="Dubai" />
+        <meta property="business:contact_data:region" content="UAE" />
+        <meta property="business:contact_data:postal_code" content="00000" />
+        <meta property="business:contact_data:country_name" content="United Arab Emirates" />
         
-        {/* Twitter */}
+        {/* Enhanced Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SCHOLARIX - Study Abroad Consultants" />
-        <meta name="twitter:description" content="Expert study abroad guidance with 99% visa success rate." />
+        <meta name="twitter:site" content="@scholarixstudy" />
+        <meta name="twitter:creator" content="@scholarixstudy" />
+        <meta name="twitter:title" content="SCHOLARIX - Study Abroad Consultants | 99% Visa Success" />
+        <meta name="twitter:description" content="Expert study abroad guidance with 99% visa success rate. Specialized in European destinations from UAE." />
+        <meta name="twitter:image" content="https://scholarixstudy.com/static/images/og-image.jpg" />
+        <meta name="twitter:image:alt" content="SCHOLARIX Study Abroad Consultants" />
         
-        {/* Security Headers */}
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'; base-uri 'self';" />
+        {/* Additional SEO Meta Tags */}
+        <meta name="theme-color" content="#1e3a8a" />
+        <meta name="msapplication-TileColor" content="#1e3a8a" />
+        <meta name="msapplication-config" content="/static/browserconfig.xml" />
+        <link rel="canonical" href="https://scholarixstudy.com" />
+        <link rel="alternate" hrefLang="en" href="https://scholarixstudy.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://scholarixstudy.com" />
+        
+        {/* Enhanced Security Headers */}
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jotfor.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https: wss:; frame-src 'self' https://www.google.com https://jotform.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests;" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+        <meta httpEquiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self), payment=()" />
+        <meta httpEquiv="Cross-Origin-Embedder-Policy" content="unsafe-none" />
+        <meta httpEquiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups" />
+        <meta httpEquiv="Cross-Origin-Resource-Policy" content="cross-origin" />
         
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/static/images/scholarix-logo-icon-hd.png" />
-        <link rel="apple-touch-icon" href="/static/images/scholarix-logo-icon-hd.png" />
+        {/* Enhanced Favicon and App Icons */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/static/images/scholarix-logo-icon-hd.png" />
+        <link rel="mask-icon" href="/static/images/scholarix-logo-icon-hd.png" color="#1e3a8a" />
+        <link rel="shortcut icon" href="/static/images/scholarix-logo-icon-hd.png" />
+        <meta name="msapplication-TileImage" content="/static/images/scholarix-logo-icon-hd.png" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/static/manifest.json" />
+        <meta name="application-name" content="SCHOLARIX Study Abroad" />
+        <meta name="apple-mobile-web-app-title" content="SCHOLARIX" />
         
         {/* Critical CSS inline - Above-the-fold performance optimization */}
         <style dangerouslySetInnerHTML={{
@@ -537,6 +590,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <link href="/static/enhanced-loader-3d.css" rel="stylesheet" />
         <link href="/static/course-finder.css" rel="stylesheet" />
         <link href="/static/mobile-contact-form.css" rel="stylesheet" />
+        <link href="/static/enhanced-pwa.css" rel="stylesheet" />
         
         {/* Three.js for 3D Globe and Study Elements */}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
@@ -1541,31 +1595,330 @@ export const renderer = jsxRenderer(({ children }) => {
           `}
         </script>
         
-        {/* Performance monitoring script */}
+        {/* Advanced Performance & Analytics Monitoring */}
         <script dangerouslySetInnerHTML={{
           __html: `
-            // Critical performance monitoring
-            if ('PerformanceObserver' in window) {
-              const observer = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                  if (entry.entryType === 'largest-contentful-paint') {
-                    console.log('🎯 LCP:', entry.startTime.toFixed(2) + 'ms');
+            // Advanced Performance Monitoring System
+            window.ScholarixAnalytics = {
+              metrics: {},
+              events: [],
+              
+              // Core Web Vitals tracking
+              initPerformanceTracking() {
+                if ('PerformanceObserver' in window) {
+                  // Track LCP (Largest Contentful Paint)
+                  new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                      this.metrics.lcp = entry.startTime;
+                      console.log('🎯 LCP:', entry.startTime.toFixed(2) + 'ms');
+                      
+                      // Send to analytics if > 2.5s (poor)
+                      if (entry.startTime > 2500) {
+                        this.trackEvent('performance_warning', { metric: 'lcp', value: entry.startTime });
+                      }
+                    }
+                  }).observe({ entryTypes: ['largest-contentful-paint'] });
+                  
+                  // Track FID (First Input Delay) 
+                  new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                      this.metrics.fid = entry.processingStart - entry.startTime;
+                      console.log('⚡ FID:', this.metrics.fid.toFixed(2) + 'ms');
+                      
+                      if (this.metrics.fid > 100) {
+                        this.trackEvent('performance_warning', { metric: 'fid', value: this.metrics.fid });
+                      }
+                    }
+                  }).observe({ entryTypes: ['first-input'] });
+                  
+                  // Track CLS (Cumulative Layout Shift)
+                  let clsValue = 0;
+                  new PerformanceObserver((entryList) => {
+                    for (const entry of entryList.getEntries()) {
+                      if (!entry.hadRecentInput) {
+                        clsValue += entry.value;
+                        this.metrics.cls = clsValue;
+                        console.log('📐 CLS:', clsValue.toFixed(4));
+                        
+                        if (clsValue > 0.1) {
+                          this.trackEvent('performance_warning', { metric: 'cls', value: clsValue });
+                        }
+                      }
+                    }
+                  }).observe({ entryTypes: ['layout-shift'] });
+                  
+                  console.log('🔍 Advanced performance monitoring active');
+                }
+                
+                // Track page load metrics
+                window.addEventListener('load', () => {
+                  setTimeout(() => {
+                    const navigation = performance.getEntriesByType('navigation')[0];
+                    if (navigation) {
+                      this.metrics.pageLoad = navigation.loadEventEnd - navigation.navigationStart;
+                      this.metrics.domReady = navigation.domContentLoadedEventEnd - navigation.navigationStart;
+                      this.metrics.ttfb = navigation.responseStart - navigation.navigationStart;
+                      
+                      console.log('📊 Page Metrics:', {
+                        'Page Load': this.metrics.pageLoad + 'ms',
+                        'DOM Ready': this.metrics.domReady + 'ms', 
+                        'TTFB': this.metrics.ttfb + 'ms'
+                      });
+                      
+                      // Track slow loading
+                      if (this.metrics.pageLoad > 3000) {
+                        this.trackEvent('slow_page_load', { duration: this.metrics.pageLoad });
+                      }
+                    }
+                  }, 0);
+                });
+              },
+              
+              // User engagement tracking
+              initEngagementTracking() {
+                let startTime = Date.now();
+                let isActive = true;
+                let totalEngagementTime = 0;
+                
+                // Track visibility changes
+                document.addEventListener('visibilitychange', () => {
+                  isActive = !document.hidden;
+                  if (document.hidden) {
+                    this.trackEvent('page_blur', { engagement_time: totalEngagementTime });
+                  } else {
+                    this.trackEvent('page_focus', { engagement_time: totalEngagementTime });
                   }
-                  if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
-                    console.log('📐 CLS:', entry.value.toFixed(4));
+                });
+                
+                // Track scroll depth
+                let maxScroll = 0;
+                window.addEventListener('scroll', () => {
+                  const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                  if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                    if (maxScroll % 25 === 0 && maxScroll > 0) {
+                      this.trackEvent('scroll_depth', { percent: maxScroll });
+                    }
                   }
-                  if (entry.entryType === 'first-contentful-paint') {
-                    console.log('⚡ FCP:', entry.startTime.toFixed(2) + 'ms');
+                }, { passive: true });
+                
+                console.log('📈 User engagement tracking active');
+              },
+              
+              // Error tracking
+              initErrorTracking() {
+                window.addEventListener('error', (e) => {
+                  this.trackEvent('javascript_error', {
+                    message: e.message,
+                    filename: e.filename,
+                    lineno: e.lineno,
+                    stack: e.error?.stack
+                  });
+                });
+                
+                window.addEventListener('unhandledrejection', (e) => {
+                  this.trackEvent('promise_rejection', {
+                    reason: e.reason?.toString()
+                  });
+                });
+                
+                console.log('🛡️ Error tracking active');
+              },
+              
+              // Event tracking
+              trackEvent(eventName, data = {}) {
+                const event = {
+                  name: eventName,
+                  timestamp: Date.now(),
+                  url: window.location.href,
+                  userAgent: navigator.userAgent,
+                  data: data
+                };
+                
+                this.events.push(event);
+                
+                // Send to Google Analytics if available
+                if (typeof gtag !== 'undefined') {
+                  gtag('event', eventName, data);
+                }
+                
+                // Log to console in development
+                if (window.location.hostname === 'localhost') {
+                  console.log('📊 Event:', eventName, data);
+                }
+              },
+              
+              // Initialize all tracking
+              init() {
+                this.initPerformanceTracking();
+                this.initEngagementTracking(); 
+                this.initErrorTracking();
+                
+                // Track page view
+                this.trackEvent('page_view', {
+                  title: document.title,
+                  referrer: document.referrer
+                });
+                
+                console.log('🚀 SCHOLARIX Analytics initialized');
+              }
+            };
+            
+            // Initialize analytics when DOM is ready
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', () => window.ScholarixAnalytics.init());
+            } else {
+              window.ScholarixAnalytics.init();
+            }
+            
+            // Service Worker Registration for PWA
+            if ('serviceWorker' in navigator && 'caches' in window) {
+              window.addEventListener('load', async () => {
+                try {
+                  const registration = await navigator.serviceWorker.register('/static/sw.js', {
+                    scope: '/'
+                  });
+                  
+                  console.log('✅ Service Worker registered:', registration.scope);
+                  
+                  // Handle updates
+                  registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    if (newWorker) {
+                      newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                          // Show update notification
+                          showUpdateNotification();
+                        }
+                      });
+                    }
+                  });
+                  
+                  // Track service worker events
+                  if (window.ScholarixAnalytics) {
+                    window.ScholarixAnalytics.trackEvent('service_worker_registered', {
+                      scope: registration.scope
+                    });
+                  }
+                  
+                } catch (error) {
+                  console.error('🚨 Service Worker registration failed:', error);
+                  if (window.ScholarixAnalytics) {
+                    window.ScholarixAnalytics.trackEvent('service_worker_failed', {
+                      error: error.message
+                    });
                   }
                 }
               });
               
-              try {
-                observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift', 'first-contentful-paint'] });
-                console.log('🔍 Performance monitoring active');
-              } catch (e) {
-                console.log('⚠️ Performance monitoring not supported');
+              // Show update notification
+              function showUpdateNotification() {
+                const notification = document.createElement('div');
+                notification.className = 'update-notification';
+                notification.innerHTML = \`
+                  <div class="update-content">
+                    <span>🚀 New version available!</span>
+                    <button onclick="window.location.reload()" class="update-btn">Update</button>
+                    <button onclick="this.parentElement.parentElement.remove()" class="dismiss-btn">×</button>
+                  </div>
+                \`;
+                
+                notification.style.cssText = \`
+                  position: fixed;
+                  top: 80px;
+                  right: 20px;
+                  background: #1e3a8a;
+                  color: white;
+                  padding: 1rem;
+                  border-radius: 8px;
+                  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                  z-index: 10000;
+                  font-family: Inter, sans-serif;
+                  font-size: 14px;
+                  max-width: 300px;
+                  animation: slideInRight 0.3s ease;
+                \`;
+                
+                document.body.appendChild(notification);
+                
+                // Auto-remove after 10 seconds
+                setTimeout(() => {
+                  if (notification.parentElement) {
+                    notification.remove();
+                  }
+                }, 10000);
               }
+            }
+            
+            // Install prompt for PWA
+            let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+              e.preventDefault();
+              deferredPrompt = e;
+              
+              // Show install button after user engagement
+              setTimeout(() => {
+                showInstallPrompt();
+              }, 30000); // Show after 30 seconds
+            });
+            
+            function showInstallPrompt() {
+              if (!deferredPrompt) return;
+              
+              const installBanner = document.createElement('div');
+              installBanner.className = 'install-prompt';
+              installBanner.innerHTML = \`
+                <div class="install-content">
+                  <div class="install-icon">📱</div>
+                  <div class="install-text">
+                    <div class="install-title">Install SCHOLARIX App</div>
+                    <div class="install-subtitle">Get quick access to study abroad guidance</div>
+                  </div>
+                  <div class="install-actions">
+                    <button class="install-btn" onclick="installApp()">Install</button>
+                    <button class="dismiss-btn" onclick="dismissInstallPrompt()">Not now</button>
+                  </div>
+                </div>
+              \`;
+              
+              installBanner.style.cssText = \`
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                background: white;
+                border: 1px solid #e5e7eb;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                z-index: 10000;
+                font-family: Inter, sans-serif;
+                animation: slideInUp 0.3s ease;
+                max-width: 400px;
+                margin: 0 auto;
+              \`;
+              
+              document.body.appendChild(installBanner);
+              
+              window.installApp = async () => {
+                if (deferredPrompt) {
+                  deferredPrompt.prompt();
+                  const { outcome } = await deferredPrompt.userChoice;
+                  
+                  if (window.ScholarixAnalytics) {
+                    window.ScholarixAnalytics.trackEvent('pwa_install_prompt', { outcome });
+                  }
+                  
+                  deferredPrompt = null;
+                  installBanner.remove();
+                }
+              };
+              
+              window.dismissInstallPrompt = () => {
+                installBanner.remove();
+                if (window.ScholarixAnalytics) {
+                  window.ScholarixAnalytics.trackEvent('pwa_install_dismissed');
+                }
+              };
             }
             
             // Enhanced Progressive Form System
