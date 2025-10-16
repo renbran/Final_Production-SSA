@@ -591,8 +591,6 @@ export const renderer = jsxRenderer(({ children }) => {
         <link href="/static/course-finder.css" rel="stylesheet" />
         <link href="/static/mobile-contact-form.css" rel="stylesheet" />
         <link href="/static/enhanced-pwa.css" rel="stylesheet" />
-        <link href="/static/clean-white-background.css" rel="stylesheet" />
-        <link href="/static/enhanced-white-animations.css" rel="stylesheet" />
         
         {/* Three.js for 3D Globe and Study Elements */}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
