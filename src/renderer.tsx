@@ -589,7 +589,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <link href="/static/interactive-planner.css" rel="stylesheet" />
         <link href="/static/enhanced-loader-3d.css" rel="stylesheet" />
         <link href="/static/course-finder.css" rel="stylesheet" />
-        <link href="/static/mobile-contact-form.css" rel="stylesheet" />
+        <link href="/static/mobile-contact-form-production.css" rel="stylesheet" />
         <link href="/static/enhanced-pwa.css" rel="stylesheet" />
         <link href="/static/enhanced-globe-contrast.css" rel="stylesheet" />
         
@@ -830,7 +830,7 @@ export const renderer = jsxRenderer(({ children }) => {
         <script src="/static/app.js" defer></script>
         <script src="/static/enhanced-forms.js" defer></script>
         <script src="/static/interactive-planner.js" defer></script>
-        <script src="/static/mobile-contact-form.js" defer></script>
+        <script src="/static/mobile-contact-form-production.js" defer></script>
         <script src="/static/enhanced-animations.js"></script>
         <script src="/static/study-abroad-3d.js"></script>
         <script src="/static/interactive-globe.js" defer></script>
