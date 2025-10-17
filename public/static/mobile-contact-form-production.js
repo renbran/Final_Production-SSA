@@ -400,7 +400,8 @@ class ProductionMobileContactForm {
         this.showStep(data._step);
       }
 
-      this.showNotification('Your previous form data has been restored', 'info');
+      // Silently restore data without notification to avoid popup
+      // this.showNotification('Your previous form data has been restored', 'info');
     } catch (error) {
       console.warn('Could not load saved form data:', error);
       localStorage.removeItem('scholarix_contact_form');

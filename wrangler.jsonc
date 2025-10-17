@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "scholarix-study-abroad-v0",
+  "name": "scholarix-study-abroad-production",
   "compatibility_date": "2025-09-27",
   "pages_build_output_dir": "./dist",
   "compatibility_flags": [
