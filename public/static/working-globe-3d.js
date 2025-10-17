@@ -246,30 +246,62 @@ function setupScene() {
 function createGlobe() {
   const globeGeometry = new THREE.SphereGeometry(2, 64, 64);
   
-  // Load earth texture
-  const loader = new THREE.TextureLoader();
-  
-  // Create a simple blue globe if textures fail to load
+  // Create base material with visible fallback
   const globeMaterial = new THREE.MeshPhongMaterial({
-    color: 0x1e40af,
-    transparent: true,
-    opacity: 0.8,
-    shininess: 100
+    color: 0x2563eb, // Blue earth color
+    transparent: false,
+    opacity: 1.0,
+    shininess: 30,
+    specular: 0x111111
   });
 
-  // Try to load earth texture
-  loader.load(
-    'https://unpkg.com/three-globe/example/img/earth-night.jpg',
-    function(texture) {
-      globeMaterial.map = texture;
-      globeMaterial.needsUpdate = true;
-      console.log('✅ Earth texture loaded');
-    },
-    undefined,
-    function(error) {
-      console.log('⚠️ Using fallback globe texture');
+  // Load earth texture from multiple sources
+  const loader = new THREE.TextureLoader();
+  
+  // Array of texture URLs to try
+  const textureUrls = [
+    'https://unpkg.com/three-globe@2.44.1/example/img/earth-night.jpg',
+    'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
+    'https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg',
+    'https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57752/land_shallow_topo_2048.jpg'
+  ];
+  
+  let textureLoaded = false;
+  
+  function tryLoadTexture(urls, index = 0) {
+    if (index >= urls.length || textureLoaded) {
+      if (!textureLoaded) {
+        console.log('🌍 Using solid color earth (all textures failed)');
+        // Create a more earth-like appearance with gradients
+        createProceduralEarth(globeMaterial);
+      }
+      return;
     }
-  );
+    
+    loader.load(
+      urls[index],
+      function(texture) {
+        if (!textureLoaded) {
+          textureLoaded = true;
+          texture.wrapS = THREE.RepeatWrapping;
+          texture.wrapT = THREE.RepeatWrapping;
+          globeMaterial.map = texture;
+          globeMaterial.needsUpdate = true;
+          console.log(`✅ Earth texture loaded from source ${index + 1}`);
+        }
+      },
+      function(progress) {
+        console.log(`⏳ Loading texture ${index + 1}:`, (progress.loaded / progress.total * 100) + '%');
+      },
+      function(error) {
+        console.log(`❌ Texture source ${index + 1} failed, trying next...`);
+        tryLoadTexture(urls, index + 1);
+      }
+    );
+  }
+  
+  // Start loading textures
+  tryLoadTexture(textureUrls);
 
   globe = new THREE.Mesh(globeGeometry, globeMaterial);
   scene.add(globe);
@@ -286,36 +318,114 @@ function createGlobe() {
   scene.add(atmosphere);
 }
 
+// Create procedural earth pattern as fallback
+function createProceduralEarth(material) {
+  // Create a canvas for procedural earth texture
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 256;
+  const ctx = canvas.getContext('2d');
+  
+  // Create gradient from blue (water) to green/brown (land)
+  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  gradient.addColorStop(0, '#87CEEB'); // Sky blue
+  gradient.addColorStop(0.2, '#4682B4'); // Steel blue
+  gradient.addColorStop(0.4, '#228B22'); // Forest green
+  gradient.addColorStop(0.6, '#32CD32'); // Lime green
+  gradient.addColorStop(0.8, '#8FBC8F'); // Dark sea green
+  gradient.addColorStop(1, '#F4A460'); // Sandy brown
+  
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Add some procedural continents
+  ctx.fillStyle = '#2F4F4F'; // Dark slate gray for continents
+  
+  // Simple continent shapes
+  drawContinent(ctx, 100, 80, 80, 60); // Europe/Africa
+  drawContinent(ctx, 250, 90, 90, 70); // Asia
+  drawContinent(ctx, 400, 120, 70, 50); // Americas
+  drawContinent(ctx, 50, 160, 100, 40); // Australia region
+  
+  // Create texture from canvas
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  
+  material.map = texture;
+  material.needsUpdate = true;
+  
+  console.log('🎨 Created procedural earth texture');
+}
+
+// Helper function to draw continent shapes
+function drawContinent(ctx, x, y, width, height) {
+  ctx.beginPath();
+  ctx.ellipse(x, y, width/2, height/2, 0, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Add some random smaller landmasses
+  for (let i = 0; i < 3; i++) {
+    const offsetX = (Math.random() - 0.5) * width;
+    const offsetY = (Math.random() - 0.5) * height;
+    const size = Math.random() * 20 + 10;
+    
+    ctx.beginPath();
+    ctx.ellipse(x + offsetX, y + offsetY, size, size * 0.7, 0, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
 // Create country pins
 function createCountryPins() {
   studyDestinations.forEach(destination => {
-    // Pin geometry
-    const pinGeometry = new THREE.ConeGeometry(0.02, 0.08, 8);
+    // Create pin group for better visibility
+    const pinGroup = new THREE.Group();
+    
+    // Main pin (cone)
+    const pinGeometry = new THREE.ConeGeometry(0.03, 0.12, 8);
     const pinMaterial = new THREE.MeshPhongMaterial({
-      color: 0xff6b35,
-      transparent: true,
-      opacity: 0.9
+      color: 0xff4444,
+      transparent: false,
+      opacity: 1.0,
+      emissive: 0x330000,
+      shininess: 100
     });
     
     const pin = new THREE.Mesh(pinGeometry, pinMaterial);
     
+    // Add a glowing sphere at the tip
+    const glowGeometry = new THREE.SphereGeometry(0.02, 16, 16);
+    const glowMaterial = new THREE.MeshBasicMaterial({
+      color: 0xffff00,
+      transparent: true,
+      opacity: 0.8
+    });
+    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+    glow.position.y = 0.06;
+    
+    pinGroup.add(pin);
+    pinGroup.add(glow);
+    
     // Position on globe surface
     const position = latLngToVector3(destination.position.lat, destination.position.lng, 2.05);
-    pin.position.copy(position);
+    pinGroup.position.copy(position);
     
     // Point pin outward from globe center
-    pin.lookAt(new THREE.Vector3(0, 0, 0));
-    pin.rotateX(Math.PI);
+    pinGroup.lookAt(new THREE.Vector3(0, 0, 0));
+    pinGroup.rotateX(Math.PI);
     
-    // Add pulsing animation
-    pin.userData = { 
+    // Add pulsing animation data
+    pinGroup.userData = { 
       destination,
-      originalScale: pin.scale.clone(),
-      pulsePhase: Math.random() * Math.PI * 2
+      originalScale: pinGroup.scale.clone(),
+      pulsePhase: Math.random() * Math.PI * 2,
+      pin: pin,
+      glow: glow
     };
     
-    scene.add(pin);
-    countryPins.push(pin);
+    scene.add(pinGroup);
+    countryPins.push(pinGroup);
     
     // Add label
     createCountryLabel(destination, position);
@@ -432,30 +542,55 @@ function onGlobeClick(event) {
   const raycaster = new THREE.Raycaster();
   raycaster.setFromCamera(mouse, camera);
 
-  const intersects = raycaster.intersectObjects(countryPins);
+  // Create array of all pin objects for intersection testing
+  const allPinObjects = [];
+  countryPins.forEach(pinGroup => {
+    pinGroup.traverse((child) => {
+      if (child.isMesh) {
+        allPinObjects.push(child);
+      }
+    });
+  });
+
+  const intersects = raycaster.intersectObjects(allPinObjects);
 
   if (intersects.length > 0) {
-    const clickedPin = intersects[0].object;
-    const destination = clickedPin.userData.destination;
-    showDestinationModal(destination);
+    // Find the parent pin group
+    let clickedPinGroup = intersects[0].object;
+    while (clickedPinGroup.parent && !clickedPinGroup.userData.destination) {
+      clickedPinGroup = clickedPinGroup.parent;
+    }
+    
+    if (clickedPinGroup.userData && clickedPinGroup.userData.destination) {
+      const destination = clickedPinGroup.userData.destination;
+      console.log('🎯 Clicked on:', destination.name);
+      showDestinationModal(destination.id);
+    }
   }
 }
 
 // Setup lighting
 function setupLighting() {
-  // Ambient light
-  const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
+  // Ambient light - increased intensity for better visibility
+  const ambientLight = new THREE.AmbientLight(0x404040, 0.8);
   scene.add(ambientLight);
 
-  // Directional light
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+  // Primary directional light from top-left
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
   directionalLight.position.set(5, 3, 5);
   directionalLight.castShadow = true;
+  directionalLight.shadow.mapSize.width = 2048;
+  directionalLight.shadow.mapSize.height = 2048;
   scene.add(directionalLight);
 
-  // Point light for globe illumination
-  const pointLight = new THREE.PointLight(0x3b82f6, 0.5, 10);
-  pointLight.position.set(3, 3, 3);
+  // Secondary light from opposite side for even illumination
+  const directionalLight2 = new THREE.DirectionalLight(0x6699ff, 0.5);
+  directionalLight2.position.set(-3, -2, -3);
+  scene.add(directionalLight2);
+
+  // Point light for pin highlighting
+  const pointLight = new THREE.PointLight(0xffaa00, 0.8, 15);
+  pointLight.position.set(0, 0, 4);
   scene.add(pointLight);
 }
 
@@ -470,10 +605,18 @@ function startAnimation() {
     }
 
     // Animate pins (pulsing effect)
+    // Animate country pins with pulsing effect
     countryPins.forEach(pin => {
-      pin.userData.pulsePhase += 0.05;
-      const scale = 1 + Math.sin(pin.userData.pulsePhase) * 0.2;
-      pin.scale.setScalar(scale);
+      if (pin.userData) {
+        pin.userData.pulsePhase += 0.05;
+        const scale = 1 + Math.sin(pin.userData.pulsePhase) * 0.3;
+        pin.scale.setScalar(scale);
+        
+        // Animate glow effect
+        if (pin.userData.glow) {
+          pin.userData.glow.material.opacity = 0.5 + Math.sin(pin.userData.pulsePhase * 2) * 0.3;
+        }
+      }
     });
 
     // Update labels positions
