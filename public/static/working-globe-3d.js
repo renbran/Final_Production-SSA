@@ -172,7 +172,7 @@ function latLngToVector3(lat, lng, radius = 2) {
 }
 
 // Initialize the globe
-function initializeWorkingGlobe() {
+function initializeWorkingGlobe(retryCount = 0) {
   console.log('🌍 Initializing Working Globe...');
   
   globeContainer = document.getElementById('interactive-globe');
@@ -186,9 +186,15 @@ function initializeWorkingGlobe() {
 
   // Check if Three.js is loaded
   if (typeof THREE === 'undefined') {
-    console.log('⏳ Waiting for Three.js to load...');
-    setTimeout(initializeWorkingGlobe, 100);
-    return;
+    if (retryCount < 50) { // Max 5 seconds (50 * 100ms)
+      console.log(`⏳ Waiting for Three.js to load... (attempt ${retryCount + 1})`);
+      setTimeout(() => initializeWorkingGlobe(retryCount + 1), 100);
+      return;
+    } else {
+      console.error('❌ Three.js failed to load after 5 seconds');
+      showFallback();
+      return;
+    }
   }
 
   try {
@@ -202,10 +208,14 @@ function initializeWorkingGlobe() {
     
     console.log('✅ Globe initialized successfully');
     
-    // Hide loading overlay
+    // Hide loading overlay with smooth transition
     const loader = document.getElementById('globe-loader');
     if (loader) {
-      loader.style.display = 'none';
+      loader.classList.add('hidden');
+      // Remove from DOM after transition
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
     }
     
   } catch (error) {
@@ -807,6 +817,15 @@ function focusCountry(countryId) {
 
 // Show fallback if globe fails
 function showFallback() {
+  // Hide the loader first
+  const loader = document.getElementById('globe-loader');
+  if (loader) {
+    loader.classList.add('hidden');
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 500);
+  }
+
   globeContainer.innerHTML = `
     <div class="globe-fallback">
       <div class="fallback-content">
@@ -814,7 +833,7 @@ function showFallback() {
         <p>Interactive globe temporarily unavailable. Use the destination cards below:</p>
         <div class="fallback-destinations">
           ${studyDestinations.map(dest => `
-            <button class="fallback-dest-btn" onclick="showDestinationModal(${JSON.stringify(dest).replace(/"/g, '&quot;')})">
+            <button class="fallback-dest-btn" onclick="showDestinationModal('${dest.id}')">
               ${dest.flag} ${dest.name}
             </button>
           `).join('')}
